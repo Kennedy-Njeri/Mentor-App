@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<br>
+
+<div class="jumbotron">
+  <h1 class="display-4">Welcome To The Mentorship App</h1>
+  <p class="lead">This is an online community that connects ambitious entrepreneurs with successful and experienced business leaders. The initiative encourages idea and knowledge sharing among Africa's most promising young entrepreneurs, inspiring a collaborative approach to business start-up and growth.</p>
+  <hr class="my-4">
+    <p><b>Sign Up For Mentorship</b></p>
+  <a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">Click Here</a><br><br>
+    <hr>
+      <p><b>Sign Up To Be A mentor</b></p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Click Here</a>
+</div>
+
+
+
+{% endblock %}
