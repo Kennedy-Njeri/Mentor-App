@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
-    'mentor',
+
     'mentee',
 
 ]
@@ -121,7 +121,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-
+AUTH_USER_MODEL = "mentee.User"
 
 
 STATIC_ROOT= os.path.join(BASE_DIR, 'static')
@@ -129,6 +129,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'mentee/static')
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = 'account'
+LOGIN_URL = 'login'
+
 
 #Media Folder Settings
 

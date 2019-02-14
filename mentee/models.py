@@ -1,33 +1,74 @@
 from django.db import models
+from django.utils import timezone
 from django.contrib.auth.models import User
-from django.db.models.signals import post_save
-# Create your models here.
+from django.contrib.auth.models import AbstractUser
+from PIL import Image
 
 
 
 # Create your models here.
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    description = models.CharField(max_length=100, default='')
-    specialization = models.TextField(blank=True)
-    age = models.IntegerField(default=0)
-    religion = models.CharField(max_length=100)
-    city = models.CharField(max_length=100)
-    state = models.CharField(max_length=100)
-    school = models.CharField(max_length=100)
-    course = models.CharField(max_length=100)
-    phone = models.IntegerField(default=0)
-    experience = models.IntegerField(default=0)
-    website = models.URLField(default='')
-    achievements = models.TextField(blank=True)
+
+
+
+# Create your models here.
+
+
+class User(AbstractUser):
+
+
+
+    is_mentee = models.BooleanField(default=False)
+    is_mentor = models.BooleanField(default=False)
+
+
+
+class Status(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    date_posted = models.DateTimeField(default=timezone.now)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.user)
+        return self.title
 
 
-    def create_profile(sender, **kwargs):
-        if kwargs['created']:
-            user_profile = UserProfile.objects.create(user=kwargs['instance'])
+class Subject(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name
 
 
-    post_save.connect(create_profile, sender=User)
+
+class Mentee(models.Model):
+    user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
+    interests = models.ManyToManyField(Subject,related_name='interested_mentee')
+
+    def __str__(self):
+        return self.user.username
+
+class Mentor(models.Model):
+    user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
+    interests = models.ManyToManyField(Subject,related_name='interested_mentor')
+
+    def __str__(self):
+        return self.user.username
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+
+    def __str__(self):
+        return f'{self.user.username} Profile'
+
+    def save(self):
+        super().save()
+
+        img = Image.open(self.image.path)
+
+
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
