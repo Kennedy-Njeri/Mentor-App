@@ -50,7 +50,7 @@ class UserUpdateForm(forms.ModelForm):
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['image',]
+        fields = ['image','education']
 
 
 
@@ -61,6 +61,11 @@ class ProfileUpdateForm(forms.ModelForm):
 class MentorRegisterForm(UserCreationForm):
     email = forms.EmailField()
 
+    interests = forms.ModelMultipleChoiceField(
+        queryset=Subject.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=True
+    )
 
     class Meta:
         model = User
@@ -72,15 +77,9 @@ class MentorRegisterForm(UserCreationForm):
         user.is_mentor = True
         user.save()
         mentor = Mentor.objects.create(user=user)
+        mentor.interests.add(*self.cleaned_data.get('interests'))
 
         return user
 
 
 
-class MentorInterestsForm(forms.ModelForm):
-    class Meta:
-        model = Mentor
-        fields = ('interests', )
-        widgets = {
-            'interests': forms.CheckboxSelectMultiple
-        }

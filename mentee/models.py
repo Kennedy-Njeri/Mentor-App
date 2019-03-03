@@ -3,10 +3,14 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractUser
 from PIL import Image
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from datetime import datetime
+from django.urls import reverse
 
 
 
-# Create your models here.
+
 
 
 
@@ -14,8 +18,6 @@ from PIL import Image
 
 
 class User(AbstractUser):
-
-
 
     is_mentee = models.BooleanField(default=False)
     is_mentor = models.BooleanField(default=False)
@@ -42,14 +44,14 @@ class Subject(models.Model):
 
 class Mentee(models.Model):
     user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
-    interests = models.ManyToManyField(Subject,related_name='interested_mentee')
+
 
     def __str__(self):
         return self.user.username
 
 class Mentor(models.Model):
     user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
-    interests = models.ManyToManyField(Subject,related_name='interested_mentor')
+
 
     def __str__(self):
         return self.user.username
@@ -58,11 +60,18 @@ class Mentor(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    friends = models.ManyToManyField("Profile", blank=True)
+    education = models.CharField(default='degree', max_length=100)
+
+
+
 
     def __str__(self):
         return f'{self.user.username} Profile'
 
-    def save(self):
+
+
+    def save(self, **kwargs):
         super().save()
 
         img = Image.open(self.image.path)
@@ -72,3 +81,32 @@ class Profile(models.Model):
             output_size = (300, 300)
             img.thumbnail(output_size)
             img.save(self.image.path)
+
+    @receiver(post_save, sender=User)
+    def create_user_profile(sender, instance, created, **kwargs):
+        if created:
+            Profile.objects.create(user=instance)
+
+    @receiver(post_save, sender=User)
+    def save_user_profile(sender, instance, **kwargs):
+        instance.profile.save()
+
+
+
+
+class Msg(models.Model):
+    sender = models.ForeignKey(User, related_name="sender", on_delete=models.CASCADE, null=True)
+    receipient = models.ForeignKey(User, related_name="receipient", on_delete=models.CASCADE)
+    msg_content = models.TextField(max_length=100)
+    created_at = models.DateField(default=datetime.now, blank=True)
+    reply = models.TextField(max_length=100)
+
+    def get_absolute_url(self):
+        return reverse("sent", kwargs={'pk':self.pk})
+
+    def __str__(self):
+        return "From {}, to {}".format(self.sender.username, self.receipient.username)
+
+
+
+

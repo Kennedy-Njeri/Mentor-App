@@ -28,15 +28,42 @@
 
   {% endfor %}
         </div>
-        <div class="col-md-4">
+        <div class="col-md-12">
           <div class="content-section">
             <h3>Mentor Corner</h3>
             <p class='text-muted'>Choose Mentors Suggested below
               <ul class="list-group">
-                <li class="list-group-item list-group-item-light">John Doe</li>
-                <li class="list-group-item list-group-item-light">Kevin</li>
-                <li class="list-group-item list-group-item-light">Njeri</li>
-                <li class="list-group-item list-group-item-light">Kennedy</li>
+
+               {% for user in users %}
+
+
+
+                  <div class="content-section">
+      <div class="media">
+         <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+         <div class="media-body">
+            <h2 class="account-heading">{{ user.username }}</h2>
+            <p class="text-secondary">{{ user.email }}</p>
+              <p class="text-secondary">{{ user.interests }}</p>
+
+
+         </div>
+      </div>
+
+   </div>
+
+
+
+
+
+
+
+
+
+
+              {% endfor%}
+
+
               </ul>
             </p>
           </div>

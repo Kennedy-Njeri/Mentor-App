@@ -1,13 +1,23 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from ..models import Status
 #from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from ..forms import MenteeRegisterForm,UserUpdateForm, ProfileUpdateForm
-
-
+from django.views.generic import TemplateView
+from ..models import Profile, Msg
 from django.contrib.auth import get_user_model
 User = get_user_model()
+from django.http import HttpResponseRedirect
+
+from django.views.generic import (View, TemplateView,
+                                  ListView, DetailView,
+                                  CreateView, UpdateView,
+                                  DeleteView)
+
+from django.urls import reverse_lazy
+from .. import models
+
 
 # Create your views here.
 
@@ -21,9 +31,12 @@ def home(request):
 
 def account(request):
 
+    users = User.objects.all().filter(is_mentor=True)
+
     context = {
 
-        'statuses': Status.objects.all()
+        'users': users
+
 
     }
 
@@ -77,3 +90,32 @@ def profile(request):
 
 
     return render(request, 'menti/profile.html', context)
+
+
+
+class MessageCreateView(CreateView):
+
+    fields = ('receipient', 'msg_content')
+    model = Msg
+    template_name = 'menti/messagecreate.html'
+
+    def form_valid(self, form):
+        form.instance.sender = self.request.user
+        return super().form_valid(form)
+
+
+
+
+
+class SentDetailView(DetailView):
+    model = Msg
+    context_object_name = 'messo'
+    template_name = 'menti/sent.html'
+
+
+
+
+
+
+
+
