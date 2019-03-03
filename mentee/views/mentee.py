@@ -114,7 +114,8 @@ class SentDetailView(DetailView):
 
 
 
-
+    def get_queryset(self):
+        return self.model.objects.filter(sender=self.request.user)
 
 
 
