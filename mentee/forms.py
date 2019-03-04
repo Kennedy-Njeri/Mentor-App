@@ -55,9 +55,6 @@ class ProfileUpdateForm(forms.ModelForm):
 
 
 
-
-
-
 class MentorRegisterForm(UserCreationForm):
     email = forms.EmailField()
 
