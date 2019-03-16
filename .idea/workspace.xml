@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="335a17c4-c6fc-4830-90e7-92e23d0368f5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/templates/menti/messages-module.html" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/templates/menti/messages-module.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mentee/views/mentee.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/views/mentee.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -125,13 +124,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="1544" />
-          <entry key="py" value="3146" />
+          <entry key="py" value="3187" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="1544" />
-          <entry key="Python" value="3146" />
+          <entry key="Python" value="3187" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -197,11 +196,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mentee/views/mentee.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="174" lean-forward="true" selection-start-line="174" selection-end-line="176" selection-end-column="48" />
+            <state relative-caret-position="91">
+              <caret line="113" column="55" selection-start-line="113" selection-start-column="55" selection-end-line="113" selection-end-column="55" />
               <folding>
                 <element signature="e#0#64#0" expanded="true" />
-                <marker date="1552744722000" expanded="true" signature="2768:3008" ph="..." />
+                <marker date="1552765467000" expanded="true" signature="2783:3015" ph="..." />
               </folding>
             </state>
           </provider>
@@ -799,11 +798,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mentee/views/mentee.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="174" lean-forward="true" selection-start-line="174" selection-end-line="176" selection-end-column="48" />
+        <state relative-caret-position="91">
+          <caret line="113" column="55" selection-start-line="113" selection-start-column="55" selection-end-line="113" selection-end-column="55" />
           <folding>
             <element signature="e#0#64#0" expanded="true" />
-            <marker date="1552744722000" expanded="true" signature="2768:3008" ph="..." />
+            <marker date="1552765467000" expanded="true" signature="2783:3015" ph="..." />
           </folding>
         </state>
       </provider>

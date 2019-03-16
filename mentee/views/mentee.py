@@ -111,7 +111,7 @@ class MessageCreateView(CreateView):
         return super().form_valid(form)
 
 
-"""Views lists of messages you have sent"""
+"""Views lists of messages you have sent to other users"""
 
 class MessageListView(ListView):
 
