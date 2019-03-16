@@ -1,0 +1,31 @@
+{% extends 'menti/base.html' %}
+
+
+{% block content %}
+
+<br><br><br>
+
+<h1>Here Are Your Sent Messages</h1>
+
+
+
+     {% if sentmesso %}
+  <ol>
+      {% for messo in sentmesso %}
+
+      <h2><li><a href="{% url 'sent' pk=messo.pk %}">To {{ messo.receipient }} </a></li></h2>
+
+      {% endfor %}
+
+
+
+  </ol>
+
+{% else %}
+
+<p>There Are no sent Messages</p>
+
+{% endif %}
+
+
+{% endblock %}

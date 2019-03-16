@@ -1,0 +1,25 @@
+{% extends 'menti/base.html' %}
+
+
+{% block content %}
+<br><br><br>
+
+   <main role="main" class="container">
+      <div class="row">
+
+        <div class="col-md-4">
+          <div class="content-section">
+            <h3>Message Corner</h3>
+            <p class='text-muted'>Message Corner
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-light"><a href="{% url 'Message'%}">Create New Message</a></li>
+                <li class="list-group-item list-group-item-light"><a href="{% url 'list' %}">Sent Messages</a></li>
+                <li class="list-group-item list-group-item-light"><a href="{% url 'inbox1'%}">Inbox</a></li>
+                
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+{% endblock %}

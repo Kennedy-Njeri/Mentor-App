@@ -29,6 +29,8 @@ def home(request):
     return render(request, 'home.html')
 
 
+"""Home account landing page after you login"""
+@login_required
 def account(request):
 
     users = User.objects.all().filter(is_mentor=True)
@@ -42,6 +44,8 @@ def account(request):
 
     return render(request, 'menti/account.html', context)
 
+
+"""Controls the register module"""
 def register(request):
 
     if request.method == 'POST':
@@ -64,6 +68,7 @@ def register(request):
     return render(request, 'menti/register.html', {'form': form})
 
 
+"""View, Update Your Profile"""
 @login_required
 def profile(request):
     if request.method == 'POST':
@@ -92,6 +97,7 @@ def profile(request):
     return render(request, 'menti/profile.html', context)
 
 
+"""Creates new message"""
 
 class MessageCreateView(CreateView):
 
@@ -99,13 +105,25 @@ class MessageCreateView(CreateView):
     model = Msg
     template_name = 'menti/messagecreate.html'
 
+
     def form_valid(self, form):
         form.instance.sender = self.request.user
         return super().form_valid(form)
 
 
+"""Views lists of messages you have sent"""
+
+class MessageListView(ListView):
+
+    model = Msg
+    template_name = 'menti/listmessages.html'
+    context_object_name = 'sentmesso'
+
+    def get_queryset(self):
+        return self.model.objects.filter(sender=self.request.user)
 
 
+"""Views in detail the message sent"""
 
 class SentDetailView(DetailView):
     model = Msg
@@ -118,5 +136,44 @@ class SentDetailView(DetailView):
         return self.model.objects.filter(sender=self.request.user)
 
 
+"""Views lists of inbox messages received"""
+
+class InboxView(ListView):
+
+    model = Msg
+    context_object_name = 'inbox'
+    template_name = 'menti/inbox.html'
+
+
+    def get_queryset(self):
+        return self.model.objects.filter(receipient=self.request.user)
+
+""" Views in detail the message received in the inbox"""
+
+class InboxDetailView(DetailView):
+
+    model = Msg
+    context_object_name = 'messo'
+    template_name = 'menti/inboxview.html'
+
+
+    def get_queryset(self):
+        return self.model.objects.filter(receipient=self.request.user)
+
+class ReplyCreateView(CreateView):
+
+    fields = ('reply',)
+    model = Msg
+    template_name = 'menti/reply.html'
+
+
+    def form_valid(self, form):
+        form.instance.sender = self.request.user
+        #form.instance.receipient.id = self.request.user
+        return super().form_valid(form)
+
+
+class MessageView(TemplateView):
+    template_name = 'menti/messages-module.html'
 
 

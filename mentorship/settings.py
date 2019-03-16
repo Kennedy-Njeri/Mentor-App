@@ -136,6 +136,11 @@ LOGIN_REDIRECT_URL = 'account'
 LOGIN_URL = 'login'
 
 
+
+
+LOGIN_URL = 'login1'
+
+
 #Media Folder Settings
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -24,6 +24,12 @@ class User(AbstractUser):
 
 
 
+class UserManager(models.Manager):
+
+    def users(self, **kwargs):
+        return self.User.objects.all().filter(is_mentor=True)
+
+
 class Status(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
@@ -101,10 +107,13 @@ class Msg(models.Model):
     receipient = models.ForeignKey(User, related_name="receipient", on_delete=models.CASCADE)
     msg_content = models.TextField(max_length=100)
     created_at = models.DateField(default=datetime.now, blank=True)
-    reply = models.TextField(max_length=100)
+    reply = models.TextField(max_length=100, blank=True)
+    replied_at = models.DateField(default=datetime.now, blank=True)
+
+    objects = UserManager()
 
     def get_absolute_url(self):
-        return reverse("sent", kwargs={'pk':self.pk})
+        return reverse("list",)
 
     def __str__(self):
         return "From {}, to {}".format(self.sender.username, self.receipient.username)

@@ -3,7 +3,7 @@ from ..models import Status
 #from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from ..forms import MentorRegisterForm
+from ..forms import MentorRegisterForm, UserUpdateForm, ProfileUpdateForm
 
 from django.http import HttpResponseRedirect
 from ..models import Profile
@@ -25,13 +25,17 @@ def home(request):
 
 def account1(request):
 
-    context = {
 
-        'statuses': Status.objects.all()
 
-    }
+    return render(request, 'mentor/account1.html',)
 
-    return render(request, 'mentor/account1.html', context)
+
+def login1(request):
+
+    return render(request, 'mentor/account1.html')
+
+
+
 
 def register1(request):
 
@@ -44,7 +48,7 @@ def register1(request):
             username = form.cleaned_data.get('username')
 
             messages.success(request, f'Your account has been created! You are now able to log in')
-            return redirect('login')
+            return redirect('login1')
 
     else:
 
@@ -56,7 +60,30 @@ def register1(request):
 
 @login_required
 def profile1(request):
-    return render(request, 'mentor/profile1.html')
+    if request.method == 'POST':
+
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Your account has been Updated!')
+            return redirect('profile1')
+
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
+
+    context = {
+
+        'u_form': u_form,
+        'p_form': p_form
+    }
+
+
+    return render(request, 'mentor/profile1.html', context)
 
 
 
