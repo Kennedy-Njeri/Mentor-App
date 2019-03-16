@@ -150,6 +150,8 @@ class InboxView(ListView):
 
 """ Views in detail the message received in the inbox"""
 
+
+"""Inbox Detailed view"""
 class InboxDetailView(DetailView):
 
     model = Msg
