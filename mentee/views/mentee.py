@@ -123,7 +123,7 @@ class MessageListView(ListView):
         return self.model.objects.filter(sender=self.request.user)
 
 
-"""Views in detail the message sent"""
+"""details the message sent"""
 
 class SentDetailView(DetailView):
     model = Msg
