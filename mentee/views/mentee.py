@@ -162,6 +162,7 @@ class InboxDetailView(DetailView):
     def get_queryset(self):
         return self.model.objects.filter(receipient=self.request.user)
 
+"""Reply view template"""
 class ReplyCreateView(CreateView):
 
     fields = ('reply',)
