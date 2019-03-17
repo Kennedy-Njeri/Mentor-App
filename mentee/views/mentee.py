@@ -23,7 +23,7 @@ from .. import models
 
 
 
-
+"""Home landing page"""
 def home(request):
 
     return render(request, 'home.html')
