@@ -175,6 +175,7 @@ class ReplyCreateView(CreateView):
         return super().form_valid(form)
 
 
+"""controls messege view"""
 class MessageView(TemplateView):
     template_name = 'menti/messages-module.html'
 
