@@ -14,7 +14,8 @@ urlpatterns = [
     path('account/', mentee.account, name="account"),
     path('register/', mentee.register, name="register"),
     path('profile/', mentee.profile, name="profile"),
-    path('message-module/', mentee.MessageView.as_view(), name="module-message"),
+    #path('message-module/', mentee.MessageView.as_view(), name="module-message"),
+    path('message-module/', mentee.messege_view, name="module-message"),
     path('message/', mentee.MessageCreateView.as_view(), name="Message"),
     path('<int:pk>', mentee.SentDetailView.as_view(), name="sent"),
     path('inbox/<int:pk>', mentee.InboxDetailView.as_view(), name="detail-inbox"),
@@ -24,6 +25,7 @@ urlpatterns = [
     path('list-message/', mentee.MessageListView.as_view(), name='list'),
     path('inbox-message/', mentee.InboxView.as_view(), name='inbox1'),
     path('delete/<int:pk>', mentee.SentMessageDelete.as_view(), name='delete'),
+
 
 
 

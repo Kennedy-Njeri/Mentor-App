@@ -185,6 +185,23 @@ class ReplyCreateView(CreateView):
 """controls messege view"""
 class MessageView(TemplateView):
     template_name = 'menti/messages-module.html'
+    model = models.Msg
+    context_object_name = 'sentmesso'
+
+
+
+def messege_view(request):
+
+    count = Msg.objects.values('msg_content').count()
+
+    context = {
+
+        'count': count
+    }
+
+
+    return render(request, 'menti/messages-module.html', context)
+
 
 
 class SentMessageDelete(DeleteView):
