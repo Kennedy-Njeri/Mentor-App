@@ -50,7 +50,7 @@ class Subject(models.Model):
 
 class Mentee(models.Model):
     user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
-    interests = models.ManyToManyField(Subject, related_name='interested_mentee')
+    interests = models.ManyToManyField(Subject, related_name='mentees')
 
 
     def __str__(self):
@@ -58,7 +58,7 @@ class Mentee(models.Model):
 
 class Mentor(models.Model):
     user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
-    interests = models.ManyToManyField(Subject, related_name='interested_mentor')
+    interests = models.ManyToManyField(Subject, related_name='mentors')
 
 
     def __str__(self):
