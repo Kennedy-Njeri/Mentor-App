@@ -23,6 +23,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='menti/logout.html'), name='logout'),
     path('list-message/', mentee.MessageListView.as_view(), name='list'),
     path('inbox-message/', mentee.InboxView.as_view(), name='inbox1'),
+    path('delete/<int:pk>', mentee.SentMessageDelete.as_view(), name='delete'),
 
 
 

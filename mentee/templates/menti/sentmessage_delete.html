@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<br><br><br><br>
+<h1>Delete {{ msg.msg_content }}?</h1>
+
+<form method="post">
+
+         {% csrf_token %}
+
+
+
+         <input type="submit" class="btn btn-danger" value="delete">
+    <a href="{% url 'sent' pk=msg.pk %}">Cancel</a>
+
+     </form>
+
+
+
+
+
+{% endblock %}

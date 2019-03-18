@@ -17,7 +17,7 @@ from django.views.generic import (View, TemplateView,
 
 from django.urls import reverse_lazy
 from .. import models
-
+from django.contrib.messages.views import SuccessMessageMixin
 
 # Create your views here.
 
@@ -106,9 +106,15 @@ class MessageCreateView(CreateView):
     template_name = 'menti/messagecreate.html'
 
 
+
+
     def form_valid(self, form):
         form.instance.sender = self.request.user
         return super().form_valid(form)
+
+
+
+
 
 
 """Views lists of messages you have sent to other users"""
@@ -181,3 +187,7 @@ class MessageView(TemplateView):
     template_name = 'menti/messages-module.html'
 
 
+class SentMessageDelete(DeleteView):
+    model = models.Msg
+    success_url = reverse_lazy("list")
+    template_name = 'menti/sentmessage_delete.html'
