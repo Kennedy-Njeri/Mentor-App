@@ -175,10 +175,8 @@ class ReplyCreateView(CreateView):
     model = Msg
     template_name = 'menti/reply.html'
 
-
     def form_valid(self, form):
         form.instance.sender = self.request.user
-        #form.instance.receipient.id = self.request.user
         return super().form_valid(form)
 
 
