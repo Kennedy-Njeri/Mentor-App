@@ -119,5 +119,10 @@ class Msg(models.Model):
         return "From {}, to {}".format(self.sender.username, self.receipient.username)
 
 
+class Reply(models.Model):
+    sender = models.ForeignKey(User, on_delete=models.CASCADE)
+    reply = models.ForeignKey(Msg, on_delete=models.CASCADE, related_name='replies')
 
+    def __str__(self):
+        return self.reply
 
