@@ -107,5 +107,5 @@ def user_login(request):
             print("They used username: {} and password: {}".format(username,password))
             return HttpResponse("Invalid login details given")
     else:
-        return render(request, 'mentor/login.html', {})
+        return render(request, 'mentor/login1.html', {})
 
