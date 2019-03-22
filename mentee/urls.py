@@ -10,7 +10,7 @@ urlpatterns = [
 
     path('', mentee.home, name="home"),
 
-
+    #mentee url
     path('account/', mentee.account, name="account"),
     path('register/', mentee.register, name="register"),
     path('profile/', mentee.profile, name="profile"),
@@ -31,14 +31,21 @@ urlpatterns = [
 
 
 
-
-
+    #mentor urls
     path('account1/', mentor.account1, name="account1"),
     path('register1/', mentor.register1, name="register1"),
     path('profile1/', mentor.profile1, name="profile1"),
     #path('login1/', mentor.login1, name="login1"),
     path('login1/', mentor.user_login, name='login1'),
     path('logout1/', auth_views.LogoutView.as_view(template_name='mentor/logout1.html'), name='logout1'),
+    path('message-module1/', mentor.MessageView.as_view(), name="module-message1"),
+    path('message-mentor/', mentor.MessageCreateView.as_view(), name="Message1"),
+    path('inbox-message1/', mentor.InboxView.as_view(), name='inbox1'),
+    path('inbox-mentor/<int:pk>', mentor.InboxDetailView.as_view(), name="detail-inbox1"),
+    path('list-message1/', mentor.MessageListView.as_view(), name='list1'),
+    path('delete-mentor/<int:pk>', mentor.SentMessageDelete.as_view(), name='delete'),
+
+
 ]
 
 

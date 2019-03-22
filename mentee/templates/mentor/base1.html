@@ -32,7 +32,7 @@
             <div class="navbar-nav">
              {% if user.is_authenticated %}
                 <a class="nav-item nav-link" href="{% url 'profile1' %}">Profile</a>
-                <a class="nav-item nav-link" href="">Message</a>
+                <a class="nav-item nav-link" href="{% url 'module-message1' %}">Message</a>
                 <a class="nav-item nav-link" href="{% url 'account1' %}">Account</a>
                 <a class="nav-item nav-link" href="{% url 'logout1' %}">Logout</a>
               {% else %}

@@ -4,6 +4,10 @@ from ..models import Status
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from ..forms import MentorRegisterForm, UserUpdateForm, ProfileUpdateForm
+from django.views.generic import (View, TemplateView,
+                                  ListView, DetailView,
+                                  CreateView, UpdateView,
+                                  DeleteView)
 
 from django.http import HttpResponseRedirect
 from ..models import Profile
@@ -11,6 +15,11 @@ from ..models import Profile
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
+
+from django.views.generic import TemplateView
+from ..models import Profile, Msg
+
+from django.urls import reverse_lazy
 
 
 from django.contrib.auth import get_user_model
@@ -109,3 +118,79 @@ def user_login(request):
     else:
         return render(request, 'mentor/login1.html', {})
 
+
+
+"""controls messege view"""
+class MessageView(TemplateView):
+    template_name = 'mentor/messages-module1.html'
+    model = Msg
+
+
+"""Creates new message"""
+
+class MessageCreateView(CreateView):
+
+    fields = ('receipient', 'msg_content')
+    model = Msg
+    template_name = 'mentor/messagecreate1.html'
+
+
+    def form_valid(self, form):
+        form.instance.sender = self.request.user
+        return super().form_valid(form)
+
+"""List sent Messages"""
+class MessageListView(ListView):
+
+    model = Msg
+    template_name = 'mentor/listmessages1.html'
+    context_object_name = 'sentmesso'
+
+    def get_queryset(self):
+        return self.model.objects.filter(sender=self.request.user)
+
+
+"""details the message sent"""
+
+class SentDetailView(DetailView):
+    model = Msg
+    context_object_name = 'messo'
+    template_name = 'mentor/sent1.html'
+
+
+
+    def get_queryset(self):
+        return self.model.objects.filter(sender=self.request.user)
+
+
+class SentMessageDelete(DeleteView):
+    model = Msg
+    success_url = reverse_lazy("list")
+    template_name = 'mentor/sentmessage_delete1.html'
+
+
+
+
+""" Lists messages in inbox view"""
+
+class InboxView(ListView):
+
+    model = Msg
+    context_object_name = 'inbox'
+    template_name = 'mentor/inbox1.html'
+
+
+    def get_queryset(self):
+        return self.model.objects.filter(receipient=self.request.user)
+
+
+"""Inbox Detailed view"""
+class InboxDetailView(DetailView):
+
+    model = Msg
+    context_object_name = 'messo'
+    template_name = 'mentor/inboxview1.html'
+
+
+    def get_queryset(self):
+        return self.model.objects.filter(receipient=self.request.user)

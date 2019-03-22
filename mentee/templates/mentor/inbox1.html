@@ -1,0 +1,31 @@
+{% extends 'mentor/base1.html' %}
+
+
+{% block content %}
+
+<br><br><br>
+
+<h1>Here Are Your Inbox Messeges</h1>
+
+
+
+     {% if inbox %}
+  <ol>
+      {% for messo in inbox %}
+
+      <h2><li><a href="{% url 'detail-inbox1' pk=messo.pk %}">From {{ messo.sender }}  </a></li></h2>
+
+      {% endfor %}
+
+
+
+  </ol>
+
+{% else %}
+
+<p>There Are no Inbox Messages</p>
+
+{% endif %}
+
+
+{% endblock %}
