@@ -21,6 +21,7 @@ urlpatterns = [
     path('inbox/<int:pk>', mentee.InboxDetailView.as_view(), name="detail-inbox"),
     path('reply/<int:pk>', mentee.ReplyCreateView.as_view(), name="reply"),
     #path('login/', auth_views.LoginView.as_view(template_name='menti/login.html'), name='login'),
+    path('login/', mentee.user_login, name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='menti/logout.html'), name='logout'),
     path('list-message/', mentee.MessageListView.as_view(), name='list'),
     path('inbox-message/', mentee.InboxView.as_view(), name='inbox1'),
@@ -36,7 +37,7 @@ urlpatterns = [
     path('register1/', mentor.register1, name="register1"),
     path('profile1/', mentor.profile1, name="profile1"),
     #path('login1/', mentor.login1, name="login1"),
-    path('login1/', auth_views.LoginView.as_view(template_name='mentor/login1.html'), name='login1'),
+    path('login1/', mentor.user_login, name='login1'),
     path('logout1/', auth_views.LogoutView.as_view(template_name='mentor/logout1.html'), name='logout1'),
 ]
 

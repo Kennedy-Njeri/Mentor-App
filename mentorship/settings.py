@@ -139,7 +139,7 @@ LOGIN_URL = 'login'
 
 
 
-LOGIN_URL = 'login1'
+
 
 
 #Media Folder Settings
