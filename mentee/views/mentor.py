@@ -20,6 +20,7 @@ from django.views.generic import TemplateView
 from ..models import Profile, Msg
 
 from django.urls import reverse_lazy
+from ..forms import ReplyForm
 
 
 from django.contrib.auth import get_user_model
@@ -194,3 +195,31 @@ class InboxDetailView(DetailView):
 
     def get_queryset(self):
         return self.model.objects.filter(receipient=self.request.user)
+
+
+def reply_message(request, pk):
+
+    reply = get_object_or_404(Msg, pk=pk)
+
+    if request.method == 'POST':
+
+        form = ReplyForm(request.POST)
+
+        if form.is_valid():
+
+            reply.is_approved = form.cleaned_data['is_approved']
+            reply.comment = form.cleaned_data['comment']
+            reply.save()
+
+            return redirect('inbox1')
+
+    else:
+
+            form = ReplyForm
+
+    context = {
+                'reply': reply,
+                'form' : form,
+            }
+
+    return render(request, 'mentor/comment.html', context)

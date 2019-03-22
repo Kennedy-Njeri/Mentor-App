@@ -79,4 +79,28 @@ class MentorRegisterForm(UserCreationForm):
         return user
 
 
+class ReplyForm(forms.Form):
+
+    is_approved = forms.BooleanField(
+
+        label='Approve?',
+        help_text='Are you satisfied with the request?',
+        required=False,
+
+    )
+
+    comment = forms.CharField(
+
+        widget=forms.Textarea,
+        min_length=4,
+        error_messages={
+
+            'required': 'Please enter your reply or comments',
+            'min_length': 'Please write at least 5 characters (you have written %(show_value)s)'
+
+        }
+
+    )
+
+
 

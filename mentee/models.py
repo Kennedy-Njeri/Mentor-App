@@ -107,8 +107,8 @@ class Msg(models.Model):
     receipient = models.ForeignKey(User, related_name="receipient", on_delete=models.CASCADE)
     msg_content = models.TextField(max_length=100)
     created_at = models.DateField(default=datetime.now, blank=True)
-    reply = models.TextField(blank=True, null=True)
-    replied_at = models.DateField(default=datetime.now, blank=True)
+    comment = models.TextField(blank=True, null=True)
+    comment_at = models.DateField(default=datetime.now, blank=True)
     is_approved = models.BooleanField(default=False, verbose_name="Approve?")
 
     objects = UserManager()

@@ -195,16 +195,7 @@ class InboxDetailView(DetailView):
     def get_queryset(self):
         return self.model.objects.filter(receipient=self.request.user)
 
-"""Reply view template"""
-class ReplyCreateView(CreateView):
 
-    fields = ('reply',)
-    model = Msg
-    template_name = 'menti/reply.html'
-
-    def form_valid(self, form):
-        form.instance.sender = self.request.user
-        return super().form_valid(form)
 
 
 """controls messege view"""
