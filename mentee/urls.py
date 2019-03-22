@@ -20,7 +20,7 @@ urlpatterns = [
     path('<int:pk>', mentee.SentDetailView.as_view(), name="sent"),
     path('inbox/<int:pk>', mentee.InboxDetailView.as_view(), name="detail-inbox"),
     path('reply/<int:pk>', mentee.ReplyCreateView.as_view(), name="reply"),
-    path('login/', auth_views.LoginView.as_view(template_name='menti/login.html'), name='login'),
+    #path('login/', auth_views.LoginView.as_view(template_name='menti/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='menti/logout.html'), name='logout'),
     path('list-message/', mentee.MessageListView.as_view(), name='list'),
     path('inbox-message/', mentee.InboxView.as_view(), name='inbox1'),
