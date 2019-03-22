@@ -30,13 +30,13 @@ User = get_user_model()
 
 
 
-
+"""Landing page """
 
 def home(request):
 
     return render(request, 'home.html')
 
-
+"""For Mentor Account"""
 def account1(request):
 
 
@@ -44,12 +44,8 @@ def account1(request):
     return render(request, 'mentor/account1.html',)
 
 
-def login1(request):
 
-    return render(request, 'mentor/account1.html')
-
-
-
+"""Registration for mentors"""
 
 def register1(request):
 
@@ -163,7 +159,7 @@ class SentDetailView(DetailView):
     def get_queryset(self):
         return self.model.objects.filter(sender=self.request.user)
 
-
+"""Deletes sent messages"""
 class SentMessageDelete(DeleteView):
     model = Msg
     success_url = reverse_lazy("list")
@@ -197,6 +193,7 @@ class InboxDetailView(DetailView):
         return self.model.objects.filter(receipient=self.request.user)
 
 
+"""Replies, approves, comments on messages"""
 def reply_message(request, pk):
 
     reply = get_object_or_404(Msg, pk=pk)

@@ -93,8 +93,6 @@ def user_login(request):
 
 
 
-
-
 """View, Update Your Profile"""
 @login_required
 def profile(request):
@@ -133,14 +131,9 @@ class MessageCreateView(CreateView):
     template_name = 'menti/messagecreate.html'
 
 
-
-
     def form_valid(self, form):
         form.instance.sender = self.request.user
         return super().form_valid(form)
-
-
-
 
 
 
@@ -181,10 +174,10 @@ class InboxView(ListView):
     def get_queryset(self):
         return self.model.objects.filter(receipient=self.request.user)
 
-""" Views in detail the message received in the inbox"""
 
 
 """Inbox Detailed view"""
+
 class InboxDetailView(DetailView):
 
     model = Msg
@@ -197,15 +190,15 @@ class InboxDetailView(DetailView):
 
 
 
-
 """controls messege view"""
+
 class MessageView(TemplateView):
     template_name = 'menti/messages-module.html'
     model = models.Msg
     context_object_name = 'sentmesso'
 
 
-
+"""Views the Message Module"""
 def messege_view(request):
 
     count = Msg.objects.values('msg_content').count()
@@ -219,6 +212,7 @@ def messege_view(request):
     return render(request, 'menti/messages-module.html', context)
 
 
+"""Deletes Sent Messages"""
 
 class SentMessageDelete(DeleteView):
     model = models.Msg
