@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from ..models import Status
+#from ..models import Status
 #from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -89,7 +89,6 @@ def user_login(request):
             return HttpResponse("Invalid login details given")
     else:
         return render(request, 'menti/login.html', {})
-
 
 
 

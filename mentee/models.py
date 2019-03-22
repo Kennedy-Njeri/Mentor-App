@@ -30,14 +30,7 @@ class UserManager(models.Manager):
         return self.User.objects.all().filter(is_mentor=True)
 
 
-class Status(models.Model):
-    title = models.CharField(max_length=100)
-    content = models.TextField()
-    date_posted = models.DateTimeField(default=timezone.now)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.title
 
 
 class Subject(models.Model):
@@ -56,6 +49,7 @@ class Mentee(models.Model):
     def __str__(self):
         return self.user.username
 
+
 class Mentor(models.Model):
     user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
     interests = models.ManyToManyField(Subject, related_name='mentors')
@@ -65,6 +59,7 @@ class Mentor(models.Model):
         return self.user.username
 
 
+"""Profile Model"""
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
@@ -101,7 +96,7 @@ class Profile(models.Model):
 
 
 
-
+"""Message Model"""
 class Msg(models.Model):
     sender = models.ForeignKey(User, related_name="sender", on_delete=models.CASCADE, null=True)
     receipient = models.ForeignKey(User, related_name="receipient", on_delete=models.CASCADE)
