@@ -4,6 +4,26 @@ from .models import Subject, Mentee, Mentor , User, Profile, Msg
 
 
 
+
+class MsgAdmin(admin.ModelAdmin):
+
+
+    search_fields = ("msg_content",)
+
+    list_filter = ("is_approved",)
+
+    list_display = ("sender", "receipient", "msg_content", "comment", "is_approved")
+
+    list_editable = ("is_approved",)
+
+
+
+
+
+
+
+
+
 admin.site.register(Subject)
 
 admin.site.register(Mentee)
@@ -14,5 +34,5 @@ admin.site.register(User)
 
 admin.site.register(Profile)
 
-admin.site.register(Msg)
+admin.site.register(Msg, MsgAdmin)
 

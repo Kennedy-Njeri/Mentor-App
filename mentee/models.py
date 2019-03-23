@@ -10,10 +10,6 @@ from django.urls import reverse
 
 
 
-
-
-
-
 # Create your models here.
 
 
@@ -31,8 +27,7 @@ class UserManager(models.Manager):
 
 
 
-
-
+"""Adding interests"""
 class Subject(models.Model):
     name = models.CharField(max_length=30)
 
@@ -40,7 +35,7 @@ class Subject(models.Model):
         return self.name
 
 
-
+"""Mentee models"""
 class Mentee(models.Model):
     user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
     interests = models.ManyToManyField(Subject, related_name='mentees')
@@ -49,7 +44,7 @@ class Mentee(models.Model):
     def __str__(self):
         return self.user.username
 
-
+"""Mentor models"""
 class Mentor(models.Model):
     user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
     interests = models.ManyToManyField(Subject, related_name='mentors')
