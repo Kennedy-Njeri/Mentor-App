@@ -217,3 +217,18 @@ class SentMessageDelete(DeleteView):
     model = models.Msg
     success_url = reverse_lazy("list")
     template_name = 'menti/sentmessage_delete.html'
+
+
+class Approved(View):
+
+    def get(self, request):
+
+        messo = Msg.objects.filter(is_approved=True).order_by('-date_approved')
+
+        context = {
+
+            'messo': messo,
+
+        }
+
+        return render(request, "menti/approved.html", context)

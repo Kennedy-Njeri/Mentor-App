@@ -16,6 +16,10 @@ class MsgAdmin(admin.ModelAdmin):
 
     list_editable = ("is_approved",)
 
+    list_display_links = ("msg_content",)
+
+    list_per_page = 10
+
 
 
 

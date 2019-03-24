@@ -1,5 +1,7 @@
 {% extends 'menti/base.html' %}
 
+{% load humanize %}
+
 
 {% block content %}
 
@@ -9,11 +11,11 @@
 
 
 
-     {% if sentmesso %}
+     {% if messo %}
   <ol>
-      {% for messo in sentmesso %}
+      {% for approved in messo %}
 
-      <h2><li><a href="{% url 'sent' pk=messo.pk %}">To {{ messo.receipient }} </a></li></h2>
+      <h2><li><a href="">From {{ approved.receipient }} </a> Comment: {{ approved.comment }} Approved At: {{ approved.date_approved|naturaltime }}</li></h2>
 
 
 
@@ -26,7 +28,7 @@
 
 {% else %}
 
-<p>There Are no sent Messages</p>
+<p>There Are no Approved Messages</p>
 
 {% endif %}
 
