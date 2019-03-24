@@ -44,12 +44,6 @@ class UserAdmin(admin.ModelAdmin):
 
 
 
-
-
-
-
-
-
 admin.site.register(Subject)
 
 admin.site.register(Mentee)

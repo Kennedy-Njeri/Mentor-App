@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="335a17c4-c6fc-4830-90e7-92e23d0368f5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mentee/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/templates/menti/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/templates/menti/account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/templates/menti/sent.html" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/templates/menti/sent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/templates/menti/sentmessage_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/templates/menti/sentmessage_delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/templates/mentor/comment.html" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/templates/mentor/comment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/templates/mentor/sent1.html" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/templates/mentor/sent1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -178,12 +170,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mentee/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+            <state relative-caret-position="616">
+              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
-                <marker date="1553458563000" expanded="true" signature="164:861" ph="..." />
-                <marker date="1553458563000" expanded="true" signature="852:861" ph="..." />
+                <marker date="1553463773000" expanded="true" signature="164:855" ph="..." />
+                <marker date="1553463773000" expanded="true" signature="852:855" ph="..." />
               </folding>
             </state>
           </provider>
@@ -386,6 +378,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="125" y="23" width="1341" height="823" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.25943032" />
@@ -786,12 +779,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mentee/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+        <state relative-caret-position="616">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
-            <marker date="1553458563000" expanded="true" signature="164:861" ph="..." />
-            <marker date="1553458563000" expanded="true" signature="852:861" ph="..." />
+            <marker date="1553463773000" expanded="true" signature="164:855" ph="..." />
+            <marker date="1553463773000" expanded="true" signature="852:855" ph="..." />
           </folding>
         </state>
       </provider>
