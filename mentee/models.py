@@ -7,7 +7,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from datetime import datetime
 from django.urls import reverse
-
+from django.utils.timezone import now
 
 
 # Create your models here.
@@ -96,10 +96,11 @@ class Msg(models.Model):
     sender = models.ForeignKey(User, related_name="sender", on_delete=models.CASCADE, null=True)
     receipient = models.ForeignKey(User, related_name="receipient", on_delete=models.CASCADE)
     msg_content = models.TextField(max_length=100)
-    created_at = models.DateField(default=datetime.now, blank=True)
+    sent_at = models.DateTimeField(null=True, blank=True)
     comment = models.TextField(blank=True, null=True)
-    comment_at = models.DateField(default=datetime.now, blank=True)
+    comment_at = models.DateTimeField( blank=True, null=True)
     is_approved = models.BooleanField(default=False, verbose_name="Approve?")
+    date_approved = models.DateTimeField(blank=True, null=True)
 
     objects = UserManager()
 
@@ -108,6 +109,30 @@ class Msg(models.Model):
 
     def __str__(self):
         return "From {}, to {}".format(self.sender.username, self.receipient.username)
+
+
+
+    def save(self, *args):
+        if (self.comment and self.date_approved is None):
+            self.date_approved = now()
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.sent_at = timezone.now()
+
+
+
+        super(Msg, self).save(*args, **kwargs)
+
+
+
+    class Meta:
+        ordering = ['-sent_at']
+
+
+
+
+
 
 
 

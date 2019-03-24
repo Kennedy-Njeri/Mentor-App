@@ -12,7 +12,7 @@ class MsgAdmin(admin.ModelAdmin):
 
     list_filter = ("is_approved",)
 
-    list_display = ("sender", "receipient", "msg_content", "comment", "is_approved")
+    list_display = ("sender", "receipient", "sent_at", "msg_content", "comment", "comment_at", "is_approved", "date_approved")
 
     list_editable = ("is_approved",)
 
