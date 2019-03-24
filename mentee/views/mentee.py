@@ -68,11 +68,6 @@ class AccountList(DetailView):
 
 
 
-
-
-
-
-
 """Controls the register module"""
 def register(request):
 
