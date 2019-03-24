@@ -20,13 +20,6 @@ class User(AbstractUser):
 
 
 
-class UserManager(models.Manager):
-
-    def users(self, **kwargs):
-        return self.User.objects.all().filter(is_mentor=True)
-
-
-
 """Adding interests"""
 class Subject(models.Model):
     name = models.CharField(max_length=30)
@@ -59,8 +52,6 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     education = models.CharField(default='degree', max_length=100)
-
-
 
 
     def __str__(self):
@@ -101,15 +92,13 @@ class Msg(models.Model):
     is_approved = models.BooleanField(default=False, verbose_name="Approve?")
     date_approved = models.DateTimeField(blank=True, null=True)
 
-    objects = UserManager()
+
 
     def get_absolute_url(self):
         return reverse("list",)
 
     def __str__(self):
         return "From {}, to {}".format(self.sender.username, self.receipient.username)
-
-
 
 
 
@@ -124,8 +113,7 @@ class Msg(models.Model):
             self.comment_at = now()
 
 
-
-        super(Msg, self).save(*args, **kwargs)
+            super(Msg, self).save(*args, **kwargs)
 
 
 
