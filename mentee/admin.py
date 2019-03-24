@@ -21,6 +21,28 @@ class MsgAdmin(admin.ModelAdmin):
     list_per_page = 10
 
 
+class MentorAdmin(admin.ModelAdmin):
+
+
+
+    search_fields = ("interests",)
+
+
+class UserAdmin(admin.ModelAdmin):
+
+    list_display = ("username", "email", "is_mentor", "is_mentee",)
+
+    list_display_links = ("username", "email",  "is_mentor", "is_mentee",)
+
+    list_filter = ("username", "is_mentor", "is_mentee",)
+
+    search_fields = ("username",)
+
+    list_per_page = 10
+
+
+
+
 
 
 
@@ -32,9 +54,9 @@ admin.site.register(Subject)
 
 admin.site.register(Mentee)
 
-admin.site.register(Mentor)
+admin.site.register(Mentor, MentorAdmin)
 
-admin.site.register(User)
+admin.site.register(User, UserAdmin)
 
 admin.site.register(Profile)
 

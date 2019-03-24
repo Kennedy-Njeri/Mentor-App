@@ -64,7 +64,7 @@ class Profile(models.Model):
 
 
     def __str__(self):
-        return f'{self.user.username} Profile'
+        return f'{self.user.username} '
 
 
 
@@ -97,7 +97,7 @@ class Msg(models.Model):
     msg_content = models.TextField(max_length=100)
     sent_at = models.DateTimeField(null=True, blank=True)
     comment = models.TextField(blank=True, null=True)
-    comment_at = models.DateTimeField( blank=True, null=True)
+    comment_at = models.DateTimeField(blank=True, null=True)
     is_approved = models.BooleanField(default=False, verbose_name="Approve?")
     date_approved = models.DateTimeField(blank=True, null=True)
 
@@ -111,13 +111,17 @@ class Msg(models.Model):
 
 
 
-    def save(self, *args):
-        if (self.comment and self.date_approved is None):
-            self.date_approved = now()
+
 
     def save(self, *args, **kwargs):
         if not self.id:
             self.sent_at = timezone.now()
+
+        if (self.comment and self.date_approved is None):
+            self.date_approved = now()
+
+        if (self.comment and self.comment_at is None):
+            self.comment_at = now()
 
 
 

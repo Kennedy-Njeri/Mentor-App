@@ -3,12 +3,16 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-	<h1>Review the application </h1>
+<br><br><br>
+
+
+	<h1>Review the Request </h1>
 	<form method="post">
 		{% csrf_token %}
 
 		{{ form|crispy }}
 
-		<input type="submit" value="Submit Comment">
+
+		<button type="submit" class="btn btn-primary btn-sm">Submit comment</button>
 	</form>
 {% endblock %}

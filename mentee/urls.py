@@ -48,7 +48,7 @@ urlpatterns = [
     path('inbox-message1/', mentor.InboxView.as_view(), name='inbox2'),
     path('inbox-mentor/<int:pk>', mentor.InboxDetailView.as_view(), name="detail-inbox1"),
     path('list-message1/', mentor.MessageListView.as_view(), name='list1'),
-    path('delete-mentor/<int:pk>', mentor.SentMessageDelete.as_view(), name='delete'),
+    path('delete-mentor/<int:pk>', mentor.SentMessageDelete.as_view(), name='delete1'),
     #path('comment/<int:pk>', mentor.reply_message, name='comment'),
     url(r'^comment/(?P<pk>[-\w]+)/$', mentor.reply_message, name='comment'),
 
