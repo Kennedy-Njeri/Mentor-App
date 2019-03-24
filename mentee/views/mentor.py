@@ -207,7 +207,7 @@ def reply_message(request, pk):
             reply.comment = form.cleaned_data['comment']
             reply.save()
 
-            return redirect('inbox1')
+            return redirect('inbox2')
 
     else:
 
