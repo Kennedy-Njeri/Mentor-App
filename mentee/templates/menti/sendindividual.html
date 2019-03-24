@@ -1,9 +1,13 @@
-{% extends "mentor/base1.html" %}
+{% extends "menti/base.html" %}
 
 {% load crispy_forms_tags %}
 
 {% block content %}
-	<h1>Send Your Message Here </h1>
+<br><br><br>
+<div class="row">
+        <div class="col-md-8">
+ <div class="content-section">
+	<h1>Send Your Message Here</h1>
 	<form method="post">
 		{% csrf_token %}
 
@@ -12,4 +16,11 @@
 
         <button type="submit" class="btn btn-info btn-sm">Send Message</button>
 	</form>
+
+
+
+	 </div>
+        </div>
+</div>
+
 {% endblock %}
