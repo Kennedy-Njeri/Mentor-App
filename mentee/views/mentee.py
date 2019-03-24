@@ -162,8 +162,6 @@ class MessageCreateView(CreateView):
 
 
 
-
-
 """Views lists of messages you have sent to other users"""
 
 class MessageListView(ListView):
@@ -228,7 +226,7 @@ class MessageView(TemplateView):
 """Views the Message Module"""
 def messege_view(request):
 
-    count = Msg.objects.values('msg_content').count()
+    count = Msg.objects.values('msg_content')
 
     context = {
 
@@ -247,6 +245,7 @@ class SentMessageDelete(DeleteView):
     template_name = 'menti/sentmessage_delete.html'
 
 
+"""view list of approved messeges from mentors"""
 class Approved(View):
 
     def get(self, request):
@@ -262,50 +261,8 @@ class Approved(View):
         return render(request, "menti/approved.html", context)
 
 
-#def send_message(request, pk):
 
-    #sender = request.user
-
-    #recipient = get_object_or_404(User, pk=pk)
-
-    #if request.method == 'POST':
-
-        #form = SendForm(request.POST)
-
-
-        #if form.is_valid():
-
-            #orm.save(sender=request.user)
-
-            #form.save(recipient=request.user)
-
-            #form.msg_content = form.cleaned_data['msg_content']
-
-            #form.save()
-
-            #return redirect('list')
-
-    #else:
-
-
-
-
-             #form = SendForm
-
-
-
-
-    #context = {
-
-               # 'form': form,
-            #}
-
-    #return render(request, 'menti/sendindividual.html', context)
-
-
-
-
-
+"""create new message for a specific user from the profile"""
 class CreateMessageView(CreateView):
 
     fields = ('msg_content',)
@@ -317,15 +274,11 @@ class CreateMessageView(CreateView):
         form.instance.sender = self.request.user
         form.instance.receipient = User.objects.get(pk=self.kwargs['pk'])
 
-        #return super(CreateMessageView, self).form_valid(form)
-        #save()
-
         return super().form_valid(form)
 
 
 
-
-
+"""view details of a user in the profile"""
 
 class ProfileDetailView(DetailView):
     model = User
