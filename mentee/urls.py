@@ -12,7 +12,7 @@ urlpatterns = [
     path('', mentee.home, name="home"),
 
     #mentee url
-    path('account/', mentee.account, name="account"),
+    path('account/', mentee.AccountList.as_view(), name="account"),
     path('register/', mentee.register, name="register"),
     path('profile/', mentee.profile, name="profile"),
     #path('message-module/', mentee.MessageView.as_view(), name="module-message"),
@@ -28,6 +28,8 @@ urlpatterns = [
     path('inbox-message/', mentee.InboxView.as_view(), name='inbox1'),
     path('delete/<int:pk>', mentee.SentMessageDelete.as_view(), name='delete'),
     path('approved/', mentee.Approved.as_view(), name='approved'),
+    url(r'^send/(?P<pk>[-\w]+)/$', mentee.CreateMessageView.as_view(), name='send'),
+    path('profile/<int:pk>', mentee.ProfileDetailView.as_view(), name="profile-detail"),
 
 
 

@@ -22,6 +22,8 @@ from django.urls import reverse_lazy
 from .. import models
 from django.contrib.messages.views import SuccessMessageMixin
 
+from ..forms import SendForm
+
 # Create your views here.
 
 
@@ -32,20 +34,43 @@ def home(request):
     return render(request, 'home.html')
 
 
-"""Home account landing page after you login"""
-@login_required
-def account(request):
+#"""Home account landing page after you login"""
+#@login_required
+#def account(request):
 
-    users = User.objects.all().filter(is_mentor=True)
+    #users = User.objects.all().filter(is_mentor=True)
 
-    context = {
+    #context = {
 
-        'users': users
+        #'users': users
 
 
-    }
+    #}
 
-    return render(request, 'menti/account.html', context)
+    #return render(request, 'menti/account.html', context)
+
+
+
+class AccountList(DetailView):
+    """
+    List all of the Users that we want.
+    """
+    def get(self, request):
+
+        users = User.objects.all().filter(is_mentor=True)
+
+        context = {
+            'users': users,
+
+         }
+
+        return render(request, "menti/account.html", context)
+
+
+
+
+
+
 
 
 """Controls the register module"""
@@ -132,7 +157,10 @@ class MessageCreateView(CreateView):
 
     def form_valid(self, form):
         form.instance.sender = self.request.user
+
         return super().form_valid(form)
+
+
 
 
 
@@ -232,3 +260,74 @@ class Approved(View):
         }
 
         return render(request, "menti/approved.html", context)
+
+
+#def send_message(request, pk):
+
+    #sender = request.user
+
+    #recipient = get_object_or_404(User, pk=pk)
+
+    #if request.method == 'POST':
+
+        #form = SendForm(request.POST)
+
+
+        #if form.is_valid():
+
+            #orm.save(sender=request.user)
+
+            #form.save(recipient=request.user)
+
+            #form.msg_content = form.cleaned_data['msg_content']
+
+            #form.save()
+
+            #return redirect('list')
+
+    #else:
+
+
+
+
+             #form = SendForm
+
+
+
+
+    #context = {
+
+               # 'form': form,
+            #}
+
+    #return render(request, 'menti/sendindividual.html', context)
+
+
+
+
+
+class CreateMessageView(CreateView):
+
+    fields = ('msg_content',)
+    model = Msg
+    template_name = 'menti/sendindividual.html'
+
+
+    def form_valid(self, form):
+        form.instance.sender = self.request.user
+        form.instance.receipient = User.objects.get(pk=self.kwargs['pk'])
+
+        #return super(CreateMessageView, self).form_valid(form)
+        #save()
+
+        return super().form_valid(form)
+
+
+
+
+
+
+class ProfileDetailView(DetailView):
+    model = User
+    context_object_name = 'user'
+    template_name = 'menti/profile_detail.html'
