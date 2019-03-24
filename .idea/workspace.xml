@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="335a17c4-c6fc-4830-90e7-92e23d0368f5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mentee/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -129,14 +127,14 @@
         <counts>
           <entry key="css" value="6" />
           <entry key="html" value="1953" />
-          <entry key="py" value="5199" />
+          <entry key="py" value="5209" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="6" />
           <entry key="HTML" value="1953" />
-          <entry key="Python" value="5199" />
+          <entry key="Python" value="5209" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -200,14 +198,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mentee/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1500">
-              <caret line="100" column="60" selection-start-line="100" selection-start-column="60" selection-end-line="100" selection-end-column="60" />
+            <state relative-caret-position="106">
+              <caret line="40" column="70" lean-forward="true" selection-start-line="40" selection-start-column="70" selection-end-line="40" selection-end-column="70" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
-                <marker date="1553430385000" expanded="true" signature="421:423" ph="..." />
-                <marker date="1553430385000" expanded="true" signature="656:659" ph="..." />
-                <marker date="1553430385000" expanded="true" signature="1379:1384" ph="..." />
-                <marker date="1553430385000" expanded="true" signature="2335:2340" ph="..." />
+                <marker date="1553431063000" expanded="true" signature="421:423" ph="..." />
+                <marker date="1553431063000" expanded="true" signature="656:659" ph="..." />
+                <marker date="1553431063000" expanded="true" signature="1379:1384" ph="..." />
+                <marker date="1553431063000" expanded="true" signature="2275:2280" ph="..." />
               </folding>
             </state>
           </provider>
@@ -340,7 +338,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="339" />
+    <option name="x" value="83" />
     <option name="y" value="23" />
     <option name="width" value="1358" />
     <option name="height" value="817" />
@@ -451,7 +449,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="339" y="23" width="1358" height="817" extended-state="0" />
+    <frame x="126" y="23" width="1358" height="817" extended-state="0" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.25607902" />
@@ -827,14 +825,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mentee/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="100" column="60" selection-start-line="100" selection-start-column="60" selection-end-line="100" selection-end-column="60" />
+        <state relative-caret-position="106">
+          <caret line="40" column="70" lean-forward="true" selection-start-line="40" selection-start-column="70" selection-end-line="40" selection-end-column="70" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-            <marker date="1553430385000" expanded="true" signature="421:423" ph="..." />
-            <marker date="1553430385000" expanded="true" signature="656:659" ph="..." />
-            <marker date="1553430385000" expanded="true" signature="1379:1384" ph="..." />
-            <marker date="1553430385000" expanded="true" signature="2335:2340" ph="..." />
+            <marker date="1553431063000" expanded="true" signature="421:423" ph="..." />
+            <marker date="1553431063000" expanded="true" signature="656:659" ph="..." />
+            <marker date="1553431063000" expanded="true" signature="1379:1384" ph="..." />
+            <marker date="1553431063000" expanded="true" signature="2275:2280" ph="..." />
           </folding>
         </state>
       </provider>
