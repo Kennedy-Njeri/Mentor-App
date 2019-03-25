@@ -295,11 +295,14 @@ class Approved(LoginRequiredMixin, UserPassesTestMixin,View):
 
 
 """create new message for a specific user from the profile"""
-class CreateMessageView(CreateView):
+class CreateMessageView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 
     fields = ('msg_content',)
     model = Msg
     template_name = 'menti/sendindividual.html'
+
+    def test_func(self):
+        return self.request.user.is_mentee
 
 
     def form_valid(self, form):
@@ -316,7 +319,11 @@ class CreateMessageView(CreateView):
 
 """view details of a user in the profile"""
 
-class ProfileDetailView(DetailView):
+class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = User
     context_object_name = 'user'
     template_name = 'menti/profile_detail.html'
+
+    def test_func(self):
+        return self.request.user.is_mentee
+
