@@ -53,9 +53,6 @@ class AccountView(LoginRequiredMixin, UserPassesTestMixin, View):
 
 
 
-
-
-
 """Registration for mentors"""
 
 def register1(request):
@@ -79,8 +76,12 @@ def register1(request):
     return render(request, 'mentor/register1.html', {'form': form})
 
 
-@login_required
+
 def profile1(request):
+
+    if not request.user.is_mentor:
+        return redirect('home')
+
     if request.method == 'POST':
 
         u_form = UserUpdateForm(request.POST, instance=request.user)
@@ -211,19 +212,27 @@ class InboxView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
 
 """Inbox Detailed view"""
-class InboxDetailView(DetailView):
+class InboxDetailView(LoginRequiredMixin, UserPassesTestMixin,DetailView):
 
     model = Msg
     context_object_name = 'messo'
     template_name = 'mentor/inboxview1.html'
+
+    def test_func(self):
+        return self.request.user.is_mentor
 
 
     def get_queryset(self):
         return self.model.objects.filter(receipient=self.request.user)
 
 
+
 """Replies, approves, comments on messages"""
 def reply_message(request, pk):
+
+    if not request.user.is_mentor:
+        return redirect('home')
+
 
     reply = get_object_or_404(Msg, pk=pk)
 
