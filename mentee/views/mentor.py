@@ -139,12 +139,14 @@ class MessageView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
 
 """Creates new message"""
 
-class MessageCreateView(CreateView):
+class MessageCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 
     fields = ('receipient', 'msg_content')
     model = Msg
     template_name = 'mentor/messagecreate1.html'
 
+    def test_func(self):
+        return self.request.user.is_mentor
 
     def form_valid(self, form):
         form.instance.sender = self.request.user
@@ -155,7 +157,7 @@ class MessageCreateView(CreateView):
 
 
 """List sent Messages"""
-class MessageListView(LoginRequiredMixin, UserPassesTestMixin,ListView):
+class MessageListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
     model = Msg
     template_name = 'mentor/listmessages1.html'
@@ -170,32 +172,38 @@ class MessageListView(LoginRequiredMixin, UserPassesTestMixin,ListView):
 
 """details the message sent"""
 
-class SentDetailView(DetailView):
+class SentDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Msg
     context_object_name = 'messo'
     template_name = 'mentor/sent1.html'
 
-
+    def test_func(self):
+        return self.request.user.is_mentor
 
     def get_queryset(self):
         return self.model.objects.filter(sender=self.request.user)
 
 """Deletes sent messages"""
-class SentMessageDelete(DeleteView):
+class SentMessageDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Msg
     success_url = reverse_lazy("list")
     template_name = 'mentor/sentmessage_delete1.html'
 
+    def test_func(self):
+        return self.request.user.is_mentor
 
 
 
 """ Lists messages in inbox view"""
 
-class InboxView(ListView):
+class InboxView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
     model = Msg
     context_object_name = 'inbox'
     template_name = 'mentor/inbox1.html'
+
+    def test_func(self):
+        return self.request.user.is_mentor
 
 
     def get_queryset(self):

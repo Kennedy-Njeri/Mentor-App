@@ -127,14 +127,14 @@
         <counts>
           <entry key="css" value="6" />
           <entry key="html" value="2447" />
-          <entry key="py" value="6942" />
+          <entry key="py" value="6978" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="6" />
           <entry key="HTML" value="2447" />
-          <entry key="Python" value="6942" />
+          <entry key="Python" value="6978" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -158,8 +158,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mentee/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="39" column="37" lean-forward="true" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
+            <state relative-caret-position="207">
+              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -185,12 +185,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mentee/views/mentor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="46" column="42" lean-forward="true" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
+            <state relative-caret-position="293">
+              <caret line="148" column="42" selection-start-line="148" selection-start-column="42" selection-end-line="148" selection-end-column="42" />
               <folding>
                 <element signature="e#0#65#0" expanded="true" />
-                <marker date="1553550201000" expanded="true" signature="1278:1409" ph="..." />
-                <marker date="1553550201000" expanded="true" signature="1431:1440" ph="..." />
+                <marker date="1553550465000" expanded="true" signature="1278:1440" ph="..." />
+                <marker date="1553550465000" expanded="true" signature="1377:1383" ph="..." />
+                <marker date="1553550465000" expanded="true" signature="1440:1442" ph="..." />
               </folding>
             </state>
           </provider>
@@ -317,9 +318,9 @@
         <option value="$PROJECT_DIR$/mentee/admin.py" />
         <option value="$PROJECT_DIR$/mentee/templates/menti/approved.html" />
         <option value="$PROJECT_DIR$/mentee/templates/menti/inboxdetail.html" />
-        <option value="$PROJECT_DIR$/mentee/urls.py" />
         <option value="$PROJECT_DIR$/mentee/models.py" />
         <option value="$PROJECT_DIR$/mentee/views/mentee.py" />
+        <option value="$PROJECT_DIR$/mentee/urls.py" />
         <option value="$PROJECT_DIR$/mentee/views/mentor.py" />
       </list>
     </option>
@@ -331,8 +332,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="141" />
-    <option name="y" value="79" />
+    <option name="x" value="80" />
+    <option name="y" value="29" />
     <option name="width" value="1332" />
     <option name="height" value="821" />
   </component>
@@ -435,14 +436,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="23" width="1332" height="821" extended-state="0" />
+    <frame x="84" y="232" width="1332" height="821" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.27286822" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.3319616" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.3319616" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="4" />
@@ -793,16 +794,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mentee/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="39" column="37" lean-forward="true" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mentee/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="106">
@@ -830,14 +821,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mentee/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mentee/views/mentor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="46" column="42" lean-forward="true" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
+        <state relative-caret-position="293">
+          <caret line="148" column="42" selection-start-line="148" selection-start-column="42" selection-end-line="148" selection-end-column="42" />
           <folding>
             <element signature="e#0#65#0" expanded="true" />
-            <marker date="1553550201000" expanded="true" signature="1278:1409" ph="..." />
-            <marker date="1553550201000" expanded="true" signature="1431:1440" ph="..." />
+            <marker date="1553550465000" expanded="true" signature="1278:1440" ph="..." />
+            <marker date="1553550465000" expanded="true" signature="1377:1383" ph="..." />
+            <marker date="1553550465000" expanded="true" signature="1440:1442" ph="..." />
           </folding>
         </state>
       </provider>
