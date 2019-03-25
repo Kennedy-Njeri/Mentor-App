@@ -21,7 +21,9 @@ from django.views.generic import (View, TemplateView,
 from django.urls import reverse_lazy
 from .. import models
 from django.contrib.messages.views import SuccessMessageMixin
+
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 from ..forms import SendForm
 
@@ -52,7 +54,11 @@ def home(request):
 
 
 
-class AccountList(DetailView):
+class AccountList(LoginRequiredMixin, UserPassesTestMixin, View):
+
+    def test_func(self):
+        return self.request.user.is_mentee
+
     """
     List all of the Users that we want.
     """
@@ -116,6 +122,11 @@ def user_login(request):
 """View, Update Your Profile"""
 @login_required
 def profile(request):
+
+    if not request.user.is_mentee:
+        return redirect('home')
+
+
     if request.method == 'POST':
 
         u_form = UserUpdateForm(request.POST, instance=request.user)
@@ -144,11 +155,14 @@ def profile(request):
 
 """Creates new message"""
 
-class MessageCreateView(LoginRequiredMixin,CreateView):
+class MessageCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 
     fields = ('receipient', 'msg_content')
     model = Msg
     template_name = 'menti/messagecreate.html'
+
+    def test_func(self):
+        return self.request.user.is_mentee
 
 
     def form_valid(self, form):
@@ -163,11 +177,15 @@ class MessageCreateView(LoginRequiredMixin,CreateView):
 
 """Views lists of messages you have sent to other users"""
 
-class MessageListView(ListView):
+class MessageListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
     model = Msg
     template_name = 'menti/listmessages.html'
     context_object_name = 'sentmesso'
+
+    def test_func(self):
+        return self.request.user.is_mentee
+
 
     def get_queryset(self):
         return self.model.objects.filter(sender=self.request.user)
@@ -175,11 +193,15 @@ class MessageListView(ListView):
 
 """details the message sent"""
 
-class SentDetailView(DetailView):
+class SentDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+
     model = Msg
     context_object_name = 'messo'
     template_name = 'menti/sent.html'
 
+
+    def test_func(self):
+        return self.request.user.is_mentee
 
 
     def get_queryset(self):
@@ -188,11 +210,15 @@ class SentDetailView(DetailView):
 
 """Views lists of inbox messages received"""
 
-class InboxView(ListView):
+class InboxView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
     model = Msg
     context_object_name = 'inbox'
     template_name = 'menti/inbox.html'
+
+
+    def test_func(self):
+        return self.request.user.is_mentee
 
 
     def get_queryset(self):
@@ -202,11 +228,14 @@ class InboxView(ListView):
 
 """Inbox Detailed view"""
 
-class InboxDetailView(DetailView):
+class InboxDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 
     model = Msg
     context_object_name = 'messo'
     template_name = 'menti/inboxview.html'
+
+    def test_func(self):
+        return self.request.user.is_mentee
 
 
     def get_queryset(self):
@@ -216,36 +245,40 @@ class InboxDetailView(DetailView):
 
 """controls messege view"""
 
-class MessageView(TemplateView):
+class MessageView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     template_name = 'menti/messages-module.html'
     model = models.Msg
     context_object_name = 'sentmesso'
+
+    def test_func(self):
+        return self.request.user.is_mentee
 
 
 """Views the Message Module"""
 def messege_view(request):
 
-    count = Msg.objects.values('msg_content')
+    if not request.user.is_mentee:
+        return redirect('home')
 
-    context = {
-
-        'count': count
-    }
-
-
-    return render(request, 'menti/messages-module.html', context)
+    return render(request, 'menti/messages-module.html',)
 
 
 """Deletes Sent Messages"""
 
-class SentMessageDelete(DeleteView):
+class SentMessageDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = models.Msg
     success_url = reverse_lazy("list")
     template_name = 'menti/sentmessage_delete.html'
 
+    def test_func(self):
+        return self.request.user.is_mentee
+
 
 """view list of approved messeges from mentors"""
-class Approved(View):
+class Approved(LoginRequiredMixin, UserPassesTestMixin,View):
+
+    def test_func(self):
+        return self.request.user.is_mentee
 
     def get(self, request):
 
