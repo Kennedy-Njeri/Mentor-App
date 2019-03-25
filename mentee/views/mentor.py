@@ -146,6 +146,10 @@ class MessageCreateView(CreateView):
         form.instance.sender = self.request.user
         return super().form_valid(form)
 
+    def get_success_url(self):
+        return reverse('list1')
+
+
 """List sent Messages"""
 class MessageListView(LoginRequiredMixin, UserPassesTestMixin,ListView):
 

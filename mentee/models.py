@@ -94,9 +94,7 @@ class Msg(models.Model):
 
 
 
-    def get_absolute_url(self):
 
-        return reverse("list",)
 
     def __str__(self):
         return "From {}, to {}".format(self.sender.username, self.receipient.username)

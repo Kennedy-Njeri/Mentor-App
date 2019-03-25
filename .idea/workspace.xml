@@ -5,8 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mentee/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/views/mentee.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/views/mentee.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/views/mentor.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/views/mentor.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -234,14 +232,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mentee/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
+            <state relative-caret-position="106">
+              <caret line="96" column="4" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="4" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
-                <marker date="1553549427000" expanded="true" signature="421:423" ph="..." />
-                <marker date="1553549427000" expanded="true" signature="526:527" ph="..." />
-                <marker date="1553549427000" expanded="true" signature="1247:1252" ph="..." />
-                <marker date="1553549427000" expanded="true" signature="2134:2139" ph="..." />
+                <marker date="1553549674000" expanded="true" signature="421:423" ph="..." />
+                <marker date="1553549674000" expanded="true" signature="526:527" ph="..." />
+                <marker date="1553549674000" expanded="true" signature="1247:1252" ph="..." />
+                <marker date="1553549674000" expanded="true" signature="2134:2139" ph="..." />
               </folding>
             </state>
           </provider>
@@ -334,10 +332,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="108" />
-    <option name="y" value="180" />
-    <option name="width" value="1341" />
-    <option name="height" value="817" />
+    <option name="x" value="-1" />
+    <option name="y" value="23" />
+    <option name="width" value="1332" />
+    <option name="height" value="821" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -438,14 +436,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="88" y="45" width="1341" height="817" extended-state="0" />
+    <frame x="-16" y="281" width="1332" height="821" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.27097768" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.27286822" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.3337931" />
+      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.3319616" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="4" />
@@ -832,14 +830,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mentee/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
+        <state relative-caret-position="106">
+          <caret line="96" column="4" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="4" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-            <marker date="1553549427000" expanded="true" signature="421:423" ph="..." />
-            <marker date="1553549427000" expanded="true" signature="526:527" ph="..." />
-            <marker date="1553549427000" expanded="true" signature="1247:1252" ph="..." />
-            <marker date="1553549427000" expanded="true" signature="2134:2139" ph="..." />
+            <marker date="1553549674000" expanded="true" signature="421:423" ph="..." />
+            <marker date="1553549674000" expanded="true" signature="526:527" ph="..." />
+            <marker date="1553549674000" expanded="true" signature="1247:1252" ph="..." />
+            <marker date="1553549674000" expanded="true" signature="2134:2139" ph="..." />
           </folding>
         </state>
       </provider>

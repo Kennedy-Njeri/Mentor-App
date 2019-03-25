@@ -156,6 +156,9 @@ class MessageCreateView(LoginRequiredMixin,CreateView):
 
         return super().form_valid(form)
 
+    def get_success_url(self):
+        return reverse('list')
+
 
 
 """Views lists of messages you have sent to other users"""
@@ -271,6 +274,10 @@ class CreateMessageView(CreateView):
         form.instance.receipient = User.objects.get(pk=self.kwargs['pk'])
 
         return super().form_valid(form)
+
+
+    def get_success_url(self):
+        return reverse('list')
 
 
 
