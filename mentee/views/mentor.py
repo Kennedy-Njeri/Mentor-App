@@ -41,14 +41,18 @@ def home(request):
 
 """For Mentor Account"""
 
+class AccountView(LoginRequiredMixin, UserPassesTestMixin, View):
 
-def account1(request):
-    if not request.user.is_mentor:
-        return render(request, 'myapp/login_error.html')
+    def test_func(self):
+        return self.request.user.is_mentor
+
+
+    def get(self, request):
+
+        return render(request, 'mentor/account1.html', )
 
 
 
-    return render(request, 'mentor/account1.html',)
 
 
 
