@@ -21,6 +21,8 @@ from ..models import Profile, Msg
 
 from django.urls import reverse_lazy
 from ..forms import ReplyForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 
 from django.contrib.auth import get_user_model
@@ -35,8 +37,14 @@ def home(request):
 
     return render(request, 'home.html')
 
+
+
 """For Mentor Account"""
+
+
 def account1(request):
+    if not request.user.is_mentor:
+        return render(request, 'myapp/login_error.html')
 
 
 
@@ -117,9 +125,12 @@ def user_login(request):
 
 
 """controls messege view"""
-class MessageView(TemplateView):
+class MessageView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     template_name = 'mentor/messages-module1.html'
     model = Msg
+
+    def test_func(self):
+        return self.request.user.is_mentor
 
 
 """Creates new message"""
@@ -136,11 +147,14 @@ class MessageCreateView(CreateView):
         return super().form_valid(form)
 
 """List sent Messages"""
-class MessageListView(ListView):
+class MessageListView(LoginRequiredMixin, UserPassesTestMixin,ListView):
 
     model = Msg
     template_name = 'mentor/listmessages1.html'
     context_object_name = 'sentmesso'
+
+    def test_func(self):
+        return self.request.user.is_mentor
 
     def get_queryset(self):
         return self.model.objects.filter(sender=self.request.user)

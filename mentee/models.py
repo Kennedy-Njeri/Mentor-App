@@ -95,6 +95,7 @@ class Msg(models.Model):
 
 
     def get_absolute_url(self):
+
         return reverse("list",)
 
     def __str__(self):
@@ -113,7 +114,7 @@ class Msg(models.Model):
             self.comment_at = now()
 
 
-            super(Msg, self).save(*args, **kwargs)
+        super(Msg, self).save(*args, **kwargs)
 
 
 

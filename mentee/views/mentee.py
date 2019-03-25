@@ -21,6 +21,7 @@ from django.views.generic import (View, TemplateView,
 from django.urls import reverse_lazy
 from .. import models
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from ..forms import SendForm
 
@@ -143,7 +144,7 @@ def profile(request):
 
 """Creates new message"""
 
-class MessageCreateView(CreateView):
+class MessageCreateView(LoginRequiredMixin,CreateView):
 
     fields = ('receipient', 'msg_content')
     model = Msg
