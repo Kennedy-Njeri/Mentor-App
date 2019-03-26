@@ -174,6 +174,7 @@ class MessageListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 """details the message sent"""
 
 class SentDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+
     model = Msg
     context_object_name = 'messo'
     template_name = 'mentor/sent1.html'
@@ -212,7 +213,7 @@ class InboxView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
 
 """Inbox Detailed view"""
-class InboxDetailView(LoginRequiredMixin, UserPassesTestMixin,DetailView):
+class InboxDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 
     model = Msg
     context_object_name = 'messo'

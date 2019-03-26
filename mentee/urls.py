@@ -51,6 +51,7 @@ urlpatterns = [
     path('delete-mentor/<int:pk>', mentor.SentMessageDelete.as_view(), name='delete1'),
     #path('comment/<int:pk>', mentor.reply_message, name='comment'),
     url(r'^comment/(?P<pk>[-\w]+)/$', mentor.reply_message, name='comment'),
+    path('sent-detail/<int:pk>', mentor.SentDetailView.as_view(), name="sent1"),
 
 
 ]
