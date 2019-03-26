@@ -188,7 +188,7 @@ class SentDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 """Deletes sent messages"""
 class SentMessageDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Msg
-    success_url = reverse_lazy("list")
+    success_url = reverse_lazy("list1")
     template_name = 'mentor/sentmessage_delete1.html'
 
     def test_func(self):
