@@ -275,22 +275,34 @@ class SentMessageDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 """view list of approved messeges from mentors"""
-class Approved(LoginRequiredMixin, UserPassesTestMixin,View):
+class Approved(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
     def test_func(self):
         return self.request.user.is_mentee
 
-    def get(self, request):
+    #def get(self, request):
 
-        messo = Msg.objects.filter(is_approved=True).order_by('-date_approved')
+        #messo = Msg.objects.filter(is_approved=True).order_by('-date_approved')
 
-        context = {
+        #context = {
 
-            'messo': messo,
+           # 'messo': messo,
 
-        }
+        #}
 
-        return render(request, "menti/approved.html", context)
+        #return render(request, "menti/approved.html", context)
+
+    model = Msg.objects.filter(is_approved=True).order_by('-date_approved')
+
+    template_name = 'menti/approved.html'
+
+    context_object_name = 'messo'
+
+
+    def get_queryset(self):
+
+        return self.model.filter(sender=self.request.user)
+
 
 
 
