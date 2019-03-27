@@ -52,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'mentorship.urls'
@@ -140,9 +141,9 @@ LOGIN_URL = 'login'
 
 
 
-
-
 #Media Folder Settings
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+SESSION_INACTIVITY_TIMEOUT_IN_SECONDS = 100

@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 #from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+
 from ..forms import MenteeRegisterForm,UserUpdateForm, ProfileUpdateForm
 from django.views.generic import TemplateView
 from ..models import Profile, Msg
@@ -307,11 +308,12 @@ class Approved(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
 
 """create new message for a specific user from the profile"""
-class CreateMessageView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+class CreateMessageView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin,  CreateView):
 
     fields = ('msg_content',)
     model = Msg
     template_name = 'menti/sendindividual.html'
+    success_message = 'Your Message has Been Sent!'
 
     def test_func(self):
         return self.request.user.is_mentee
