@@ -108,7 +108,9 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request,user)
+                messages.success(request, f'Welcome To your Account')
                 return HttpResponseRedirect(reverse('account'))
+
             else:
                 return HttpResponse("Your account was inactive.")
         else:
@@ -183,6 +185,7 @@ class MessageListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     model = Msg
     template_name = 'menti/listmessages.html'
     context_object_name = 'sentmesso'
+
 
     def test_func(self):
         return self.request.user.is_mentee
