@@ -333,7 +333,6 @@ class CreateMessageView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageM
         return reverse('list')
 
 
-
 """view details of a user in the profile"""
 
 class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
