@@ -83,10 +83,15 @@ def register(request):
 
         form = MenteeRegisterForm(request.POST)
 
+
         if form.is_valid():
+
             form.save()
 
+
+
             username = form.cleaned_data.get('username')
+
 
             messages.success(request, f'Your account has been created! You are now able to log in')
             return redirect('login')
@@ -96,7 +101,24 @@ def register(request):
         form = MenteeRegisterForm()
 
 
-    return render(request, 'menti/register.html', {'form': form})
+
+    return render(request, 'menti/register.html', {'form': form,})
+
+#class MenteeSignUpView(CreateView):
+    #model = User
+    #form_class = MenteeRegisterForm
+    #template_name = 'menti/register.html'
+
+    #def get_context_data(self, **kwargs):
+        #kwargs['user_type'] = 'mentee'
+        #return super().get_context_data(**kwargs)
+
+    #def form_valid(self, form):
+        #user = form.save()
+        #login(self.request, user)
+        #return redirect('login')
+
+
 
 
 """Login function"""
