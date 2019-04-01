@@ -331,7 +331,6 @@ class Approved(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
 
 
-
 """create new message for a specific user from the profile"""
 class CreateMessageView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin,  CreateView):
 
