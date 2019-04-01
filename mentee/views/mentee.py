@@ -28,7 +28,9 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 
 from ..forms import SendForm
 
-# Create your views here.
+
+
+
 
 
 
@@ -117,7 +119,6 @@ def register(request):
         #user = form.save()
         #login(self.request, user)
         #return redirect('login')
-
 
 
 
