@@ -34,8 +34,6 @@ urlpatterns = [
 
 
 
-
-
     #mentor urls
     path('account1/', mentor.AccountView.as_view(), name="account1"),
     path('register1/', mentor.register1, name="register1"),
