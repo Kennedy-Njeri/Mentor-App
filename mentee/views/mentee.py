@@ -331,10 +331,6 @@ class Approved(LoginRequiredMixin, UserPassesTestMixin, ListView):
         return self.model.filter(sender=self.request.user)
 
 
-
-
-
-
 """create new message for a specific user from the profile"""
 class CreateMessageView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin,  CreateView):
 
@@ -356,9 +352,6 @@ class CreateMessageView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageM
 
     def get_success_url(self):
         return reverse('list')
-
-
-
 
 
 
