@@ -5,7 +5,7 @@
 
 <br><br><br>
 
-<h1>Here Are Your Requests Messages</h1>
+<h1>Here Are Your Requests Messages</h1><br>
 
 
     <div class="row">
@@ -21,6 +21,7 @@
           <th>From</th>
           <th>Request Content</th>
           <th>View Profile</th>
+           <th>Approve/Decline</th>
 
 
 
@@ -39,6 +40,7 @@
 
 
     <td><a class="btn btn-info btn-sm" href="{% url 'profile-detail1' pk=messo.pk %}">View Profile</a></td>
+         <td><a class="btn btn-primary btn-sm" href="{% url 'detail-inbox1' pk=messo.pk %}">Approve/Decline</a></td>
 
 
 
