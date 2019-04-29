@@ -17,7 +17,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 
 from django.views.generic import TemplateView
-from ..models import Profile, Msg
+from ..models import Profile, Msg, Conversation
 from django.db.models import Count, Q
 
 from django.urls import reverse_lazy
@@ -322,4 +322,22 @@ class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         return self.request.user.is_mentor
 
 
+"""Create Conversation"""
+
+class ConversationCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+
+    fields = ('conversation', )
+    model = Conversation
+    template_name = 'mentor/chat.html'
+
+    def test_func(self):
+        return self.request.user.is_mentor
+
+    def form_valid(self, form):
+        form.instance.sender = self.request.user
+        form.instance.receipient = User.objects.get(pk=self.kwargs['pk'])
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('list1')
 

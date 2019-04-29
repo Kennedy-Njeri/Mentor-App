@@ -28,6 +28,7 @@
           <th>Comment</th>
           <th>Approved At</th>
            <th>Status</th>
+          <th>Start Chat</th>
 
 
 
@@ -46,6 +47,8 @@
         <td>{{ approved.date_approved|naturaltime }}</td>
 
    <td> <button type="button" class="btn btn-success btn-sm">{{ approved.is_approved }}</button></td>
+
+        <td> <a class="btn btn-primary btn-sm" href="{% url 'start-chat1' pk=approved.pk %}">Start Chat</a></td>
 
 
 

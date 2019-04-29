@@ -58,6 +58,7 @@ urlpatterns = [
     path('sent-detail/<int:pk>', mentor.SentDetailView.as_view(), name="sent1"),
     path('approved1/', mentor.Approved.as_view(), name='approved1'),
     path('profile1/<int:pk>', mentor.ProfileDetailView.as_view(), name="profile-detail1"),
+    path('chat1/<int:pk>', mentor.ConversationCreateView.as_view(), name="start-chat1"),
 
 
 ]
