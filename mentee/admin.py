@@ -1,6 +1,19 @@
 from django.contrib import admin
-from .models import Subject, Mentee, Mentor , User, Profile, Msg
+from .models import Subject, Mentee, Mentor , User, Profile, Msg, Conversation
 # Register your models here.
+
+
+class ConversationAdmin(admin.ModelAdmin):
+
+    search_fields = ("conversation",)
+
+    list_display = (
+    "sender", "receipient", "sent_at", "conversation", "reply", "replied_at",)
+
+    list_display_links = ("conversation",)
+
+    list_per_page = 10
+
 
 
 
@@ -56,3 +69,4 @@ admin.site.register(Profile)
 
 admin.site.register(Msg, MsgAdmin)
 
+admin.site.register(Conversation)

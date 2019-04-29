@@ -79,6 +79,30 @@ class Profile(models.Model):
     def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
 
+"""Conversation Model"""
+
+class Conversation(models.Model):
+
+    sender = models.ForeignKey(User, related_name="sender1", on_delete=models.CASCADE, null=True)
+    receipient = models.ForeignKey(User, related_name="receipient1", on_delete=models.CASCADE)
+    conversation = models.TextField(max_length=100)
+    sent_at = models.DateTimeField(null=True, blank=True)
+    reply = models.TextField(blank=True, null=True)
+    replied_at = models.DateTimeField(blank=True, null=True)
+
+    def __str__(self):
+        return "From {}, to {}".format(self.sender.username, self.receipient.username)
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.sent_at = timezone.now()
+
+        if (self.reply and self.replied_at is None):
+            self.replied_at = now()
+
+        super(Conversation, self).save(*args, **kwargs)
+
+
 
 
 """Message Model"""

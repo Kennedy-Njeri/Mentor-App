@@ -133,6 +133,7 @@ def user_login(request):
 
 """controls messege view"""
 class MessageView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
+
     template_name = 'mentor/messages-module1.html'
     model = Msg
 
