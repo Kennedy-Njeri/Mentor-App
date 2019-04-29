@@ -290,3 +290,18 @@ class Approved(LoginRequiredMixin, UserPassesTestMixin, ListView):
     def get_queryset(self):
 
         return self.model.filter(receipient=self.request.user)
+
+
+"""view details of a user in the profile"""
+
+class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+
+    model = Msg
+    context_object_name = 'msg'
+    template_name = 'mentor/profile_detail1.html'
+
+    def test_func(self):
+        return self.request.user.is_mentor
+
+
+

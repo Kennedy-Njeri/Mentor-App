@@ -5,27 +5,73 @@
 
 <br><br><br>
 
-<h1>Here Are Your Inbox Messeges</h1>
+<h1>Here Are Your Requests Messages</h1>
+
+
+    <div class="row">
+        <div class="col-md-12">
+ <div class="content-section">
+
+ <h2>Here are your Requests</h2>
+<div class="table-responsive">
+<table class="table mb-0">
+    <thead>
+      <tr>
+          <th>No</th>
+          <th>From</th>
+          <th>Request Content</th>
+          <th>View Profile</th>
 
 
 
-     {% if inbox %}
+      </tr>
+    </thead>
+    <tbody>
+
+    {% if inbox %}
   <ol>
-      {% for messo in inbox %}
 
-      <h2><li><a href="{% url 'detail-inbox1' pk=messo.pk %}">From {{ messo.sender }}  </a></li></h2>
+{% for messo in inbox %}
+    <tr>
+         <td>{{ messo.id }}</td>
+        <td><a href="{% url 'detail-inbox1' pk=messo.pk %}">{{ messo.sender }}</a></td>
+          <td>{{ messo.msg_content }}</td>
 
-      {% endfor %}
+
+    <td><a class="btn btn-info btn-sm" href="{% url 'profile-detail1' pk=messo.pk %}">View Profile</a></td>
 
 
 
-  </ol>
+    </tr>
+
+
+{% endfor %}
+
+
+       </ol>
 
 {% else %}
 
 <p>There Are no Inbox Messages</p>
 
 {% endif %}
+
+ </tbody>
+
+
+
+
+  </table>
+</div>
+
+ </div>
+        </div>
+</div>
+
+
+
+
+
 
 
 {% endblock %}
