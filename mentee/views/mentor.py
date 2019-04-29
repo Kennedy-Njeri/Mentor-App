@@ -18,6 +18,7 @@ from django.urls import reverse
 
 from django.views.generic import TemplateView
 from ..models import Profile, Msg
+from django.db.models import Count, Q
 
 from django.urls import reverse_lazy
 from ..forms import ReplyForm
@@ -129,6 +130,7 @@ def user_login(request):
 
 
 
+
 """controls messege view"""
 class MessageView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     template_name = 'mentor/messages-module1.html'
@@ -136,6 +138,21 @@ class MessageView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
 
     def test_func(self):
         return self.request.user.is_mentor
+
+
+    def get_context_data(self, **kwargs):
+        context = super(MessageView, self).get_context_data(**kwargs)
+        context['count'] = Msg.objects.filter(receipient=self.request.user).filter(is_approved=False).count()
+        context['count1'] = Msg.objects.filter(receipient=self.request.user).filter(is_approved=True).count()
+        #context['count'] = Msg.objects.annotate(Count(is_approved=True))
+
+        return context
+
+    def get_queryset(self):
+        return self.model.objects.filter(receipient=self.request.user)
+
+
+
 
 
 """Creates new message"""

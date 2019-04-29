@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="335a17c4-c6fc-4830-90e7-92e23d0368f5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/mentee/templates/mentor/approved.html" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/templates/mentor/approved.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mentee/templates/mentor/messages-module1.html" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/templates/mentor/messages-module1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mentee/views/mentor.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/views/mentor.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -126,28 +127,28 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="15" />
-          <entry key="html" value="2929" />
-          <entry key="py" value="8051" />
+          <entry key="html" value="2951" />
+          <entry key="py" value="8319" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="15" />
-          <entry key="HTML" value="2929" />
-          <entry key="Python" value="8051" />
+          <entry key="HTML" value="2951" />
+          <entry key="Python" value="8319" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="6" />
-          <entry key="html" value="304" />
+          <entry key="html" value="305" />
           <entry key="py" value="111" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="6" />
-          <entry key="HTML" value="304" />
+          <entry key="HTML" value="305" />
           <entry key="Python" value="111" />
         </counts>
       </usages-collector>
@@ -170,7 +171,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mentee/views/mentee.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
+            <state relative-caret-position="425">
               <caret line="69" column="42" lean-forward="true" selection-start-line="69" selection-start-column="42" selection-end-line="69" selection-end-column="56" />
               <folding>
                 <element signature="e#0#64#0" expanded="true" />
@@ -184,19 +185,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mentee/views/mentor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="299" column="30" selection-start-line="299" selection-start-column="30" selection-end-line="299" selection-end-column="30" />
+            <state relative-caret-position="54">
+              <caret line="131" lean-forward="true" selection-start-line="131" selection-end-line="131" />
               <folding>
                 <element signature="e#0#65#0" expanded="true" />
-                <marker date="1556535369000" expanded="true" signature="1278:1437" ph="..." />
-                <marker date="1556535369000" expanded="true" signature="1377:1383" ph="..." />
-                <marker date="1556535369000" expanded="true" signature="1437:1439" ph="..." />
-                <marker date="1556535369000" expanded="true" signature="5990:5991" ph="..." />
-                <marker date="1556535369000" expanded="true" signature="6137:6143" ph="..." />
+                <marker date="1556545301000" expanded="true" signature="1316:1475" ph="..." />
+                <marker date="1556545301000" expanded="true" signature="1415:1421" ph="..." />
+                <marker date="1556545301000" expanded="true" signature="1475:1477" ph="..." />
+                <marker date="1556545301000" expanded="true" signature="3812:3821" ph="..." />
+                <marker date="1556545301000" expanded="true" signature="6564:6565" ph="..." />
+                <marker date="1556545301000" expanded="true" signature="6711:6717" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mentee/templates/mentor/messages-module1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="16" column="114" selection-start-line="16" selection-start-column="114" selection-end-line="16" selection-end-column="114" />
             </state>
           </provider>
         </entry>
@@ -210,10 +221,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mentee/templates/mentor/approved.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
+            <state relative-caret-position="-764">
               <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
             </state>
           </provider>
@@ -222,8 +233,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mentee/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="91" column="4" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="16" />
+            <state relative-caret-position="224">
+              <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="13" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
                 <marker date="1553869538000" expanded="true" signature="421:423" ph="..." />
@@ -293,12 +304,12 @@
         <option value="$PROJECT_DIR$/mentee/templates/menti/account.html" />
         <option value="$PROJECT_DIR$/mentorship/urls.py" />
         <option value="$PROJECT_DIR$/mentee/views/mentee.py" />
-        <option value="$PROJECT_DIR$/mentee/templates/mentor/messages-module1.html" />
         <option value="$PROJECT_DIR$/mentee/urls.py" />
-        <option value="$PROJECT_DIR$/mentee/views/mentor.py" />
         <option value="$PROJECT_DIR$/mentee/templates/mentor/profile_detail1.html" />
         <option value="$PROJECT_DIR$/mentee/templates/mentor/inbox1.html" />
         <option value="$PROJECT_DIR$/mentee/templates/mentor/approved.html" />
+        <option value="$PROJECT_DIR$/mentee/templates/mentor/messages-module1.html" />
+        <option value="$PROJECT_DIR$/mentee/views/mentor.py" />
       </list>
     </option>
   </component>
@@ -309,8 +320,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="90" />
-    <option name="y" value="344" />
+    <option name="x" value="-80" />
+    <option name="y" value="73" />
     <option name="width" value="1332" />
     <option name="height" value="817" />
   </component>
@@ -433,14 +444,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="90" y="344" width="1332" height="817" extended-state="0" />
+    <frame x="-80" y="73" width="1332" height="817" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.28449613" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.28449613" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.3337931" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.3337931" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="4" />
@@ -769,34 +780,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mentee/templates/mentor/messages-module1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="17" column="122" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="122" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mentee/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="406">
           <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mentee/views/mentee.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="69" column="42" lean-forward="true" selection-start-line="69" selection-start-column="42" selection-end-line="69" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#64#0" expanded="true" />
-            <marker date="1556484432000" expanded="true" signature="2459:2464" ph="..." />
-            <marker date="1556484432000" expanded="true" signature="4588:4594" ph="..." />
-            <marker date="1556484432000" expanded="true" signature="5088:5391" ph="..." />
-            <marker date="1556484432000" expanded="true" signature="7049:7054" ph="..." />
-            <marker date="1556484432000" expanded="true" signature="7421:7426" ph="..." />
           </folding>
         </state>
       </provider>
@@ -815,25 +804,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mentee/views/mentor.py">
+    <entry file="file://$PROJECT_DIR$/mentee/templates/mentor/approved.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="299" column="30" selection-start-line="299" selection-start-column="30" selection-end-line="299" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#65#0" expanded="true" />
-            <marker date="1556535369000" expanded="true" signature="1278:1437" ph="..." />
-            <marker date="1556535369000" expanded="true" signature="1377:1383" ph="..." />
-            <marker date="1556535369000" expanded="true" signature="1437:1439" ph="..." />
-            <marker date="1556535369000" expanded="true" signature="5990:5991" ph="..." />
-            <marker date="1556535369000" expanded="true" signature="6137:6143" ph="..." />
-          </folding>
+        <state relative-caret-position="-764">
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mentee/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="91" column="4" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="16" />
+        <state relative-caret-position="224">
+          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="13" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
             <marker date="1553869538000" expanded="true" signature="421:423" ph="..." />
@@ -851,10 +832,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mentee/templates/mentor/approved.html">
+    <entry file="file://$PROJECT_DIR$/mentee/templates/mentor/messages-module1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        <state relative-caret-position="211">
+          <caret line="16" column="114" selection-start-line="16" selection-start-column="114" selection-end-line="16" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mentee/views/mentee.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="69" column="42" lean-forward="true" selection-start-line="69" selection-start-column="42" selection-end-line="69" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+            <marker date="1556484432000" expanded="true" signature="2459:2464" ph="..." />
+            <marker date="1556484432000" expanded="true" signature="4588:4594" ph="..." />
+            <marker date="1556484432000" expanded="true" signature="5088:5391" ph="..." />
+            <marker date="1556484432000" expanded="true" signature="7049:7054" ph="..." />
+            <marker date="1556484432000" expanded="true" signature="7421:7426" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mentee/views/mentor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="131" lean-forward="true" selection-start-line="131" selection-end-line="131" />
+          <folding>
+            <element signature="e#0#65#0" expanded="true" />
+            <marker date="1556545301000" expanded="true" signature="1316:1475" ph="..." />
+            <marker date="1556545301000" expanded="true" signature="1415:1421" ph="..." />
+            <marker date="1556545301000" expanded="true" signature="1475:1477" ph="..." />
+            <marker date="1556545301000" expanded="true" signature="3812:3821" ph="..." />
+            <marker date="1556545301000" expanded="true" signature="6564:6565" ph="..." />
+            <marker date="1556545301000" expanded="true" signature="6711:6717" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
