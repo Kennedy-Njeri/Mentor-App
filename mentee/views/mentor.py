@@ -200,16 +200,17 @@ class SentMessageDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class InboxView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
+    def test_func(self):
+        return self.request.user.is_mentor
+
     model = Msg
     context_object_name = 'inbox'
     template_name = 'mentor/inbox1.html'
 
-    def test_func(self):
-        return self.request.user.is_mentor
 
 
     def get_queryset(self):
-        return self.model.objects.filter(receipient=self.request.user)
+        return self.model.objects.filter(receipient=self.request.user).filter(is_approved=False)
 
 
 """Inbox Detailed view"""
@@ -259,3 +260,33 @@ def reply_message(request, pk):
             }
 
     return render(request, 'mentor/comment.html', context)
+
+
+"""view list of approved messeges from mentors"""
+class Approved(LoginRequiredMixin, UserPassesTestMixin, ListView):
+
+    def test_func(self):
+        return self.request.user.is_mentor
+
+    #def get(self, request):
+
+        #messo = Msg.objects.filter(is_approved=True).order_by('-date_approved')
+
+        #context = {
+
+           # 'messo': messo,
+
+        #}
+
+        #return render(request, "menti/approved.html", context)
+
+    model = Msg.objects.filter(is_approved=True).order_by('-date_approved')
+
+    template_name = 'mentor/approved.html'
+
+    context_object_name = 'messo'
+
+
+    def get_queryset(self):
+
+        return self.model.filter(receipient=self.request.user)

@@ -56,6 +56,7 @@ urlpatterns = [
     #path('comment/<int:pk>', mentor.reply_message, name='comment'),
     url(r'^comment/(?P<pk>[-\w]+)/$', mentor.reply_message, name='comment'),
     path('sent-detail/<int:pk>', mentor.SentDetailView.as_view(), name="sent1"),
+    path('approved1/', mentor.Approved.as_view(), name='approved1'),
 
 
 ]
