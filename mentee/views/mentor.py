@@ -145,9 +145,13 @@ class MessageView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         context = super(MessageView, self).get_context_data(**kwargs)
         context['count'] = Msg.objects.filter(receipient=self.request.user).filter(is_approved=False).count()
         context['count1'] = Msg.objects.filter(receipient=self.request.user).filter(is_approved=True).count()
-        #context['count'] = Msg.objects.annotate(Count(is_approved=True))
+
 
         return context
+
+
+
+
 
     def get_queryset(self):
         return self.model.objects.filter(receipient=self.request.user)
@@ -329,9 +333,12 @@ class ConversationCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView
     fields = ('conversation', )
     model = Conversation
     template_name = 'mentor/chat.html'
+    context_object_name = 'conversation'
 
     def test_func(self):
         return self.request.user.is_mentor
+
+
 
     def form_valid(self, form):
         form.instance.sender = self.request.user
@@ -340,4 +347,45 @@ class ConversationCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView
 
     def get_success_url(self):
         return reverse('list1')
+
+
+"""List all chat conversation by a user"""
+class ConversationListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
+
+    model = Conversation
+    template_name = 'mentor/list-converations.html'
+    context_object_name = 'conversation'
+
+    def test_func(self):
+        return self.request.user.is_mentor
+
+
+    def get_queryset(self):
+        return self.model.objects.filter(sender=self.request.user)
+
+
+
+"""List all chat conversation by a user"""
+class ConverationListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
+
+    model = Conversation
+    template_name = 'mentor/conversation.html'
+    context_object_name = 'conversation'
+
+    def test_func(self):
+        return self.request.user.is_mentor
+
+
+
+    def get_queryset(self):
+        return self.model.objects.filter(sender=self.request.user)
+
+
+
+
+
+
+
+
+
 

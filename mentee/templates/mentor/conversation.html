@@ -1,3 +1,4 @@
+
 {% extends 'mentor/base1.html' %}
 
 {% load crispy_forms_tags %}
@@ -5,6 +6,8 @@
 {% load humanize %}
 
 {% block content %}
+
+
 <br><br><br>
 <div class="row">
         <div class="col-md-8">
@@ -15,14 +18,35 @@
   <ol>
      {% for conv in conversation %}
 
+
+      {% if conv.sender %}
+
 <div class="container1">
-  <img src="{{ conv.user.profile.image.url }}" alt="Avatar">
+  <img src="{{ user.profile.image.url }}" alt="Avatar">
   <p>{{ conv.conversation }}</p>
   <span class="time-right">{{ conv.sent_at|naturaltime }}</span>
 
 </div>
+       {% endif %}
 
-     {% endfor %}
+
+       {% if conv.receipient %}
+
+        <div class="container1 darker">
+  <img src="{{ user.profile.image.url }}" alt="Avatar" class="right">
+  <p>{{ conv.reply }}</p>
+  <span class="time-left">{{ conv.replied_at|naturaltime }}</span>
+</div>
+
+      {% endif %}
+
+
+ {% endfor %}
+
+
+
+
+
 
   </ol>
 
@@ -34,36 +58,6 @@
      {% endif %}
 
  </div>
-        </div>
-</div>
-
-
-
-
-
-
-<div class="row">
-        <div class="col-md-8">
- <div class="content-section">
-
-
-
-
-
-
-	<h1>Start Your Chart</h1>
-	<form method="post">
-		{% csrf_token %}
-
-		{{ form|crispy }}
-
-
-        <button type="submit" class="btn btn-info btn-sm">Send Message</button>
-	</form>
-
-
-
-	 </div>
         </div>
 </div>
 
@@ -120,7 +114,6 @@
 }
 
 </style>
-
 
 
 

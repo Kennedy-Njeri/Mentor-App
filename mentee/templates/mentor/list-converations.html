@@ -1,0 +1,84 @@
+{% extends 'mentor/base1.html' %}
+
+{% load humanize %}
+
+{% block content %}
+
+<br><br><br>
+
+ <h1>Here are your Chat Converations</h1><br>
+
+
+
+
+
+
+  <div class="row">
+        <div class="col-md-12">
+ <div class="content-section">
+
+ <h2>Your Conversations</h2>
+<div class="table-responsive">
+<table class="table mb-0">
+    <thead>
+      <tr>
+          <th>No</th>
+          <th>To</th>
+          <th>Conversation</th>
+          <th>Time</th>
+          <th>View Chat</th>
+
+
+
+
+      </tr>
+    </thead>
+    <tbody>
+
+    {% if conversation %}
+  <ol>
+
+ {% for conv in conversation %}
+    <tr>
+         <td>{{ conv.id }}</td>
+        <td>{{ conv.receipient }}</td>
+          <td>{{ conv.conversation }}</td>
+        <td>{{ conv.sent_at|naturaltime }}</td>
+        <td> <a class="btn btn-primary btn-sm" href="{% url 'conv-messo1' pk=conv.pk %}">View Chat</a></td>
+
+
+    </tr>
+
+
+{% endfor %}
+
+
+       </ol>
+
+{% else %}
+
+<p>There Are no Chats Available</p>
+
+{% endif %}
+
+ </tbody>
+
+
+
+
+  </table>
+</div>
+
+ </div>
+        </div>
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}
