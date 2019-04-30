@@ -48,7 +48,7 @@
 
    <td> <button type="button" class="btn btn-success btn-sm">{{ approved.is_approved }}</button></td>
 
-        <td> <a class="btn btn-primary btn-sm" href="{% url 'start-chat1' pk=approved.pk %}">Start Chat</a></td>
+        <td> <a class="btn btn-primary btn-sm" href="{% url 'start-chat1' pk=approved.sender.pk %}">Start Chat</a></td>
 
 
 
