@@ -9,57 +9,36 @@
 
 
 <br><br><br>
+
+
 <div class="row">
         <div class="col-md-8">
  <div class="content-section">
 
-     {% if conversation %}
-
-  <ol>
-     {% for conv in conversation %}
-
-
-      {% if conv.sender %}
-
-<div class="container1">
-  <img src="{{ user.profile.image.url }}" alt="Avatar">
-  <p>{{ conv.conversation }}</p>
-  <span class="time-right">{{ conv.sent_at|naturaltime }}</span>
-
-</div>
-       {% endif %}
-
-
-       {% if conv.receipient %}
-
-        <div class="container1 darker">
-  <img src="{{ user.profile.image.url }}" alt="Avatar" class="right">
-  <p>{{ conv.reply }}</p>
-  <span class="time-left">{{ conv.replied_at|naturaltime }}</span>
-</div>
-
-      {% endif %}
-
-
- {% endfor %}
 
 
 
 
 
+	<h1>Reply The message</h1>
 
-  </ol>
+	<form method="post">
+
+		{% csrf_token %}
+
+		{{ form|crispy }}
 
 
-     {% else %}
+        <button type="submit" class="btn btn-info btn-sm">Send</button>
+	</form>
 
-     <p>There are no conversations</p>
 
-     {% endif %}
 
- </div>
+	 </div>
         </div>
 </div>
+
+
 
 
 <style>

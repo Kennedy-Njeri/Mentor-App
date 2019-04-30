@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Subject, Mentee, Mentor , User, Profile, Msg, Conversation
+from .models import Subject, Mentee, Mentor , User, Profile, Msg, Conversation, Reply
 # Register your models here.
 
 
@@ -55,7 +55,7 @@ class UserAdmin(admin.ModelAdmin):
 
 
 
-
+admin.site.register(Reply)
 
 admin.site.register(Subject)
 

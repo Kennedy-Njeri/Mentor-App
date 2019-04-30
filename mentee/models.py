@@ -79,6 +79,29 @@ class Profile(models.Model):
     def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
 
+"""Reply Model"""
+
+
+class Reply(models.Model):
+    sender = models.ForeignKey(User, related_name="sender2", on_delete=models.CASCADE, null=True)
+    reply = models.TextField(blank=True, null=True)
+    replied_at = models.DateTimeField(blank=True, null=True)
+    conversation = models.ForeignKey('Conversation', related_name='replies', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "From {}, in {}".format(self.sender.username, self.conversation)
+
+
+    def save(self, *args, **kwargs):
+
+        if (self.reply and self.replied_at is None):
+
+            self.replied_at = now()
+
+        super(Reply, self).save(*args, **kwargs)
+
+
+
 """Conversation Model"""
 
 class Conversation(models.Model):
@@ -87,8 +110,8 @@ class Conversation(models.Model):
     receipient = models.ForeignKey(User, related_name="receipient1", on_delete=models.CASCADE)
     conversation = models.TextField(max_length=100)
     sent_at = models.DateTimeField(null=True, blank=True)
-    reply = models.TextField(blank=True, null=True)
-    replied_at = models.DateTimeField(blank=True, null=True)
+    #reply = models.TextField(blank=True, null=True)
+    #replied_at = models.DateTimeField(blank=True, null=True)
 
     def __str__(self):
         return "From {}, to {}".format(self.sender.username, self.receipient.username)
@@ -97,8 +120,8 @@ class Conversation(models.Model):
         if not self.id:
             self.sent_at = timezone.now()
 
-        if (self.reply and self.replied_at is None):
-            self.replied_at = now()
+        #if (self.reply and self.replied_at is None):
+            #self.replied_at = now()
 
         super(Conversation, self).save(*args, **kwargs)
 

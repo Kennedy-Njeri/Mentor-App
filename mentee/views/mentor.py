@@ -17,7 +17,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 
 from django.views.generic import TemplateView
-from ..models import Profile, Msg, Conversation
+from ..models import Profile, Msg, Conversation, Reply
 from django.db.models import Count, Q
 
 from django.urls import reverse_lazy
@@ -207,6 +207,8 @@ class SentDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     def get_queryset(self):
         return self.model.objects.filter(sender=self.request.user)
 
+
+
 """Deletes sent messages"""
 class SentMessageDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Msg
@@ -366,22 +368,51 @@ class ConversationListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
 
 """List all chat conversation by a user"""
-class ConverationListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
+#class ConverationListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
-    model = Conversation
+    #fields = ('reply',)
+    #model = Conversation
+    #template_name = 'mentor/conversation.html'
+    #context_object_name = 'conversation'
+
+    #def test_func(self):
+        #return self.request.user.is_mentor
+
+    #def form_valid(self, form):
+        #form.instance.sender = self.request.user
+        #form.instance.receipient = User.objects.get(pk=self.kwargs['pk'])
+        #return super().form_valid(form)
+
+    #def get_success_url(self):
+        #return reverse('conv1')
+
+
+    #def get_queryset(self):
+        #return self.model.objects.filter(sender=self.request.user)
+
+
+"""Replies by a user"""
+class ReplyCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+
+    fields = ('reply', )
+    model = Reply
     template_name = 'mentor/conversation.html'
-    context_object_name = 'conversation'
+
 
     def test_func(self):
         return self.request.user.is_mentor
 
+    def form_valid(self, form):
+        form.instance.sender = self.request.user
+        form.instance.conversation = Conversation.objects.get(pk=self.kwargs['pk'])
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('conv1')
 
 
     def get_queryset(self):
         return self.model.objects.filter(sender=self.request.user)
-
-
-
 
 
 
