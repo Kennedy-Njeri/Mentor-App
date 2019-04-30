@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="335a17c4-c6fc-4830-90e7-92e23d0368f5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/templates/mentor/conversation.html" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/templates/mentor/conversation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/templates/mentor/list-converations.html" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/templates/mentor/list-converations.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/templates/mentor/messages-module1.html" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/templates/mentor/messages-module1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/views/mentor.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/views/mentor.py" afterDir="false" />
-    </list>
+    <list default="true" id="335a17c4-c6fc-4830-90e7-92e23d0368f5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +156,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mentee/views/mentor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
+            <state relative-caret-position="108">
               <caret line="406" column="8" lean-forward="true" selection-start-line="406" selection-start-column="8" selection-end-line="406" selection-end-column="8" />
               <folding>
                 <element signature="e#0#65#0" expanded="true" />
@@ -343,8 +333,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="81" />
-    <option name="y" value="34" />
+    <option name="x" value="128" />
+    <option name="y" value="160" />
     <option name="width" value="1474" />
     <option name="height" value="817" />
   </component>
@@ -480,7 +470,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="81" y="34" width="1474" height="817" extended-state="0" />
+    <frame x="396" y="242" width="1474" height="817" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -892,7 +882,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mentee/views/mentor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
+        <state relative-caret-position="108">
           <caret line="406" column="8" lean-forward="true" selection-start-line="406" selection-start-column="8" selection-end-line="406" selection-end-column="8" />
           <folding>
             <element signature="e#0#65#0" expanded="true" />
