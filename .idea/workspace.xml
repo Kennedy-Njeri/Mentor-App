@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="335a17c4-c6fc-4830-90e7-92e23d0368f5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/mentee/views/mentor.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/views/mentor.py" afterDir="false" />
-    </list>
+    <list default="true" id="335a17c4-c6fc-4830-90e7-92e23d0368f5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +140,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="6" />
-          <entry key="html" value="328" />
+          <entry key="html" value="329" />
           <entry key="md" value="1" />
           <entry key="py" value="118" />
         </counts>
@@ -150,7 +148,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="6" />
-          <entry key="HTML" value="328" />
+          <entry key="HTML" value="329" />
           <entry key="Markdown" value="1" />
           <entry key="Python" value="118" />
         </counts>
@@ -159,7 +157,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mentee/views/mentor.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-3569">
@@ -175,6 +173,15 @@
                 <marker date="1556704639000" expanded="true" signature="10354:10363" ph="..." />
                 <marker date="1556704639000" expanded="true" signature="10416:10425" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mentee/templates/mentor/profile1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-105">
+              <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -339,8 +346,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="128" />
-    <option name="y" value="160" />
+    <option name="x" value="398" />
+    <option name="y" value="50" />
     <option name="width" value="1474" />
     <option name="height" value="817" />
   </component>
@@ -457,7 +464,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="128" y="160" width="1474" height="817" extended-state="0" />
+    <frame x="128" y="248" width="1474" height="817" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -739,13 +746,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mentee/templates/mentor/profile1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mentee/templates/mentor/profile_view1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -885,6 +885,13 @@
             <marker date="1556704639000" expanded="true" signature="10354:10363" ph="..." />
             <marker date="1556704639000" expanded="true" signature="10416:10425" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mentee/templates/mentor/profile1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-105">
+          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
         </state>
       </provider>
     </entry>
