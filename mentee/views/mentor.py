@@ -145,17 +145,11 @@ class MessageView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         context = super(MessageView, self).get_context_data(**kwargs)
         context['count'] = Msg.objects.filter(receipient=self.request.user).filter(is_approved=False).count()
         context['count1'] = Msg.objects.filter(receipient=self.request.user).filter(is_approved=True).count()
-
-
         return context
-
-
-
 
 
     def get_queryset(self):
         return self.model.objects.filter(receipient=self.request.user)
-
 
 
 
