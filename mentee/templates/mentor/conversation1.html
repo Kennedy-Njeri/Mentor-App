@@ -1,7 +1,4 @@
-
 {% extends 'mentor/base1.html' %}
-
-{% load crispy_forms_tags %}
 
 {% load humanize %}
 
@@ -14,23 +11,14 @@
         <div class="col-md-8">
  <div class="content-section">
 
-	 <p>List of Conversations</p>
 
-
+     <p>{{ conv.conversation }}</p>
 
 
 
  </div>
-		</div>
+        </div>
 </div>
-
-
-
-
-
-
-
-
 
 
 <div class="row">
@@ -39,26 +27,44 @@
 
 
 
+     {% for reply in conv.get_replies %}
+
+{% if reply.user == sender %}
+
+        <div class="container1">
+  <img src="{{ reply.sender.profile.image.url }}" alt="Avatar">
+
+  <p>{{ reply.reply }}</p>
+            <p>{{ reply.sender }}</p>
+  <span class="time-right">{{ reply.replied_at|naturaltime }}</span>
+
+</div>
+
+      {% endif %}
 
 
 
-	<h1>Reply The message</h1>
 
-	<form method="post">
+{% if reply.user == receipient %}
 
-		{% csrf_token %}
-
-		{{ form|crispy }}
-
-
-        <button type="submit" class="btn btn-info btn-sm">Send</button>
-	</form>
-
+     <div class="container1 darker">
+  <img src="{{ reply.sender.profile.image.url}}" alt="Avatar" class="right">
+  <p>{{ reply.reply }}</p>
+         <p>{{ reply.sender }}</p>
+  <span class="time-left">{{ reply.replied_at|naturaltime }}</span>
+</div>
+{% endif %}
 
 
-	 </div>
+     {% endfor %}
+
+
+
+ </div>
         </div>
 </div>
+
+
 
 
 
@@ -115,6 +121,9 @@
 }
 
 </style>
+
+
+
 
 
 

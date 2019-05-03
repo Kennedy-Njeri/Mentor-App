@@ -113,6 +113,11 @@ class Conversation(models.Model):
     #reply = models.TextField(blank=True, null=True)
     #replied_at = models.DateTimeField(blank=True, null=True)
 
+    @property
+    def get_replies(self):
+        return self.replies.all()
+
+
     def __str__(self):
         return "From {}, to {}".format(self.sender.username, self.receipient.username)
 
@@ -138,6 +143,8 @@ class Msg(models.Model):
     comment_at = models.DateTimeField(blank=True, null=True)
     is_approved = models.BooleanField(default=False, verbose_name="Approve?")
     date_approved = models.DateTimeField(blank=True, null=True)
+
+
 
 
 

@@ -409,7 +409,22 @@ class ReplyCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
         return self.model.objects.filter(sender=self.request.user)
 
 
+"""List Conversations"""
+class ConversationDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 
+
+    model = Conversation
+    template_name = 'mentor/conversation1.html'
+    context_object_name = 'conv'
+
+
+    def test_func(self):
+        return self.request.user.is_mentor
+
+
+
+    def get_queryset(self):
+        return self.model.objects.filter(sender=self.request.user)
 
 
 

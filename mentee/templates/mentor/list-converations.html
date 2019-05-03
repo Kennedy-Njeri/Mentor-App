@@ -6,7 +6,7 @@
 
 <br><br><br>
 
- <h1>Here are your Chat Converations</h1><br>
+
 
 
 
@@ -45,6 +45,7 @@
           <td>{{ conv.conversation }}</td>
         <td>{{ conv.sent_at|naturaltime }}</td>
         <td> <a class="btn btn-primary btn-sm" href="{% url 'reply1' pk=conv.pk %}">Reply Chat</a></td>
+        <td> <a class="btn btn-primary btn-sm" href="{% url 'conv-reply' pk=conv.pk %}">View Chat</a></td>
 
 
     </tr>
