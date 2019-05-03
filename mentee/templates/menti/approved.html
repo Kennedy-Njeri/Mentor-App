@@ -5,36 +5,64 @@
 
 {% block content %}
 
-<br><br><br>
-
- <h1>Here Are Your Approved Messages</h1>
+<h1>Here are Your Approved Requests</h1><br>
 
 
-<main role="main" class="container">
-      <div class="row">
-        <div class="col-md-8">
 
-        </div>
+
+
+
+  <div class="row">
         <div class="col-md-12">
-          <div class="content-section">
+ <div class="content-section">
 
-              <ul class="list-group">
-                  <div class="content-section">
-      <div class="media">
+ <h2></h2>
+<div class="table-responsive">
+<table class="table mb-0">
+    <thead>
+      <tr>
+          <th>No</th>
+          <th>From</th>
+          <th>Comment</th>
+          <th>Approved At</th>
+           <th>Status</th>
 
 
-     {% if messo %}
+
+
+      </tr>
+    </thead>
+    <tbody>
+
+    {% if messo %}
   <ol>
-      {% for approved in messo %}
 
-      <h2><li><a href="">From {{ approved.receipient }} </a> Comment: {{ approved.comment }} Approved At: {{ approved.date_approved|naturaltime }}</li></h2>
+ {% for approved in messo %}
+    <tr>
+         <td>{{ approved.id }}</td>
+        <td>{{ approved.receipient }}</td>
+          <td>{{ approved.comment }}</td>
+        <td>{{ approved.date_approved|naturaltime }}</td>
+
+
+        {% if approved.is_approved == True %}
+
+   <td> <button type="button" class="btn btn-success btn-sm">Approved</button></td>
+
+        {% endif %}
 
 
 
-      {% endfor %}
 
 
-  </ol>
+
+    </tr>
+
+
+{% endfor %}
+
+
+       </ol>
 
 {% else %}
 
@@ -42,18 +70,17 @@
 
 {% endif %}
 
-      </div>
-
-   </div>
+ </tbody>
 
 
-              </ul>
-            </p>
-          </div>
+
+
+  </table>
+</div>
+
+ </div>
         </div>
-      </div>
-    </main>
-
+</div>
 
 
 
