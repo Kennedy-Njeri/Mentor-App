@@ -62,7 +62,9 @@ urlpatterns = [
     path('conversation1/', mentor.ConversationListView.as_view(), name='conv1'),
     #path('conversation-messo1/<int:pk>', mentor.ConverationListView.as_view(), name='conv-messo1'),
     path('reply1/<int:pk>', mentor.ReplyCreateView.as_view(), name='reply1'),
-    path('conv1/<int:pk>', mentor.ConversationDetailView.as_view(), name='conv-reply'),
+    path('conv/<int:pk>', mentor.ConversationDetailView.as_view(), name='conv-reply'),
+    path('chat-delete/<int:pk>', mentor.ConversationDeleteView.as_view(), name='chat-delete'),
+
 
 
 

@@ -14,7 +14,7 @@
  <div class="content-section">
 
 
-     <p><b>Conversation: </b>{{ conv.conversation }} </p>
+     <p><b>Conversation: </b>{{ conv.conversation }} <b> To: {{ conv.receipient }}</b></p>
 
 
 
@@ -37,9 +37,11 @@
   <img src="{{ reply.sender.profile.image.url }}" alt="Avatar">
 
 
-  <p>{{ reply.reply }}</p>
-            <p>{{ reply.sender }}</p>
-  <span class="time-right">{{ reply.replied_at|naturaltime }}</span>
+  <p><b>Message:</b> {{ reply.reply }}</p>
+            <p> <b>From:</b> {{ reply.sender }}</p>
+            <span class="time-right">{{ reply.replied_at|naturaltime }}</span> </br>
+
+            <span class="time-right"><a class="btn btn-danger btn-sm" href="{% url 'chat-delete' pk=reply.pk %}">Delete Message</a></span>
 
 </div>
 

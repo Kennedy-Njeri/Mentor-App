@@ -428,3 +428,11 @@ class ConversationDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView
 
 
 
+"""delete view Chat"""
+class ConversationDeleteView(DeleteView):
+
+    model = Reply
+    template_name = 'mentor/chat-confirm-delete.html'
+
+    success_url = reverse_lazy('conv1')
+
