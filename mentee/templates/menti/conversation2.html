@@ -1,5 +1,4 @@
-{% extends 'mentor/base1.html' %}
-
+{% extends 'menti/base.html' %}
 
 
 {% load humanize %}
@@ -14,7 +13,7 @@
  <div class="content-section">
 
 
-     <p><b>Conversation: </b>{{ conv.conversation }} <b> To: {{ conv.receipient }}</b></p>
+     <p><b>Conversation: </b>{{ conv.conversation }} <b> From: {{ conv.sender }}</b></p>
 
 
 

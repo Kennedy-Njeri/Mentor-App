@@ -32,6 +32,8 @@ urlpatterns = [
     path('profile/<int:pk>', mentee.ProfileDetailView.as_view(), name="profile-detail"),
     path('conversation/', mentee.ConversationListView.as_view(), name='conv'),
     path('conv1/<int:pk>', mentee.ConversationDetailView.as_view(), name='conv1-reply'),
+    path('conv2/<int:pk>', mentee.con, name='conv2-reply'),
+
 
 
 

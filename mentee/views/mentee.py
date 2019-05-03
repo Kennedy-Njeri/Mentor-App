@@ -401,3 +401,37 @@ class ConversationDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView
 
     def get_queryset(self):
         return self.model.objects.filter(receipient=self.request.user)
+
+
+"""List Conversation"""
+class ConversationList1View(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
+
+
+    model = Conversation
+    template_name = 'menti/conversation2.html'
+    context_object_name = 'conversation'
+
+
+    def test_func(self):
+        return self.request.user.is_mentee
+
+
+
+    def get_queryset(self):
+        return self.model.objects.filter(receipient=self.request.user)
+
+
+def con(request, pk):
+
+    conv = get_object_or_404(Conversation, pk=pk)
+
+
+
+
+    context = {
+
+        'conv': conv,
+
+    }
+
+    return render(request, 'menti/conversation2.html', context)

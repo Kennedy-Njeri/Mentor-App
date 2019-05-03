@@ -402,7 +402,8 @@ class ReplyCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('conv1')
+        conversation = self.object.conversation
+        return reverse_lazy('conv-reply', kwargs={'pk': self.object.conversation_id})
 
 
     def get_queryset(self):
@@ -434,5 +435,9 @@ class ConversationDeleteView(DeleteView):
     model = Reply
     template_name = 'mentor/chat-confirm-delete.html'
 
-    success_url = reverse_lazy('conv1')
+    #success_url = reverse_lazy('conv1')
+
+    def get_success_url(self):
+        conversation = self.object.conversation
+        return reverse_lazy('conv-reply', kwargs={'pk': self.object.conversation_id})
 
