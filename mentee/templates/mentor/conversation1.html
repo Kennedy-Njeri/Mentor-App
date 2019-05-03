@@ -1,5 +1,7 @@
 {% extends 'mentor/base1.html' %}
 
+
+
 {% load humanize %}
 
 {% block content %}
@@ -12,7 +14,7 @@
  <div class="content-section">
 
 
-     <p>{{ conv.conversation }}</p>
+     <p><b>Conversation: </b>{{ conv.conversation }} </p>
 
 
 
@@ -29,31 +31,17 @@
 
      {% for reply in conv.get_replies %}
 
-{% if reply.user == sender %}
 
         <div class="container1">
+
   <img src="{{ reply.sender.profile.image.url }}" alt="Avatar">
+
 
   <p>{{ reply.reply }}</p>
             <p>{{ reply.sender }}</p>
   <span class="time-right">{{ reply.replied_at|naturaltime }}</span>
 
 </div>
-
-      {% endif %}
-
-
-
-
-{% if reply.user == receipient %}
-
-     <div class="container1 darker">
-  <img src="{{ reply.sender.profile.image.url}}" alt="Avatar" class="right">
-  <p>{{ reply.reply }}</p>
-         <p>{{ reply.sender }}</p>
-  <span class="time-left">{{ reply.replied_at|naturaltime }}</span>
-</div>
-{% endif %}
 
 
      {% endfor %}
@@ -64,6 +52,23 @@
         </div>
 </div>
 
+
+
+
+<div class="row">
+        <div class="col-md-8">
+ <div class="content-section">
+
+
+
+
+	 <p><a class="btn btn-primary btn-sm" href="{% url 'reply1' pk=conv.pk %}">Reply Chat</a></p>
+
+
+
+	 </div>
+        </div>
+</div>
 
 
 

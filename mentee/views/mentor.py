@@ -428,4 +428,3 @@ class ConversationDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView
 
 
 
-
