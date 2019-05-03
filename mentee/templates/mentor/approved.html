@@ -46,7 +46,12 @@
           <td>{{ approved.comment }}</td>
         <td>{{ approved.date_approved|naturaltime }}</td>
 
-   <td> <button type="button" class="btn btn-success btn-sm">{{ approved.is_approved }}</button></td>
+
+        {% if approved.is_approved == True %}
+
+   <td> <button type="button" class="btn btn-success btn-sm">Approved</button></td>
+
+        {% endif %}
 
         <td> <a class="btn btn-primary btn-sm" href="{% url 'start-chat1' pk=approved.sender.pk %}">Start Chat</a></td>
 
