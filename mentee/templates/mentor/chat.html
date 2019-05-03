@@ -5,39 +5,6 @@
 {% load humanize %}
 
 {% block content %}
-<br><br><br>
-<div class="row">
-        <div class="col-md-8">
- <div class="content-section">
-
-     {% if conversation %}
-
-  <ol>
-     {% for conv in conversation %}
-
-<div class="container1">
-  <img src="{{ conv.user.profile.image.url }}" alt="Avatar">
-  <p>{{ conv.conversation }}</p>
-  <span class="time-right">{{ conv.sent_at|naturaltime }}</span>
-
-</div>
-
-     {% endfor %}
-
-  </ol>
-
-
-     {% else %}
-
-     <p>There are no conversations</p>
-
-     {% endif %}
-
- </div>
-        </div>
-</div>
-
-
 
 
 

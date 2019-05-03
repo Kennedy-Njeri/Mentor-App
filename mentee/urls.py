@@ -30,6 +30,8 @@ urlpatterns = [
     path('approved/', mentee.Approved.as_view(), name='approved'),
     url(r'^send/(?P<pk>[-\w]+)/$', mentee.CreateMessageView.as_view(), name='send'),
     path('profile/<int:pk>', mentee.ProfileDetailView.as_view(), name="profile-detail"),
+    path('conversation/', mentee.ConversationListView.as_view(), name='conv'),
+    path('conv1/<int:pk>', mentee.ConversationDetailView.as_view(), name='conv1-reply'),
 
 
 

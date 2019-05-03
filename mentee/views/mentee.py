@@ -6,7 +6,7 @@ from django.contrib import messages
 
 from ..forms import MenteeRegisterForm,UserUpdateForm, ProfileUpdateForm
 from django.views.generic import TemplateView
-from ..models import Profile, Msg
+from ..models import Profile, Msg, Conversation, Reply
 from django.contrib.auth import get_user_model
 User = get_user_model()
 from django.http import HttpResponseRedirect
@@ -367,3 +367,37 @@ class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     def test_func(self):
         return self.request.user.is_mentee
 
+
+
+"""List all chat conversation by a user"""
+class ConversationListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
+
+    model = Conversation
+    template_name = 'menti/list-converations.html'
+    context_object_name = 'conversation'
+
+    def test_func(self):
+        return self.request.user.is_mentee
+
+
+    def get_queryset(self):
+        return self.model.objects.filter(receipient=self.request.user)
+
+
+
+"""List Conversations"""
+class ConversationDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+
+
+    model = Conversation
+    template_name = 'menti/conversation1.html'
+    context_object_name = 'conv'
+
+
+    def test_func(self):
+        return self.request.user.is_mentee
+
+
+
+    def get_queryset(self):
+        return self.model.objects.filter(receipient=self.request.user)
