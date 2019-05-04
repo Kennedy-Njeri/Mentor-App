@@ -36,6 +36,9 @@ urlpatterns = [
     path('conv2/<int:pk>', mentee.con, name='conv2-reply'),
     path('reply/<int:pk>', mentee.ReplyCreateView.as_view(), name='reply'),
     path('chat-delete1/<int:pk>', mentee.ConversationDeleteView.as_view(), name='chat-delete1'),
+    path('search-results/', mentee.search, name="search-user"),
+    path('create-indv-msg/<int:pk>', mentee.CreateIndividualMessageView.as_view(), name="create-individual"),
+    path('profile2/<int:pk>', mentee.Profile2DetailView.as_view(), name="profile-detail2"),
 
 
 

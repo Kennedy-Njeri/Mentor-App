@@ -17,7 +17,7 @@
             <h2 class="account-heading">{{ user.username }}</h2>
             <p class="text-secondary">{{ user.email }}</p>
               <p class="text-secondary">{{ user.profile.education }}</p>
-              <a class="btn btn-primary btn-sm" href="{% url 'send' pk=user.pk %}">Send Request</a>
+              <a class="btn btn-primary btn-sm" href="{% url 'create-individual' pk=user.pk %}">Start Conversation</a>
 
 
 
@@ -25,9 +25,6 @@
       </div>
 
    </div>
-
-
-
 
 
 

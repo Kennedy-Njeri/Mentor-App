@@ -1,27 +1,109 @@
 {% extends 'menti/base.html' %}
 
+{% load humanize %}
+
 {% block content %}
 
 
 
-<h1>Here Are Your Sent Messages</h1>
 
-     {% if sentmesso %}
+
+
+
+
+  <div class="row">
+        <div class="col-md-12">
+ <div class="content-section">
+
+ <h2>Your Conversations</h2>
+<div class="table-responsive">
+<table class="table mb-0">
+    <thead>
+      <tr>
+          <th>No</th>
+          <th>To</th>
+          <th>Conversation</th>
+          <th>Created At</th>
+          <th>View Chat</th>
+           <th>Delete Chat</th>
+
+
+
+
+
+      </tr>
+    </thead>
+    <tbody>
+
+    {% if conversation1 %}
   <ol>
-      {% for messo in sentmesso %}
 
-      <h2><li><a href="{% url 'sent' pk=messo.pk %}">To {{ messo.receipient }} </a></li></h2>
+ {% for conv in conversation1 %}
+    <tr>
+         <td>{{ conv.id }}</td>
+        <td>{{ conv.receipient }}</td>
+          <td>{{ conv.conversation }}</td>
+        <td>{{ conv.sent_at|naturaltime }}</td>
+         <td> <a class="btn btn-primary btn-sm" href="{% url 'conv-reply' pk=conv.pk %}">View Chat</a></td>
+          <td> <a class="btn btn-danger btn-sm" href="{% url 'conversation-delete' pk=conv.pk %}">Delete Conv</a></td>
 
-      {% endfor %}
+    </tr>
 
 
-  </ol>
+{% endfor %}
+
+
+       </ol>
 
 {% else %}
 
-<p>There Are no sent Messages</p>
+<p>There Are no Chats Available</p>
 
 {% endif %}
+
+ </tbody>
+
+
+
+  </table>
+</div>
+
+ </div>
+        </div>
+</div>
+
+
+
+
+
+{% if is_paginated %}
+
+
+
+        {% if page_obj.has_previous %}
+            <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+             <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+
+            {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+          <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+          <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+      {% endfor %}
+
+
+        {% if page_obj.has_next %}
+        <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+        <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+      {% endif %}
+
+
+
+
+        {% endif %}
 
 
 

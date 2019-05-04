@@ -27,6 +27,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.mixins import UserPassesTestMixin
 
 from ..forms import SendForm
+from django.db.models import Count, Q
 
 
 
@@ -205,9 +206,10 @@ class MessageCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 
 class MessageListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
-    model = Msg
+    model = Conversation
     template_name = 'menti/listmessages.html'
-    context_object_name = 'sentmesso'
+    context_object_name = 'conversation1'
+    paginate_by = 2
 
 
     def test_func(self):
@@ -336,11 +338,12 @@ class Approved(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
     context_object_name = 'messo'
 
+    paginate_by = 5
+
 
     def get_queryset(self):
 
         return self.model.filter(sender=self.request.user)
-
 
 
 
@@ -386,6 +389,7 @@ class ConversationListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     model = Conversation
     template_name = 'menti/list-converations.html'
     context_object_name = 'conversation'
+    paginate_by = 5
 
     def test_func(self):
         return self.request.user.is_mentee
@@ -485,3 +489,65 @@ class ConversationDeleteView(DeleteView):
     def get_success_url(self):
         conversation = self.object.conversation
         return reverse_lazy('conv1-reply', kwargs={'pk': self.object.conversation_id})
+
+
+"""Search For Users"""
+def search(request):
+
+    if not request.user.is_mentee:
+        return redirect('home')
+
+    queryset = User.objects.all()
+
+    query = request.GET.get('q')
+
+    if query:
+
+        queryset = queryset.filter(
+
+            Q(username__icontains=query) |
+            Q(first_name__icontains=query)
+
+        ).distinct()
+
+    context = {
+
+        'queryset': queryset
+    }
+
+    return render(request, 'menti/search_results.html', context)
+
+
+"""create new message for a specific user from search query"""
+class CreateIndividualMessageView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin,  CreateView):
+
+    fields = ('conversation',)
+    model = Conversation
+    template_name = 'menti/messagecreate2.html'
+    success_message = 'Your Conversation Has been Created!'
+
+    def test_func(self):
+        return self.request.user.is_mentee
+
+
+    def form_valid(self, form):
+        form.instance.sender = self.request.user
+        form.instance.receipient = User.objects.get(pk=self.kwargs['pk'])
+
+        return super().form_valid(form)
+
+
+    def get_success_url(self):
+        return reverse('list')
+
+
+"""view details of a user search in the profile"""
+
+class Profile2DetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+
+    model = User
+    context_object_name = 'user'
+    template_name = 'menti/profile_detail1.html'
+
+    def test_func(self):
+        return self.request.user.is_mentee

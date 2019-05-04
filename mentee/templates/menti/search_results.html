@@ -1,40 +1,41 @@
-{% extends 'menti/base.html' %}
-
+{% extends 'base.html' %}
+{% load humanize %}
 
 {% block content %}
-
-
-   <main role="main" class="container">
-      <div class="row">
-        <div class="col-md-8">
+<br><br><br>
 
 
 
-            <div class="content-section">
+ <h2>Search Results</h2>
+
+ <div class="row">
+        <div class="col-md-10">
+ <div class="content-section">
+
+
+     {% for user in queryset %}
+
+     <div class="content-section">
       <div class="media">
          <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
          <div class="media-body">
             <h2 class="account-heading">{{ user.username }}</h2>
             <p class="text-secondary">{{ user.email }}</p>
               <p class="text-secondary">{{ user.profile.education }}</p>
-              <a class="btn btn-primary btn-sm" href="{% url 'send' pk=user.pk %}">Send Request</a>
-
-
-
+              <a class="btn btn-info btn-sm" href="{% url 'profile-detail2' pk=user.pk %}">View profile</a>
          </div>
       </div>
 
    </div>
 
+     {% endfor %}
 
 
 
 
-
-              </ul>
-            </p>
-          </div>
+ </div>
         </div>
-      </div>
-    </main>
+ </div>
+
+
 {% endblock %}

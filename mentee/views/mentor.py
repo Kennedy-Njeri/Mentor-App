@@ -225,6 +225,7 @@ class InboxView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     model = Msg
     context_object_name = 'inbox'
     template_name = 'mentor/inbox1.html'
+    paginate_by = 5
 
 
 
@@ -238,6 +239,7 @@ class InboxDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Msg
     context_object_name = 'messo'
     template_name = 'mentor/inboxview1.html'
+
 
     def test_func(self):
         return self.request.user.is_mentor
@@ -305,6 +307,8 @@ class Approved(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
     context_object_name = 'messo'
 
+    paginate_by = 5
+
 
     def get_queryset(self):
 
@@ -353,6 +357,7 @@ class ConversationListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     model = Conversation
     template_name = 'mentor/list-converations.html'
     context_object_name = 'conversation'
+    paginate_by = 4
 
 
     def test_func(self):
@@ -421,6 +426,7 @@ class ConversationDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView
     model = Conversation
     template_name = 'mentor/conversation1.html'
     context_object_name = 'conv'
+
 
 
 

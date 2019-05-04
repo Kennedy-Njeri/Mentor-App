@@ -4,27 +4,26 @@
 
 {% block content %}
 
+
+</br>
 <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-10">
  <div class="content-section">
 
 
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Create Your Message</legend>
-                {{ form|crispy }}
-
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit" value="save">Send Your Message</button>
-            </div>
-        </form>
+       <form class="form-inline" action="{% url 'search-user' %}">
+    <input class="form-control mr-sm-2 col-md-10" type="search" name="q" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-lg-4" type="submit">Search</button>
 
 
-    </div>
+       </form>
+
+ </div>
         </div>
 </div>
+
+
+
 
 
 

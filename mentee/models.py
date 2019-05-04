@@ -114,6 +114,10 @@ class Conversation(models.Model):
     #reply = models.TextField(blank=True, null=True)
     #replied_at = models.DateTimeField(blank=True, null=True)
 
+    class Meta:
+        ordering = ['-sent_at']
+
+
     @property
     def get_replies(self):
         return self.replies.all()
