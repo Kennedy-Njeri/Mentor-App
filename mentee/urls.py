@@ -7,6 +7,7 @@ from django.conf.urls import url
 
 
 
+"""Mentor and Mentee URLs"""
 urlpatterns = [
 
     path('', mentee.home, name="home"),
@@ -15,8 +16,8 @@ urlpatterns = [
     path('account/', mentee.AccountList.as_view(), name="account"),
     path('register/', mentee.register, name="register"),
     path('profile/', mentee.profile, name="profile"),
-    #path('message-module/', mentee.MessageView.as_view(), name="module-message"),
-    path('message-module/', mentee.messege_view, name="module-message"),
+    path('message-module/', mentee.MessageView.as_view(), name="module-message"),
+    #path('message-module/', mentee.messege_view, name="module-message"),
     path('message/', mentee.MessageCreateView.as_view(), name="Message"),
     path('<int:pk>', mentee.SentDetailView.as_view(), name="sent"),
     path('inbox/<int:pk>', mentee.InboxDetailView.as_view(), name="detail-inbox"),
@@ -33,12 +34,8 @@ urlpatterns = [
     path('conversation/', mentee.ConversationListView.as_view(), name='conv'),
     path('conv1/<int:pk>', mentee.ConversationDetailView.as_view(), name='conv1-reply'),
     path('conv2/<int:pk>', mentee.con, name='conv2-reply'),
-
-
-
-
-
-
+    path('reply/<int:pk>', mentee.ReplyCreateView.as_view(), name='reply'),
+    path('chat-delete1/<int:pk>', mentee.ConversationDeleteView.as_view(), name='chat-delete1'),
 
 
 
@@ -68,6 +65,7 @@ urlpatterns = [
     path('reply1/<int:pk>', mentor.ReplyCreateView.as_view(), name='reply1'),
     path('conv/<int:pk>', mentor.ConversationDetailView.as_view(), name='conv-reply'),
     path('chat-delete/<int:pk>', mentor.ConversationDeleteView.as_view(), name='chat-delete'),
+    path('conversation-delete/<int:pk>', mentor.Conversation2DeleteView.as_view(), name='conversation-delete'),
 
 
 

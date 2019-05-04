@@ -28,7 +28,7 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 
 from django.contrib.auth import get_user_model
 User = get_user_model()
-
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 
@@ -118,7 +118,7 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request,user)
-                return HttpResponseRedirect(reverse('account1'))
+                return HttpResponseRedirect(reverse('module-message1'))
             else:
                 return HttpResponse("Your account was inactive.")
         else:
@@ -142,9 +142,10 @@ class MessageView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
 
 
     def get_context_data(self, **kwargs):
-        context = super(MessageView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['count'] = Msg.objects.filter(receipient=self.request.user).filter(is_approved=False).count()
         context['count1'] = Msg.objects.filter(receipient=self.request.user).filter(is_approved=True).count()
+        context['count2'] = Conversation.objects.filter(sender=self.request.user).count()
         return context
 
 
@@ -324,12 +325,13 @@ class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 
 """Create Conversation"""
 
-class ConversationCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+class ConversationCreateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, CreateView):
 
     fields = ('conversation', )
     model = Conversation
     template_name = 'mentor/chat.html'
     context_object_name = 'conversation'
+    success_message = 'Your Conversation Has been Created!'
 
     def test_func(self):
         return self.request.user.is_mentor
@@ -342,7 +344,7 @@ class ConversationCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('list1')
+        return reverse('conv1')
 
 
 """List all chat conversation by a user"""
@@ -351,6 +353,7 @@ class ConversationListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     model = Conversation
     template_name = 'mentor/list-converations.html'
     context_object_name = 'conversation'
+
 
     def test_func(self):
         return self.request.user.is_mentor
@@ -386,11 +389,12 @@ class ConversationListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
 
 """Replies by a user"""
-class ReplyCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+class ReplyCreateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, CreateView):
 
     fields = ('reply', )
     model = Reply
     template_name = 'mentor/conversation.html'
+    success_message = 'You have replied!'
 
 
     def test_func(self):
@@ -419,6 +423,7 @@ class ConversationDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView
     context_object_name = 'conv'
 
 
+
     def test_func(self):
         return self.request.user.is_mentor
 
@@ -430,14 +435,30 @@ class ConversationDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView
 
 
 """delete view Chat"""
-class ConversationDeleteView(DeleteView):
+class ConversationDeleteView(SuccessMessageMixin, DeleteView):
 
     model = Reply
     template_name = 'mentor/chat-confirm-delete.html'
+    success_message = 'Your message has been deleted!'
 
     #success_url = reverse_lazy('conv1')
 
     def get_success_url(self):
         conversation = self.object.conversation
         return reverse_lazy('conv-reply', kwargs={'pk': self.object.conversation_id})
+
+
+"""delete view Coversation"""
+class Conversation2DeleteView(DeleteView):
+
+    model = Conversation
+    template_name = 'mentor/conversation-confirm-delete.html'
+
+
+    #success_url = reverse_lazy('conv1')
+
+    def get_success_url(self):
+
+        return reverse_lazy('conv1')
+
 

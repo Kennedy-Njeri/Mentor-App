@@ -28,7 +28,7 @@
  <div class="content-section">
 
 
-
+{% if conv.get_replies %}
      {% for reply in conv.get_replies %}
 
 
@@ -41,13 +41,17 @@
             <p> <b>From:</b> {{ reply.sender }}</p>
             <span class="time-right">{{ reply.replied_at|naturaltime }}</span> </br>
 
-            <span class="time-right"><a class="btn btn-danger btn-sm" href="{% url 'chat-delete' pk=reply.pk %}">Delete Message</a></span>
+            <span class="time-right"><a class="btn btn-danger btn-sm" href="{% url 'chat-delete1' pk=reply.pk %}">Delete Message</a></span>
 
 </div>
 
 
      {% endfor %}
 
+     {% else %}
+     <p>There are no Replies Available</p>
+
+     {% endif %}
 
 
  </div>
@@ -64,7 +68,7 @@
 
 
 
-	 <p><a class="btn btn-primary btn-sm" href="{% url 'reply1' pk=conv.pk %}">Reply Chat</a></p>
+	 <p><a class="btn btn-primary btn-sm" href="{% url 'reply' pk=conv.pk %}">Reply Chat</a></p>
 
 
 

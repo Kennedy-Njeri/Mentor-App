@@ -52,6 +52,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     education = models.CharField(default='degree', max_length=100)
+    registration = models.CharField(default='BBIT/2014/62324', max_length=100)
 
 
     def __str__(self):
@@ -143,10 +144,6 @@ class Msg(models.Model):
     comment_at = models.DateTimeField(blank=True, null=True)
     is_approved = models.BooleanField(default=False, verbose_name="Approve?")
     date_approved = models.DateTimeField(blank=True, null=True)
-
-
-
-
 
 
 

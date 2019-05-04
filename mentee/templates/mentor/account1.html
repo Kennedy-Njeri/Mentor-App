@@ -9,37 +9,7 @@
 
 
 
-  {% for status in statuses %}
 
 
-   <article class="media content-section">
-       <img class="rounded-circle article-img" src="{{ status.author.profile.image.url }}">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2" href="#">{{ status.author }}</a>
-              <small class="text-muted">{{ status.date_posted }}</small>
-            </div>
-            <h2><a class="article-title" href="#">{{ status.title }}</a></h2>
-            <p class="article-content">{{ status.content }}</p>
-          </div>
-   </article>
 
-
-  {% endfor %}
-        </div>
-        <div class="col-md-4">
-          <div class="content-section">
-            <h3>Mentor Corner</h3>
-            <p class='text-muted'>Choose Mentors Suggested below
-              <ul class="list-group">
-                <li class="list-group-item list-group-item-light">John Doe</li>
-                <li class="list-group-item list-group-item-light">Kevin</li>
-                <li class="list-group-item list-group-item-light">Njeri</li>
-                <li class="list-group-item list-group-item-light">Kennedy</li>
-              </ul>
-            </p>
-          </div>
-        </div>
-      </div>
-    </main>
 {% endblock %}

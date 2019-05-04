@@ -1,9 +1,9 @@
 {% extends 'menti/base.html' %}
 
-{% load humanize %}
+
 {% block content %}
 
-<p>{{ sentmesso.count }}</p>
+
    <main role="main" class="container">
       <div class="row">
 
@@ -14,9 +14,10 @@
               <ul class="list-group">
                 <li class="list-group-item list-group-item-light"><a href="{% url 'Message'%}">Create New Message</a></li>
                 <li class="list-group-item list-group-item-light"><a href="{% url 'list' %}">Sent Messages</a></li>
-                <li class="list-group-item list-group-item-light"><a href="{% url 'inbox1'%}">Inbox</a></li>
-                <li class="list-group-item list-group-item-light"><a href="{% url 'approved'%}">Approved Messeges</a></li>
-              <li class="list-group-item list-group-item-light"><a href="{% url 'conv' %}">Conversations</a></li>
+                <li class="list-group-item list-group-item-light"><a href="{% url 'inbox1'%}">Inbox ({{ count }}) </a></li>
+                <li class="list-group-item list-group-item-light"><a href="{% url 'approved'%}">Approved Requests ({{ count1 }})</a></li>
+              <li class="list-group-item list-group-item-light"><a href="{% url 'conv' %}">Conversations ({{ count3 }})</a></li>
+
 
               </ul>
             </p>

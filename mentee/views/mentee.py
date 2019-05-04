@@ -273,12 +273,23 @@ class InboxDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 """controls messege view"""
 
 class MessageView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
+
     template_name = 'menti/messages-module.html'
-    model = models.Msg
-    context_object_name = 'sentmesso'
+
 
     def test_func(self):
         return self.request.user.is_mentee
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['count'] = Msg.objects.filter(receipient=self.request.user).filter(is_approved=False).count()
+        context['count1'] = Msg.objects.filter(sender=self.request.user).filter(is_approved=True).count()
+        context['count3'] = Conversation.objects.filter(receipient=self.request.user).count()
+
+        return context
+
+    def get_queryset(self):
+        return self.model.objects.filter(receipient=self.request.user)
 
 
 """Views the Message Module"""
@@ -434,4 +445,43 @@ def con(request, pk):
 
     }
 
-    return render(request, 'menti/conversation2.html', context)
+    return render(request, 'menti/conversation1.html', context)
+
+
+
+
+"""Replies by a user"""
+class ReplyCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+
+    fields = ('reply', )
+    model = Reply
+    template_name = 'menti/conversation.html'
+
+
+    def test_func(self):
+        return self.request.user.is_mentee
+
+    def form_valid(self, form):
+        form.instance.sender = self.request.user
+        form.instance.conversation = Conversation.objects.get(pk=self.kwargs['pk'])
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        conversation = self.object.conversation
+        return reverse_lazy('conv1-reply', kwargs={'pk': self.object.conversation_id})
+
+
+    def get_queryset(self):
+        return self.model.objects.filter(receipient=self.request.user)
+
+"""delete view Chat"""
+class ConversationDeleteView(DeleteView):
+
+    model = Reply
+    template_name = 'menti/chat-confirm-delete.html'
+
+    #success_url = reverse_lazy('conv1')
+
+    def get_success_url(self):
+        conversation = self.object.conversation
+        return reverse_lazy('conv1-reply', kwargs={'pk': self.object.conversation_id})

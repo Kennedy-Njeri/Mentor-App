@@ -28,7 +28,7 @@
  <div class="content-section">
 
 
-
+{% if conv.get_replies %}
      {% for reply in conv.get_replies %}
 
 
@@ -47,6 +47,12 @@
 
 
      {% endfor %}
+
+      {% else %}
+
+     <p>There are no Replies Available</p>
+
+     {% endif %}
 
 
 

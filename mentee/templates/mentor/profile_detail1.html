@@ -17,7 +17,9 @@
             <h2 class="account-heading">{{ msg.sender }}</h2>
             <p class="text-secondary">{{ msg.sender.email }}</p>
               <p class="text-secondary">{{ msg.sender.profile.education }}</p>
-              <a class="btn btn-primary btn-sm" href="">Send Message</a>
+             <p class="text-secondary">{{ msg.sender.profile.registration }}</p>
+              <a class="btn btn-primary btn-sm" href="{% url 'start-chat1' pk=msg.sender.pk %}">Send Message</a>
+
 
 
 

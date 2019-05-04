@@ -23,7 +23,7 @@
     <thead>
       <tr>
           <th>No</th>
-          <th>To</th>
+          <th>From</th>
           <th>Conversation</th>
           <th>Time</th>
           <th>View Chat</th>
@@ -41,7 +41,7 @@
  {% for conv in conversation %}
     <tr>
          <td>{{ conv.id }}</td>
-        <td>{{ conv.receipient }}</td>
+        <td>{{ conv.sender }}</td>
           <td>{{ conv.conversation }}</td>
         <td>{{ conv.sent_at|naturaltime }}</td>
 
