@@ -1,0 +1,141 @@
+{% extends 'menti/base.html' %}
+
+
+
+{% load humanize %}
+
+{% block content %}
+
+
+
+
+<div class="row">
+        <div class="col-md-8">
+ <div class="content-section">
+
+
+     <p><b>Conversation: </b>{{ conv.conversation }} <b> To: {{ conv.receipient }}</b></p>
+
+
+
+ </div>
+        </div>
+</div>
+
+
+<div class="row">
+        <div class="col-md-8">
+ <div class="content-section">
+
+
+{% if conv.get_replies %}
+     {% for reply in conv.get_replies %}
+
+
+        <div class="container1">
+
+  <img src="{{ reply.sender.profile.image.url }}" alt="Avatar">
+
+
+  <p><b>Message:</b> {{ reply.reply }}</p>
+            <p> <b>From:</b> {{ reply.sender }}</p>
+            <span class="time-right">{{ reply.replied_at|naturaltime }}</span> </br>
+
+            <span class="time-right"><a class="btn btn-danger btn-sm" href="{% url 'chat-delete1' pk=reply.pk %}">Delete Message</a></span>
+
+</div>
+
+
+     {% endfor %}
+
+     {% else %}
+     <p>There are no Replies Available</p>
+
+     {% endif %}
+
+
+ </div>
+        </div>
+</div>
+
+
+
+
+<div class="row">
+        <div class="col-md-8">
+ <div class="content-section">
+
+
+
+
+	 <p><a class="btn btn-primary btn-sm" href="{% url 'reply3' pk=conv.pk %}">Reply Chat</a></p>
+
+
+
+	 </div>
+        </div>
+</div>
+
+
+
+
+
+<style>
+/* Chat containers */
+.container1 {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+/* Darker chat container */
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+/* Clear floats */
+.container1::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Style images */
+.container1 img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+/* Style the right image */
+.container1 img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+/* Style time text */
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+/* Style time text */
+.time-left {
+  float: left;
+  color: #999;
+}
+
+</style>
+
+
+
+
+
+
+{% endblock %}

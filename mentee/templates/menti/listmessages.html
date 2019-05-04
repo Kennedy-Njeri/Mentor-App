@@ -44,7 +44,7 @@
         <td>{{ conv.receipient }}</td>
           <td>{{ conv.conversation }}</td>
         <td>{{ conv.sent_at|naturaltime }}</td>
-         <td> <a class="btn btn-primary btn-sm" href="{% url 'conv-reply' pk=conv.pk %}">View Chat</a></td>
+         <td> <a class="btn btn-primary btn-sm" href="{% url 'conv3-reply' pk=conv.pk %}">View Chat</a></td>
           <td> <a class="btn btn-danger btn-sm" href="{% url 'conversation-delete' pk=conv.pk %}">Delete Conv</a></td>
 
     </tr>

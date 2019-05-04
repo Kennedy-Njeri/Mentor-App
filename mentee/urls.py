@@ -39,6 +39,8 @@ urlpatterns = [
     path('search-results/', mentee.search, name="search-user"),
     path('create-indv-msg/<int:pk>', mentee.CreateIndividualMessageView.as_view(), name="create-individual"),
     path('profile2/<int:pk>', mentee.Profile2DetailView.as_view(), name="profile-detail2"),
+    path('reply-indiv/<int:pk>', mentee.Reply1CreateView.as_view(), name='reply3'),
+    path('conv3/<int:pk>', mentee.con1, name='conv3-reply'),
 
 
 

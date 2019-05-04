@@ -551,3 +551,48 @@ class Profile2DetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 
     def test_func(self):
         return self.request.user.is_mentee
+
+
+
+
+"""Replies by a user"""
+class Reply1CreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+
+    fields = ('reply', )
+    model = Reply
+    template_name = 'menti/conversation3.html'
+
+
+    def test_func(self):
+        return self.request.user.is_mentee
+
+    def form_valid(self, form):
+        form.instance.sender = self.request.user
+        form.instance.conversation = Conversation.objects.get(pk=self.kwargs['pk'])
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        conversation = self.object.conversation
+        return reverse_lazy('conv1-reply', kwargs={'pk': self.object.conversation_id})
+
+
+    def get_queryset(self):
+        return self.model.objects.filter(receipient=self.request.user)
+
+
+
+"""View individual conversation"""
+def con1(request, pk):
+
+    conv = get_object_or_404(Conversation, pk=pk)
+
+
+
+
+    context = {
+
+        'conv': conv,
+
+    }
+
+    return render(request, 'menti/conversation4.html', context)
