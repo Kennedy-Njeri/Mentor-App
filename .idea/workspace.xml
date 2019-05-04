@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="335a17c4-c6fc-4830-90e7-92e23d0368f5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/mentee/templates/menti/listmessages.html" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/templates/menti/listmessages.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mentee/templates/menti/messages-module.html" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/templates/menti/messages-module.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mentee/templates/menti/search_results.html" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/templates/menti/search_results.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mentee/views/mentee.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/views/mentee.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -128,23 +129,23 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="15" />
-          <entry key="html" value="5305" />
+          <entry key="html" value="5437" />
           <entry key="md" value="29" />
-          <entry key="py" value="10430" />
+          <entry key="py" value="10474" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="15" />
-          <entry key="HTML" value="5305" />
+          <entry key="HTML" value="5437" />
           <entry key="Markdown" value="29" />
-          <entry key="Python" value="10430" />
+          <entry key="Python" value="10474" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="6" />
-          <entry key="html" value="437" />
+          <entry key="html" value="439" />
           <entry key="md" value="1" />
           <entry key="py" value="135" />
         </counts>
@@ -152,7 +153,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="6" />
-          <entry key="HTML" value="437" />
+          <entry key="HTML" value="439" />
           <entry key="Markdown" value="1" />
           <entry key="Python" value="135" />
         </counts>
@@ -167,7 +168,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mentee/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
+            <state relative-caret-position="196">
               <caret line="42" column="46" lean-forward="true" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="57" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -179,14 +180,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mentee/views/mentee.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="594" column="34" lean-forward="true" selection-start-line="594" selection-start-column="34" selection-end-line="594" selection-end-column="52" />
+            <state relative-caret-position="277">
+              <caret line="289" column="17" lean-forward="true" selection-start-line="289" selection-start-column="17" selection-end-line="289" selection-end-column="23" />
               <folding>
                 <element signature="e#0#64#0" expanded="true" />
-                <marker date="1556978113000" expanded="true" signature="2518:2523" ph="..." />
-                <marker date="1556978113000" expanded="true" signature="4647:4653" ph="..." />
-                <marker date="1556978113000" expanded="true" signature="5147:5483" ph="..." />
+                <marker date="1556978707000" expanded="true" signature="2518:2523" ph="..." />
+                <marker date="1556978707000" expanded="true" signature="4647:4653" ph="..." />
+                <marker date="1556978707000" expanded="true" signature="5147:5483" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mentee/templates/menti/messages-module.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="113" selection-start-line="16" selection-start-column="113" selection-end-line="16" selection-end-column="113" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mentee/templates/menti/search_results.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="434">
+              <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -194,8 +213,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mentee/templates/menti/conversation4.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2100">
-              <caret line="140" column="14" selection-start-line="140" selection-start-column="14" selection-end-line="140" selection-end-column="14" />
+            <state relative-caret-position="207">
+              <caret line="70" column="62" selection-start-line="70" selection-start-column="62" selection-end-line="70" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -243,7 +262,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mentee/templates/menti/listmessages.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="129">
@@ -294,7 +313,6 @@
         <option value="$PROJECT_DIR$/mentee/forms.py" />
         <option value="$PROJECT_DIR$/mentee/templates/mentor/profile_detail1.html" />
         <option value="$PROJECT_DIR$/mentee/templates/mentor/account1.html" />
-        <option value="$PROJECT_DIR$/mentee/templates/menti/messages-module.html" />
         <option value="$PROJECT_DIR$/mentee/templates/mentor/conversation1.html" />
         <option value="$PROJECT_DIR$/mentee/templates/menti/conversation1.html" />
         <option value="$PROJECT_DIR$/mentee/templates/mentor/messages-module1.html" />
@@ -309,13 +327,14 @@
         <option value="$PROJECT_DIR$/mentee/templates/menti/messagecreate.html" />
         <option value="$PROJECT_DIR$/mentee/templates/menti/messagecreate2.html" />
         <option value="$PROJECT_DIR$/mentee/templates/menti/profile_detail.html" />
-        <option value="$PROJECT_DIR$/mentee/templates/menti/search_results.html" />
         <option value="$PROJECT_DIR$/mentee/templates/menti/profile_detail1.html" />
         <option value="$PROJECT_DIR$/mentee/templates/menti/conversation3.html" />
-        <option value="$PROJECT_DIR$/mentee/views/mentee.py" />
-        <option value="$PROJECT_DIR$/mentee/templates/menti/conversation4.html" />
         <option value="$PROJECT_DIR$/mentee/urls.py" />
         <option value="$PROJECT_DIR$/mentee/templates/menti/listmessages.html" />
+        <option value="$PROJECT_DIR$/mentee/templates/menti/conversation4.html" />
+        <option value="$PROJECT_DIR$/mentee/views/mentee.py" />
+        <option value="$PROJECT_DIR$/mentee/templates/menti/messages-module.html" />
+        <option value="$PROJECT_DIR$/mentee/templates/menti/search_results.html" />
       </list>
     </option>
   </component>
@@ -326,8 +345,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="45" />
-    <option name="y" value="192" />
+    <option name="x" value="100" />
+    <option name="y" value="89" />
     <option name="width" value="1474" />
     <option name="height" value="827" />
   </component>
@@ -450,7 +469,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="5" y="153" width="1474" height="827" extended-state="0" />
+    <frame x="100" y="89" width="1474" height="827" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.5022625" side_tool="true" weight="0.25628492" />
@@ -627,13 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mentee/templates/menti/messages-module.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="113" selection-start-line="17" selection-start-column="113" selection-end-line="17" selection-end-column="113" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mentee/templates/menti/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
@@ -723,13 +735,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="39" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mentee/templates/menti/search_results.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="24" column="74" selection-start-line="24" selection-start-column="74" selection-end-line="24" selection-end-column="74" />
         </state>
       </provider>
     </entry>
@@ -826,29 +831,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mentee/templates/menti/conversation4.html">
+    <entry file="file://$PROJECT_DIR$/mentee/templates/menti/listmessages.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2100">
-          <caret line="140" column="14" selection-start-line="140" selection-start-column="14" selection-end-line="140" selection-end-column="14" />
+        <state relative-caret-position="129">
+          <caret line="42" column="31" lean-forward="true" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mentee/views/mentee.py">
+    <entry file="file://$PROJECT_DIR$/mentee/templates/menti/conversation4.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="594" column="34" lean-forward="true" selection-start-line="594" selection-start-column="34" selection-end-line="594" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#64#0" expanded="true" />
-            <marker date="1556978113000" expanded="true" signature="2518:2523" ph="..." />
-            <marker date="1556978113000" expanded="true" signature="4647:4653" ph="..." />
-            <marker date="1556978113000" expanded="true" signature="5147:5483" ph="..." />
-          </folding>
+        <state relative-caret-position="207">
+          <caret line="70" column="62" selection-start-line="70" selection-start-column="62" selection-end-line="70" selection-end-column="62" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mentee/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
+        <state relative-caret-position="196">
           <caret line="42" column="46" lean-forward="true" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="57" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
@@ -856,10 +855,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mentee/templates/menti/listmessages.html">
+    <entry file="file://$PROJECT_DIR$/mentee/views/mentee.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="42" column="31" lean-forward="true" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+        <state relative-caret-position="277">
+          <caret line="289" column="17" lean-forward="true" selection-start-line="289" selection-start-column="17" selection-end-line="289" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+            <marker date="1556978707000" expanded="true" signature="2518:2523" ph="..." />
+            <marker date="1556978707000" expanded="true" signature="4647:4653" ph="..." />
+            <marker date="1556978707000" expanded="true" signature="5147:5483" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mentee/templates/menti/messages-module.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="113" selection-start-line="16" selection-start-column="113" selection-end-line="16" selection-end-column="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mentee/templates/menti/search_results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
         </state>
       </provider>
     </entry>

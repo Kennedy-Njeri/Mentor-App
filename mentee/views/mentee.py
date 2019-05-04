@@ -287,6 +287,7 @@ class MessageView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         context['count'] = Msg.objects.filter(receipient=self.request.user).filter(is_approved=False).count()
         context['count1'] = Msg.objects.filter(sender=self.request.user).filter(is_approved=True).count()
         context['count3'] = Conversation.objects.filter(receipient=self.request.user).count()
+        context['count4'] = Conversation.objects.filter(sender=self.request.user).count()
 
         return context
 
@@ -573,7 +574,7 @@ class Reply1CreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 
     def get_success_url(self):
         conversation = self.object.conversation
-        return reverse_lazy('conv1-reply', kwargs={'pk': self.object.conversation_id})
+        return reverse_lazy('conv3-reply', kwargs={'pk': self.object.conversation_id})
 
 
     def get_queryset(self):

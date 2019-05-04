@@ -13,10 +13,12 @@
             <p class='text-muted'>Message Corner
               <ul class="list-group">
                 <li class="list-group-item list-group-item-light"><a href="{% url 'Message'%}">Create New Message</a></li>
-                <li class="list-group-item list-group-item-light"><a href="{% url 'list' %}">Sent Messages</a></li>
-                <li class="list-group-item list-group-item-light"><a href="{% url 'inbox1'%}">Inbox ({{ count }}) </a></li>
+                <li class="list-group-item list-group-item-light"><a href="{% url 'list' %}">Sent Messages ({{ count4 }})</a></li>
+                <li class="list-group-item list-group-item-light"><a href="{% url 'inbox1'%}">Unapproved Requests ({{ count }}) </a></li>
                 <li class="list-group-item list-group-item-light"><a href="{% url 'approved'%}">Approved Requests ({{ count1 }})</a></li>
               <li class="list-group-item list-group-item-light"><a href="{% url 'conv' %}">Conversations ({{ count3 }})</a></li>
+
+
 
 
               </ul>

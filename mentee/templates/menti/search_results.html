@@ -13,6 +13,10 @@
  <div class="content-section">
 
 
+
+     {% if queryset %}
+
+
      {% for user in queryset %}
 
      <div class="content-section">
@@ -30,7 +34,11 @@
 
      {% endfor %}
 
+     {% else %}
 
+     <p>There is no such User</p>
+
+     {% endif %}
 
 
  </div>
