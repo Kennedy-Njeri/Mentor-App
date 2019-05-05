@@ -33,8 +33,6 @@ from django.db.models import Count, Q
 
 
 
-
-
 """Home landing page"""
 def home(request):
 
@@ -443,7 +441,6 @@ def con(request, pk):
 
 
 
-
     context = {
 
         'conv': conv,
@@ -586,8 +583,6 @@ class Reply1CreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 def con1(request, pk):
 
     conv = get_object_or_404(Conversation, pk=pk)
-
-
 
 
     context = {

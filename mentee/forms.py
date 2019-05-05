@@ -7,6 +7,7 @@ from .models import Subject,  Mentee, Mentor
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile, Msg
 from django.forms import ModelForm
+from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
 
 from django.contrib.auth import get_user_model
@@ -16,17 +17,20 @@ User = get_user_model()
 
 
 class MenteeRegisterForm(UserCreationForm):
+
     email = forms.EmailField()
 
     interests = forms.ModelMultipleChoiceField(
         queryset=Subject.objects.all(),
         widget=forms.CheckboxSelectMultiple,
-        required=True
-    )
+        required=True)
+
+    #interests= forms.ChoiceField(required=True, widget=forms.RadioSelect(
+        #attrs={'class': 'Radio'}))
 
     class Meta:
-        model = User
-        fields = ['username', 'email', 'password1', 'password2']
+       model = User
+       fields = ['username', 'email', 'password1', 'password2']
 
 
 
@@ -108,6 +112,7 @@ class SendForm(ModelForm):
     class Meta:
         model = Msg
         fields = ['msg_content']
+
 
 
 

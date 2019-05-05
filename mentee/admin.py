@@ -1,6 +1,21 @@
 from django.contrib import admin
 from .models import Subject, Mentee, Mentor , User, Profile, Msg, Conversation, Reply
-# Register your models here.
+from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.models import Group
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.contrib.auth.forms import UserCreationForm
+
+
+
+from .models import User
+
+
+
+
+
+
+
+
 
 
 class ConversationAdmin(admin.ModelAdmin):
@@ -55,6 +70,8 @@ class UserAdmin(admin.ModelAdmin):
 
 
 
+
+
 admin.site.register(Reply)
 
 admin.site.register(Subject)
@@ -63,10 +80,31 @@ admin.site.register(Mentee)
 
 admin.site.register(Mentor, MentorAdmin)
 
-admin.site.register(User, UserAdmin)
+#admin.site.register(User, UserAdmin)
 
 admin.site.register(Profile)
 
 admin.site.register(Msg, MsgAdmin)
 
 admin.site.register(Conversation)
+
+
+
+
+
+
+
+class CustomUserCreationForm(UserCreationForm):
+
+    class Meta:
+        model = User
+        fields =  '__all__'
+
+class CustomUserAdmin(UserAdmin):
+
+    form = CustomUserCreationForm
+
+admin.site.register(User, CustomUserAdmin)
+
+
+admin.site.unregister(Group)

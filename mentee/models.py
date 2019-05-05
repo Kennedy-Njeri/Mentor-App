@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, BaseUserManager
 from PIL import Image
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -10,13 +10,22 @@ from django.urls import reverse
 from django.utils.timezone import now
 
 
-# Create your models here.
+
+
+
+
+
+
+
 
 
 class User(AbstractUser):
 
+
     is_mentee = models.BooleanField(default=False)
     is_mentor = models.BooleanField(default=False)
+
+
 
 
 
@@ -31,7 +40,7 @@ class Subject(models.Model):
 """Mentee models"""
 class Mentee(models.Model):
     user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
-    interests = models.ManyToManyField(Subject, related_name='mentees')
+    interests = models.OneToOneField(Subject, related_name='mentees', on_delete=models.CASCADE, null=True)
 
 
     def __str__(self):
@@ -40,7 +49,7 @@ class Mentee(models.Model):
 """Mentor models"""
 class Mentor(models.Model):
     user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
-    interests = models.ManyToManyField(Subject, related_name='mentors')
+    interests = models.OneToOneField(Subject, related_name='mentors', on_delete=models.CASCADE, null=True)
 
 
     def __str__(self):
