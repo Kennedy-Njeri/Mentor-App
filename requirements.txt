@@ -1,0 +1,5 @@
+Django==2.1.5
+django-crispy-forms==1.7.2
+django-friendship==1.8.0
+Pillow==5.4.1
+pytz==2018.9
