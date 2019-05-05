@@ -435,6 +435,8 @@ class ConversationList1View(LoginRequiredMixin, UserPassesTestMixin, TemplateVie
         return self.model.objects.filter(receipient=self.request.user)
 
 
+
+"""List conversations"""
 def con(request, pk):
 
     conv = get_object_or_404(Conversation, pk=pk)
@@ -476,6 +478,7 @@ class ReplyCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     def get_queryset(self):
         return self.model.objects.filter(receipient=self.request.user)
 
+
 """delete view Chat"""
 class ConversationDeleteView(DeleteView):
 
@@ -487,6 +490,7 @@ class ConversationDeleteView(DeleteView):
     def get_success_url(self):
         conversation = self.object.conversation
         return reverse_lazy('conv1-reply', kwargs={'pk': self.object.conversation_id})
+
 
 
 """Search For Users"""
@@ -539,8 +543,8 @@ class CreateIndividualMessageView(LoginRequiredMixin, UserPassesTestMixin, Succe
         return reverse('list')
 
 
-"""view details of a user search in the profile"""
 
+"""view details of a user search in the profile"""
 class Profile2DetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 
     model = User
