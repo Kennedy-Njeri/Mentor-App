@@ -16,15 +16,11 @@ from django.utils.timezone import now
 
 
 
-
-
-
 class User(AbstractUser):
 
 
     is_mentee = models.BooleanField(default=False)
     is_mentor = models.BooleanField(default=False)
-
 
 
 
@@ -37,6 +33,7 @@ class Subject(models.Model):
         return self.name
 
 
+
 """Mentee models"""
 class Mentee(models.Model):
     user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
@@ -45,6 +42,7 @@ class Mentee(models.Model):
 
     def __str__(self):
         return self.user.username
+
 
 """Mentor models"""
 class Mentor(models.Model):
@@ -89,9 +87,9 @@ class Profile(models.Model):
     def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
 
+
+
 """Reply Model"""
-
-
 class Reply(models.Model):
     sender = models.ForeignKey(User, related_name="sender2", on_delete=models.CASCADE, null=True)
     reply = models.TextField(blank=True, null=True)
