@@ -4,13 +4,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import UserCreationForm
-
-
-
 from .models import User
-
-
-
 
 
 
@@ -28,7 +22,6 @@ class ConversationAdmin(admin.ModelAdmin):
     list_display_links = ("conversation",)
 
     list_per_page = 10
-
 
 
 
@@ -54,6 +47,9 @@ class MentorAdmin(admin.ModelAdmin):
 
 
     search_fields = ("interests",)
+
+
+
 
 
 class UserAdmin(admin.ModelAdmin):
@@ -87,8 +83,6 @@ admin.site.register(Profile)
 admin.site.register(Msg, MsgAdmin)
 
 admin.site.register(Conversation)
-
-
 
 
 

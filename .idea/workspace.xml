@@ -2,39 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="335a17c4-c6fc-4830-90e7-92e23d0368f5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/mentee/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0002_auto_20190304_1726.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0003_auto_20190304_1731.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0004_auto_20190316_1102.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0005_msg_replied_at.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0006_auto_20190318_1745.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0007_reply.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0008_auto_20190318_2022.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0009_auto_20190318_2030.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0010_auto_20190322_1848.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0011_auto_20190322_2057.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0012_auto_20190322_2216.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0013_auto_20190324_1204.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0014_auto_20190324_1215.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0015_auto_20190324_1226.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0016_remove_profile_friends.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0017_auto_20190329_1509.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0018_auto_20190329_1520.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0019_auto_20190329_1526.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0020_auto_20190329_1720.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0021_auto_20190329_1725.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0022_conversation.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0023_auto_20190430_1757.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0024_auto_20190503_1812.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0025_auto_20190503_1813.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/migrations/0026_profile_registration.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentee/views/mentee.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentee/views/mentee.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentorship/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mentorship/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -161,7 +129,7 @@
           <entry key="css" value="15" />
           <entry key="html" value="5437" />
           <entry key="md" value="29" />
-          <entry key="py" value="10836" />
+          <entry key="py" value="10841" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -169,7 +137,7 @@
           <entry key="CSS" value="15" />
           <entry key="HTML" value="5437" />
           <entry key="Markdown" value="29" />
-          <entry key="Python" value="10836" />
+          <entry key="Python" value="10841" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -234,12 +202,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mentee/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="98" column="14" selection-start-line="98" selection-start-column="14" selection-end-line="98" selection-end-column="14" />
+            <state relative-caret-position="146">
+              <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
-                <marker date="1557069208000" expanded="true" signature="1689:1698" ph="..." />
-                <marker date="1557069208000" expanded="true" signature="1773:1779" ph="..." />
+                <marker date="1557071474000" expanded="true" signature="1683:1692" ph="..." />
+                <marker date="1557071474000" expanded="true" signature="1767:1773" ph="..." />
               </folding>
             </state>
           </provider>
@@ -518,6 +486,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="601" y="23" width="1440" height="827" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.5022625" side_tool="true" weight="0.25628492" />
       <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49773756" visible="true" weight="0.25965664" />
@@ -920,12 +889,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mentee/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="98" column="14" selection-start-line="98" selection-start-column="14" selection-end-line="98" selection-end-column="14" />
+        <state relative-caret-position="146">
+          <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
-            <marker date="1557069208000" expanded="true" signature="1689:1698" ph="..." />
-            <marker date="1557069208000" expanded="true" signature="1773:1779" ph="..." />
+            <marker date="1557071474000" expanded="true" signature="1683:1692" ph="..." />
+            <marker date="1557071474000" expanded="true" signature="1767:1773" ph="..." />
           </folding>
         </state>
       </provider>
