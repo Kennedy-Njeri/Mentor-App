@@ -10,9 +10,9 @@
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Join Today</legend>
-                {{ form|crispy }}
+                <legend class="border-bottom mb-4">Join Today To Be A mentor</legend>
                 {{ form1|crispy }}
+                {{ form2|crispy }}
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Sign Up</button>

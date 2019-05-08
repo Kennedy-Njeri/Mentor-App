@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect,  get_object_or_404
 #from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from ..forms import MentorRegisterForm, UserUpdateForm, ProfileUpdateForm
+from ..forms import MentorRegisterForm, UserUpdateForm, ProfileUpdateForm, UserInfoForm
 from django.views.generic import (View, TemplateView,
                                   ListView, DetailView,
                                   CreateView, UpdateView,
@@ -58,24 +58,41 @@ class AccountView(LoginRequiredMixin, UserPassesTestMixin, View):
 
 def register1(request):
 
+    registered = False
+
     if request.method == 'POST':
 
-        form = MentorRegisterForm(request.POST)
+        form1 = MentorRegisterForm(request.POST)
+        form2 = UserInfoForm(request.POST)
 
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
+
+
+        if form1.is_valid() and form2.is_valid():
+
+            user = form1.save()
+            user.is_mentor = True
+            user.save()
+
+            info = form2.save(commit=False)
+            info.user = user
+            info.save()
+
+            registered = True
+
+
 
             messages.success(request, f'Your account has been created! You are now able to log in')
+
             return redirect('login1')
 
     else:
 
-        form = MentorRegisterForm()
+        form1 = MentorRegisterForm()
+        form2 = UserInfoForm()
 
 
-    return render(request, 'mentor/register1.html', {'form': form})
 
+    return render(request, 'mentor/register1.html', {'form1': form1, 'form2': form2,})
 
 
 def profile1(request):
