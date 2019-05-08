@@ -24,20 +24,21 @@ class User(AbstractUser):
 
 
 
+class UserInfo(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    interest = models.CharField(max_length=100, null=True)
 
-"""Adding interests"""
-class Subject(models.Model):
-    name = models.CharField(max_length=30)
+
 
     def __str__(self):
-        return self.name
+        return self.user.username
 
 
 
 """Mentee models"""
 class Mentee(models.Model):
     user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
-    interests = models.OneToOneField(Subject, related_name='mentees', on_delete=models.CASCADE, null=True)
+    #interests = models.OneToOneField(Subject, related_name='mentees', on_delete=models.CASCADE, null=True)
 
 
     def __str__(self):
@@ -47,7 +48,7 @@ class Mentee(models.Model):
 """Mentor models"""
 class Mentor(models.Model):
     user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
-    interests = models.OneToOneField(Subject, related_name='mentors', on_delete=models.CASCADE, null=True)
+    #interests = models.OneToOneField(Subject, related_name='mentors', on_delete=models.CASCADE, null=True)
 
 
     def __str__(self):

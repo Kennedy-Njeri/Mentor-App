@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Subject, Mentee, Mentor , User, Profile, Msg, Conversation, Reply
+from .models import Mentee, Mentor, Profile, Msg, Conversation, Reply, UserInfo
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
@@ -70,7 +70,7 @@ class UserAdmin(admin.ModelAdmin):
 
 admin.site.register(Reply)
 
-admin.site.register(Subject)
+admin.site.register(UserInfo)
 
 admin.site.register(Mentee)
 
@@ -93,6 +93,7 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = User
         fields =  '__all__'
+        exclude =('password', )
 
 class CustomUserAdmin(UserAdmin):
 

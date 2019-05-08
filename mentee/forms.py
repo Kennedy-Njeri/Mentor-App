@@ -2,7 +2,7 @@ from django import forms
 
 from django.contrib.auth.models import User
 
-from .models import Subject,  Mentee, Mentor
+from .models import Mentee, Mentor, UserInfo
 
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile, Msg
@@ -20,10 +20,10 @@ class MenteeRegisterForm(UserCreationForm):
 
     email = forms.EmailField()
 
-    interests = forms.ModelMultipleChoiceField(
-        queryset=Subject.objects.all(),
-        widget=forms.CheckboxSelectMultiple,
-        required=True)
+    #interests = forms.ModelMultipleChoiceField(
+        #queryset=Subject.objects.all(),
+        #widget=forms.CheckboxSelectMultiple,
+        #required=True)
 
     #interests= forms.ChoiceField(required=True, widget=forms.RadioSelect(
         #attrs={'class': 'Radio'}))
@@ -39,9 +39,20 @@ class MenteeRegisterForm(UserCreationForm):
         user.is_mentee = True
         user.save()
         mentee = Mentee.objects.create(user=user)
-        mentee.interests.add(*self.cleaned_data.get('interests'))
+        #mentee.interests.add(*self.cleaned_data.get('interests'))
+        #mentee.interests = self.cleaned_data.get('interests')
 
         return user
+
+
+class UserInfoForm(forms.ModelForm):
+
+    interest = forms.ChoiceField(required=True, widget=forms.RadioSelect(
+        attrs={'class': 'Radio'}), choices=(('economics', 'Economics'), ('bbit', 'BBIT'),))
+
+    class Meta():
+        model = UserInfo
+        fields = ('interest',)
 
 
 class UserUpdateForm(forms.ModelForm):
@@ -63,11 +74,11 @@ class ProfileUpdateForm(forms.ModelForm):
 class MentorRegisterForm(UserCreationForm):
     email = forms.EmailField()
 
-    interests = forms.ModelMultipleChoiceField(
-        queryset=Subject.objects.all(),
-        widget=forms.CheckboxSelectMultiple,
-        required=True
-    )
+    #interests = forms.ModelMultipleChoiceField(
+        #queryset=Subject.objects.all(),
+        #widget=forms.CheckboxSelectMultiple,
+        #required=True
+    #)
 
     class Meta:
         model = User
@@ -79,9 +90,19 @@ class MentorRegisterForm(UserCreationForm):
         user.is_mentor = True
         user.save()
         mentor = Mentor.objects.create(user=user)
-        mentor.interests.add(*self.cleaned_data.get('interests'))
+        #mentor.interests.add(*self.cleaned_data.get('interests'))
 
         return user
+
+
+class UserInfoForm(forms.ModelForm):
+
+    interest = forms.ChoiceField(required=True, widget=forms.RadioSelect(
+        attrs={'class': 'Radio'}), choices=(('economics', 'Economics'), ('bbit', 'BBIT'),))
+
+    class Meta():
+        model = UserInfo
+        fields = ('interest',)
 
 
 class ReplyForm(forms.Form):

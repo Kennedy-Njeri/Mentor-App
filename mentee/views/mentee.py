@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-from ..forms import MenteeRegisterForm,UserUpdateForm, ProfileUpdateForm
+from ..forms import MenteeRegisterForm,UserUpdateForm, ProfileUpdateForm, UserInfoForm
 from django.views.generic import TemplateView
 from ..models import Profile, Msg, Conversation, Reply
 from django.contrib.auth import get_user_model
@@ -80,30 +80,41 @@ class AccountList(LoginRequiredMixin, UserPassesTestMixin, View):
 """Controls the register module"""
 def register(request):
 
+    registered = False
+
     if request.method == 'POST':
 
-        form = MenteeRegisterForm(request.POST)
-
-
-        if form.is_valid():
-
-            form.save()
+        form1 = MenteeRegisterForm(request.POST)
+        form2 = UserInfoForm(request.POST)
 
 
 
-            username = form.cleaned_data.get('username')
+        if form1.is_valid() and form2.is_valid():
+
+            user = form1.save()
+            user.is_mentee = True
+            user.save()
+
+            info = form2.save(commit=False)
+            info.user = user
+            info.save()
+
+            registered = True
+
 
 
             messages.success(request, f'Your account has been created! You are now able to log in')
+
             return redirect('login')
 
     else:
 
-        form = MenteeRegisterForm()
+        form1 = MenteeRegisterForm()
+        form2 = UserInfoForm()
 
 
 
-    return render(request, 'menti/register.html', {'form': form,})
+    return render(request, 'menti/register.html', {'form1': form1, 'form2': form2,})
 
 #class MenteeSignUpView(CreateView):
     #model = User
