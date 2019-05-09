@@ -503,7 +503,6 @@ class ConversationDeleteView(DeleteView):
         return reverse_lazy('conv1-reply', kwargs={'pk': self.object.conversation_id})
 
 
-
 """Search For Users"""
 def search(request):
 
