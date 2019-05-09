@@ -313,8 +313,8 @@ def messege_view(request):
     return render(request, 'menti/messages-module.html',)
 
 
-"""Deletes Sent Messages"""
 
+"""Deletes Sent Messages"""
 class SentMessageDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = models.Msg
     success_url = reverse_lazy("list")
@@ -461,7 +461,6 @@ def con(request, pk):
     }
 
     return render(request, 'menti/conversation1.html', context)
-
 
 
 
