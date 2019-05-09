@@ -247,7 +247,6 @@ class SentDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 
 
 """Views lists of inbox messages received"""
-
 class InboxView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
     model = Msg
