@@ -20,7 +20,7 @@ vice versa, basically a chat is created
 7.Search of users is Also Allowed
 
 
-Steps For Installation;
+#Steps For Installation;
 
 1.Download or clone the project 
 
