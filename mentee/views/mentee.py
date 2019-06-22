@@ -191,6 +191,8 @@ def profile(request):
     return render(request, 'menti/profile.html', context)
 
 
+
+
 """Creates new message"""
 
 class MessageCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
