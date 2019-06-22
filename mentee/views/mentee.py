@@ -116,6 +116,8 @@ def register(request):
 
     return render(request, 'menti/register.html', {'form1': form1, 'form2': form2,})
 
+
+
 #class MenteeSignUpView(CreateView):
     #model = User
     #form_class = MenteeRegisterForm
