@@ -77,8 +77,6 @@ class AccountList(LoginRequiredMixin, UserPassesTestMixin, View):
 
 
 
-
-
 """Controls the register module"""
 def register(request):
 
