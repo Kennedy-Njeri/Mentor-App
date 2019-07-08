@@ -249,6 +249,8 @@ class SentDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     def get_queryset(self):
         return self.model.objects.filter(sender=self.request.user)
 
+    
+
 
 """Views lists of inbox messages received"""
 class InboxView(LoginRequiredMixin, UserPassesTestMixin, ListView):
