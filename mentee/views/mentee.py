@@ -249,7 +249,7 @@ class SentDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     def get_queryset(self):
         return self.model.objects.filter(sender=self.request.user)
 
-    
+
 
 
 """Views lists of inbox messages received"""
@@ -327,6 +327,7 @@ class SentMessageDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         return self.request.user.is_mentee
+
 
 
 """view list of approved messeges from mentors"""
