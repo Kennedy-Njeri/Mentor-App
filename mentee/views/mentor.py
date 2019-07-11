@@ -414,6 +414,7 @@ class ConversationListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         #return self.model.objects.filter(sender=self.request.user)
 
 
+
 """Replies by a user"""
 class ReplyCreateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, CreateView):
 
@@ -449,11 +450,8 @@ class ConversationDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView
     context_object_name = 'conv'
 
 
-
-
     def test_func(self):
         return self.request.user.is_mentor
-
 
 
     def get_queryset(self):
