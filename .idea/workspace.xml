@@ -353,11 +353,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="199" />
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="812" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="181" />
+    <option name="y" value="119" />
+    <option name="width" value="1400" />
+    <option name="height" value="770" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
