@@ -223,7 +223,6 @@ class SentDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         return self.model.objects.filter(sender=self.request.user)
 
 
-
 """Deletes sent messages"""
 class SentMessageDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Msg
@@ -246,7 +245,6 @@ class InboxView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     context_object_name = 'inbox'
     template_name = 'mentor/inbox1.html'
     paginate_by = 5
-
 
 
     def get_queryset(self):
