@@ -301,6 +301,7 @@ def reply_message(request, pk):
     return render(request, 'mentor/comment.html', context)
 
 
+
 """view list of approved messeges from mentors"""
 class Approved(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
@@ -331,6 +332,7 @@ class Approved(LoginRequiredMixin, UserPassesTestMixin, ListView):
     def get_queryset(self):
 
         return self.model.filter(receipient=self.request.user)
+
 
 
 """view details of a user in the profile"""
