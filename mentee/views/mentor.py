@@ -32,6 +32,8 @@ from django.contrib.messages.views import SuccessMessageMixin
 
 
 
+
+
 """Landing page """
 
 def home(request):
@@ -124,6 +126,7 @@ def profile1(request):
 
 
     return render(request, 'mentor/profile1.html', context)
+
 
 
 """Login function"""
