@@ -371,6 +371,8 @@ class ConversationCreateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMes
         return reverse('conv1')
 
 
+
+
 """List all chat conversation by a user"""
 class ConversationListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
@@ -386,7 +388,6 @@ class ConversationListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
     def get_queryset(self):
         return self.model.objects.filter(sender=self.request.user)
-
 
 
 """List all chat conversation by a user"""
