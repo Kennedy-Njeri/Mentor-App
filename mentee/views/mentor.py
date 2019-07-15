@@ -361,7 +361,6 @@ class ConversationCreateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMes
         return self.request.user.is_mentor
 
 
-
     def form_valid(self, form):
         form.instance.sender = self.request.user
         form.instance.receipient = User.objects.get(pk=self.kwargs['pk'])
