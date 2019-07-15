@@ -459,6 +459,7 @@ class ConversationDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView
 
 
 
+
 """delete view Chat"""
 class ConversationDeleteView(SuccessMessageMixin, DeleteView):
 
@@ -471,6 +472,7 @@ class ConversationDeleteView(SuccessMessageMixin, DeleteView):
     def get_success_url(self):
         conversation = self.object.conversation
         return reverse_lazy('conv-reply', kwargs={'pk': self.object.conversation_id})
+
 
 
 """delete view Coversation"""
