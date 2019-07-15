@@ -334,7 +334,6 @@ class Approved(LoginRequiredMixin, UserPassesTestMixin, ListView):
         return self.model.filter(receipient=self.request.user)
 
 
-
 """view details of a user in the profile"""
 
 class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
@@ -348,7 +347,6 @@ class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 
 
 """Create Conversation"""
-
 class ConversationCreateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, CreateView):
 
     fields = ('conversation', )
