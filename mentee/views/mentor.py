@@ -346,6 +346,7 @@ class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         return self.request.user.is_mentor
 
 
+
 """Create Conversation"""
 class ConversationCreateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, CreateView):
 
