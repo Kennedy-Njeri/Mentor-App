@@ -396,7 +396,6 @@ class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         return self.request.user.is_mentee
 
 
-
 """List all chat conversation by a user"""
 class ConversationListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
@@ -411,7 +410,6 @@ class ConversationListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
     def get_queryset(self):
         return self.model.objects.filter(receipient=self.request.user)
-
 
 
 """List Conversations"""
