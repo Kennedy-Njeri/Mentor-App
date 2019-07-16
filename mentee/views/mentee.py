@@ -448,7 +448,6 @@ class ConversationList1View(LoginRequiredMixin, UserPassesTestMixin, TemplateVie
         return self.model.objects.filter(receipient=self.request.user)
 
 
-
 """List conversations"""
 def con(request, pk):
 
@@ -463,7 +462,6 @@ def con(request, pk):
     }
 
     return render(request, 'menti/conversation1.html', context)
-
 
 
 """Replies by a user"""
