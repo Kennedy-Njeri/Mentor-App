@@ -314,8 +314,6 @@ def messege_view(request):
 
     return render(request, 'menti/messages-module.html',)
 
-
-
 """Deletes Sent Messages"""
 class SentMessageDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = models.Msg
@@ -324,7 +322,6 @@ class SentMessageDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         return self.request.user.is_mentee
-
 
 
 """view list of approved messeges from mentors"""
