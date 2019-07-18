@@ -558,8 +558,6 @@ class Profile2DetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         return self.request.user.is_mentee
 
 
-
-
 """Replies by a user"""
 class Reply1CreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 
