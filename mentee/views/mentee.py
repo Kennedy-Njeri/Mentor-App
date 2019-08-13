@@ -30,10 +30,9 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 from ..forms import SendForm
 from django.db.models import Count, Q
 
-"""Home landing page"""
-
 
 def home(request):
+    """Home landing page"""
     return render(request, 'home.html')
 
 
@@ -73,10 +72,9 @@ class AccountList(LoginRequiredMixin, UserPassesTestMixin, View):
         return render(request, "menti/account.html", context)
 
 
-"""Controls the register module"""
-
-
 def register(request):
+    """Controls the register module"""
+
     registered = False
 
     if request.method == 'POST':
@@ -122,10 +120,9 @@ def register(request):
 # return redirect('login')
 
 
-"""Login function"""
-
-
 def user_login(request):
+    """Login function"""
+
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -146,11 +143,10 @@ def user_login(request):
         return render(request, 'menti/login.html', {})
 
 
-"""View, Update Your Profile"""
-
-
 @login_required
 def profile(request):
+    """View, Update Your Profile"""
+
     if not request.user.is_mentee:
         return redirect('home')
 
@@ -178,10 +174,9 @@ def profile(request):
     return render(request, 'menti/profile.html', context)
 
 
-"""Creates new message"""
-
-
 class MessageCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+    """Creates new message"""
+
     fields = ('receipient', 'msg_content')
     model = Msg
     template_name = 'menti/messagecreate.html'
