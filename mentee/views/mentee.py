@@ -198,10 +198,9 @@ class MessageCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
         return reverse('list')
 
 
-"""Views lists of messages you have sent to other users"""
-
-
 class MessageListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
+    """Views lists of messages you have sent to other users"""
+
     model = Conversation
     template_name = 'menti/listmessages.html'
     context_object_name = 'conversation1'
@@ -214,10 +213,9 @@ class MessageListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         return self.model.objects.filter(sender=self.request.user)
 
 
-"""details the message sent"""
-
-
 class SentDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+    """details the message sent"""
+
     model = Msg
     context_object_name = 'messo'
     template_name = 'menti/sent.html'
@@ -229,10 +227,9 @@ class SentDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         return self.model.objects.filter(sender=self.request.user)
 
 
-"""Views lists of inbox messages received"""
-
-
 class InboxView(LoginRequiredMixin, UserPassesTestMixin, ListView):
+    """Views lists of inbox messages received"""
+
     model = Msg
     context_object_name = 'inbox'
     template_name = 'menti/inbox.html'
@@ -244,10 +241,9 @@ class InboxView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         return self.model.objects.filter(receipient=self.request.user)
 
 
-"""Inbox Detailed view"""
-
-
 class InboxDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+    """Inbox Detailed view"""
+
     model = Msg
     context_object_name = 'messo'
     template_name = 'menti/inboxview.html'
@@ -259,10 +255,9 @@ class InboxDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         return self.model.objects.filter(receipient=self.request.user)
 
 
-"""controls messege view"""
-
-
 class MessageView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
+    """controls messege view"""
+
     template_name = 'menti/messages-module.html'
 
     def test_func(self):
@@ -281,20 +276,18 @@ class MessageView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
         return self.model.objects.filter(receipient=self.request.user)
 
 
-"""Views the Message Module"""
-
-
 def messege_view(request):
+    """Views the Message Module"""
+
     if not request.user.is_mentee:
         return redirect('home')
 
     return render(request, 'menti/messages-module.html', )
 
 
-"""Deletes Sent Messages"""
-
-
 class SentMessageDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    """Deletes Sent Messages"""
+
     model = models.Msg
     success_url = reverse_lazy("list")
     template_name = 'menti/sentmessage_delete.html'
@@ -303,10 +296,8 @@ class SentMessageDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return self.request.user.is_mentee
 
 
-"""view list of approved messeges from mentors"""
-
-
 class Approved(LoginRequiredMixin, UserPassesTestMixin, ListView):
+    """view list of approved messeges from mentors"""
 
     def test_func(self):
         return self.request.user.is_mentee
@@ -337,7 +328,7 @@ class Approved(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
 class CreateMessageView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, CreateView):
     """create new message for a specific user from the profile"""
-    
+
     fields = ('msg_content',)
     model = Msg
     template_name = 'menti/sendindividual.html'
