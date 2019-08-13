@@ -88,7 +88,7 @@ class Reply(models.Model):
         return "From {}, in {}".format(self.sender.username, self.conversation)
 
     def save(self, *args, **kwargs):
-        if (self.reply and self.replied_at is None):
+        if self.reply and self.replied_at is None:
             self.replied_at = now()
 
         super(Reply, self).save(*args, **kwargs)
@@ -144,10 +144,10 @@ class Msg(models.Model):
         if not self.id:
             self.sent_at = timezone.now()
 
-        if (self.comment and self.date_approved is None):
+        if self.comment and self.date_approved is None:
             self.date_approved = now()
 
-        if (self.comment and self.comment_at is None):
+        if self.comment and self.comment_at is None:
             self.comment_at = now()
 
         super(Msg, self).save(*args, **kwargs)
