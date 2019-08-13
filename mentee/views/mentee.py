@@ -335,10 +335,9 @@ class Approved(LoginRequiredMixin, UserPassesTestMixin, ListView):
         return self.model.filter(sender=self.request.user)
 
 
-"""create new message for a specific user from the profile"""
-
-
 class CreateMessageView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, CreateView):
+    """create new message for a specific user from the profile"""
+    
     fields = ('msg_content',)
     model = Msg
     template_name = 'menti/sendindividual.html'
@@ -357,10 +356,9 @@ class CreateMessageView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageM
         return reverse('list')
 
 
-"""view details of a user in the profile"""
-
-
 class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+    """view details of a user in the profile"""
+
     model = User
     context_object_name = 'user'
     template_name = 'menti/profile_detail.html'
@@ -369,10 +367,9 @@ class ProfileDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         return self.request.user.is_mentee
 
 
-"""List all chat conversation by a user"""
-
-
 class ConversationListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
+    """List all chat conversation by a user"""
+
     model = Conversation
     template_name = 'menti/list-converations.html'
     context_object_name = 'conversation'
@@ -385,10 +382,9 @@ class ConversationListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         return self.model.objects.filter(receipient=self.request.user)
 
 
-"""List Conversations"""
-
-
 class ConversationDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+    """List Conversations"""
+
     model = Conversation
     template_name = 'menti/conversation1.html'
     context_object_name = 'conv'
@@ -400,10 +396,9 @@ class ConversationDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView
         return self.model.objects.filter(receipient=self.request.user)
 
 
-"""List Conversation"""
-
-
 class ConversationList1View(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
+    """List Conversation"""
+
     model = Conversation
     template_name = 'menti/conversation2.html'
     context_object_name = 'conversation'
@@ -417,6 +412,7 @@ class ConversationList1View(LoginRequiredMixin, UserPassesTestMixin, TemplateVie
 
 def con(request, pk):
     """List conversations"""
+
     conv = get_object_or_404(Conversation, pk=pk)
 
     context = {
