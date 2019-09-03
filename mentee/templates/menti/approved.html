@@ -22,6 +22,7 @@
           <th>Comment</th>
           <th>Approved At</th>
            <th>Status</th>
+          <th>Download Pdf</th>
 
 
 
@@ -44,6 +45,7 @@
         {% if approved.is_approved == True %}
 
    <td> <button type="button" class="btn btn-success btn-sm">Approved</button></td>
+          <td><a class="btn btn-info btn-sm" href="{% url 'pdf' %}">Download Pdf</a></td>
 
         {% endif %}
 

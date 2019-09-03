@@ -41,6 +41,7 @@ urlpatterns = [
     path('profile2/<int:pk>', mentee.Profile2DetailView.as_view(), name="profile-detail2"),
     path('reply-indiv/<int:pk>', mentee.Reply1CreateView.as_view(), name='reply3'),
     path('conv3/<int:pk>', mentee.con1, name='conv3-reply'),
+    path('pdf/', mentee.Pdf.as_view(), name="pdf"),
 
 
 

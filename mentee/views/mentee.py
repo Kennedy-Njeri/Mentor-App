@@ -29,6 +29,9 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 
 from ..forms import SendForm
 from django.db.models import Count, Q
+from ..render import Render
+
+
 
 
 def home(request):
@@ -292,7 +295,7 @@ class SentMessageDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 class Approved(LoginRequiredMixin, UserPassesTestMixin, ListView):
-    """view list of approved messeges from mentors"""
+    """view list of approved messages from mentors"""
 
     def test_func(self):
         return self.request.user.is_mentee
@@ -319,6 +322,23 @@ class Approved(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
     def get_queryset(self):
         return self.model.filter(sender=self.request.user)
+
+
+class Pdf(View):
+    """Pdf of Approved Requests"""
+
+    def get(self, request):
+
+        messo1 = Msg.objects.filter(is_approved=True).order_by('-date_approved').filter(sender=self.request.user)
+
+        params = {
+            'messo1': messo1,
+
+            'request': request
+        }
+        return Render.render('menti/pdf.html', params)
+
+
 
 
 class CreateMessageView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, CreateView):
