@@ -72,6 +72,7 @@ urlpatterns = [
     path('conv/<int:pk>', mentor.ConversationDetailView.as_view(), name='conv-reply'),
     path('chat-delete/<int:pk>', mentor.ConversationDeleteView.as_view(), name='chat-delete'),
     path('conversation-delete/<int:pk>', mentor.Conversation2DeleteView.as_view(), name='conversation-delete'),
+    path('pdf1/', mentor.Pdf.as_view(), name="pdf1"),
 
 
 

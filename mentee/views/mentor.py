@@ -29,6 +29,7 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth import get_user_model
 User = get_user_model()
 from django.contrib.messages.views import SuccessMessageMixin
+from ..render import Render
 
 
 
@@ -332,6 +333,23 @@ class Approved(LoginRequiredMixin, UserPassesTestMixin, ListView):
     def get_queryset(self):
 
         return self.model.filter(receipient=self.request.user)
+
+class Pdf(View):
+    """Pdf of Approved Requests"""
+
+    def test_func(self):
+        return self.request.user.is_mentor
+
+    def get(self, request):
+
+        messo2 = Msg.objects.filter(is_approved=True).order_by('-date_approved').filter(receipient=self.request.user)
+
+        params = {
+            'messo2': messo2,
+
+            'request': request
+        }
+        return Render.render('mentor/pdf.html', params)
 
 
 """view details of a user in the profile"""

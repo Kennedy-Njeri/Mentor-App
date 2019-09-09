@@ -32,8 +32,6 @@ from django.db.models import Count, Q
 from ..render import Render
 
 
-
-
 def home(request):
     """Home landing page"""
     return render(request, 'home.html')
@@ -328,7 +326,6 @@ class Pdf(View):
     """Pdf of Approved Requests"""
 
     def get(self, request):
-
         messo1 = Msg.objects.filter(is_approved=True).order_by('-date_approved').filter(sender=self.request.user)
 
         params = {
@@ -337,8 +334,6 @@ class Pdf(View):
             'request': request
         }
         return Render.render('menti/pdf.html', params)
-
-
 
 
 class CreateMessageView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, CreateView):
