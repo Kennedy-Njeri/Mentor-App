@@ -55,7 +55,7 @@ class AccountView(LoginRequiredMixin, UserPassesTestMixin, View):
 
 def register1(request):
     """Registration for mentors"""
-    
+
     registered = False
 
     if request.method == 'POST':
@@ -119,6 +119,7 @@ def profile1(request):
 
 def user_login(request):
     """Login function"""
+
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -139,6 +140,7 @@ def user_login(request):
 
 class MessageView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     """controls message view"""
+
     template_name = 'mentor/messages-module1.html'
     model = Msg
 
@@ -158,6 +160,7 @@ class MessageView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
 
 class MessageCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     """Creates new message"""
+
     fields = ('receipient', 'msg_content')
     model = Msg
     template_name = 'mentor/messagecreate1.html'
@@ -175,6 +178,7 @@ class MessageCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 
 class MessageListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     """List sent Messages"""
+
     model = Msg
     template_name = 'mentor/listmessages1.html'
     context_object_name = 'sentmesso'
@@ -188,6 +192,7 @@ class MessageListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
 class SentDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     """details the message sent"""
+
     model = Msg
     context_object_name = 'messo'
     template_name = 'mentor/sent1.html'
@@ -201,6 +206,7 @@ class SentDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 
 class SentMessageDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """Deletes sent messages"""
+    
     model = Msg
     success_url = reverse_lazy("list1")
     template_name = 'mentor/sentmessage_delete1.html'
