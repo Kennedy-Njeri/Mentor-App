@@ -78,18 +78,14 @@
         <td>{{ approved.date_approved|naturaltime }}</td>
 
                 </tr>
-                
-                {% empty %}
 
+                {% empty %}
          <tr>
 
         <td colspan="5">Your List is Empty </td>
-
-
-        </tr>
-
-
+         </tr>
             {% endfor %}
+            
             </tbody>
         </table>
     </div>
