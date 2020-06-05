@@ -1,4 +1,4 @@
-Django==2.1.5
+Django==2.2.13
 django-crispy-forms==1.7.2
 django-friendship==1.8.0
 Pillow==5.4.1
